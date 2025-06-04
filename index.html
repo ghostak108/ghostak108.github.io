@@ -10,10 +10,10 @@
 <body>
   <header>
     <h1>ZweiKlang</h1>
-    <button class="nav-toggle" aria-label="Menü öffnen/schließen" onclick="document.body.classList.toggle('nav-open')">
+    <button class="nav-toggle" aria-label="Menü öffnen/schließen" id="navToggleBtn">
       &#9776;
     </button>
-    <nav>
+    <nav id="mainNav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="videos.html">Videos</a></li>
@@ -23,8 +23,20 @@
     </nav>
   </header>
   <script>
-    // Optional: Navigation automatisch schließen, wenn ein Link geklickt wird (für bessere UX auf Mobilgeräten)
-    document.querySelectorAll('nav a').forEach(link => {
+    // Navigation Toggle für Mobilgeräte
+    const navToggleBtn = document.getElementById('navToggleBtn');
+    const mainNav = document.getElementById('mainNav');
+    navToggleBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.body.classList.toggle('nav-open');
+    });
+    // Schließe Navigation beim Klick außerhalb oder auf einen Link
+    document.addEventListener('click', function(e) {
+      if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
+        document.body.classList.remove('nav-open');
+      }
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         document.body.classList.remove('nav-open');
       });
