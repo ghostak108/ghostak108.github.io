@@ -10,6 +10,9 @@
 <body>
   <header>
     <h1>ZweiKlang</h1>
+    <button class="nav-toggle" aria-label="Menü öffnen/schließen" onclick="document.body.classList.toggle('nav-open')">
+      &#9776;
+    </button>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -19,6 +22,14 @@
       </ul>
     </nav>
   </header>
+  <script>
+    // Optional: Navigation automatisch schließen, wenn ein Link geklickt wird (für bessere UX auf Mobilgeräten)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.body.classList.remove('nav-open');
+      });
+    });
+  </script>
 
   <main>
     <section class="hero">

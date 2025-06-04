@@ -197,6 +197,70 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Navigation Toggle für Mobilgeräte */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ff0055;
+  font-size: 2em;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70vw;
+    max-width: 320px;
+    background: #222;
+    flex-direction: column;
+    gap: 32px;
+    padding: 80px 24px 24px 24px;
+    box-shadow: -2px 0 16px rgba(0,0,0,0.4);
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    z-index: 1000;
+    margin: 0;
+    text-align: left;
+  }
+  body.nav-open nav ul {
+    transform: translateX(0);
+  }
+  nav ul li {
+    font-size: 1.3em;
+  }
+  /* Overlay für Menü */
+  body.nav-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-toggle {
+    right: 12px;
+    top: 12px;
+  }
+  nav ul {
+    width: 90vw;
+    max-width: none;
+    padding: 60px 12px 12px 12px;
+  }
+}
+
 /* Mobile Optimierung */
 @media (max-width: 600px) {
   header {
