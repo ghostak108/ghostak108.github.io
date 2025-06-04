@@ -26,6 +26,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       const navToggleBtn = document.getElementById('navToggleBtn');
       const mainNav = document.getElementById('mainNav');
+      if (!navToggleBtn || !mainNav) return;
       navToggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         document.body.classList.toggle('nav-open');
@@ -66,7 +67,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 ZweiKlang – ghostak & Artemis</p>
+    <p>&copy; 2024 ZweiKlang – ghostak & Artemis</p>
   </footer>
 </body>
 </html>

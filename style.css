@@ -39,6 +39,14 @@ nav a:hover {
   color: #ff0055;
 }
 
+/* Verbesserte Barrierefreiheit und Usability */
+nav a:focus {
+  outline: 2px solid #ff0055;
+  outline-offset: 2px;
+  background: #222;
+  color: #fff;
+}
+
 main {
   padding: 20px;
   max-width: 900px;
@@ -214,6 +222,10 @@ a:hover {
 @media (max-width: 900px) {
   .nav-toggle {
     display: block;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1100;
   }
   nav ul {
     position: fixed;
@@ -238,6 +250,9 @@ a:hover {
   }
   nav ul li {
     font-size: 1.3em;
+  }
+  header {
+    padding-top: 56px;
   }
   /* Overlay für Menü */
   body.nav-open::before {
