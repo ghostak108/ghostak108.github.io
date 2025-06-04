@@ -29,6 +29,10 @@
     navToggleBtn.addEventListener('click', function(e) {
       e.stopPropagation();
       document.body.classList.toggle('nav-open');
+      // Fokus auf erstes Link setzen für Barrierefreiheit
+      if(document.body.classList.contains('nav-open')) {
+        setTimeout(()=>mainNav.querySelector('a').focus(), 200);
+      }
     });
     // Schließe Navigation beim Klick außerhalb oder auf einen Link
     document.addEventListener('click', function(e) {
@@ -41,6 +45,10 @@
         document.body.classList.remove('nav-open');
       });
     });
+    // ESC schließt das Menü
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape') document.body.classList.remove('nav-open');
+    });
   </script>
 
   <main>
@@ -48,17 +56,17 @@
       <h2>Über Uns</h2>
       <div class="profile">
         <div class="member">
-          <!-- <img src="ghostak.jpg" alt="ghostak" /> -->
+          <img src="ghostak.jpg" alt="ghostak" style="width:120px;height:auto;border-radius:50%;box-shadow:0 2px 8px #000;margin-bottom:10px;object-fit:cover;" />
           <h3>ghostak</h3>
           <p>DJ mit Fokus auf melodischen Techno & Deep-House.</p>
         </div>
         <div class="member">
-          <!-- <img src="artemis.jpg" alt="Artemis" /> -->
+          <img src="artemis.jpg" alt="Artemis" style="width:120px;height:auto;border-radius:50%;box-shadow:0 2px 8px #000;margin-bottom:10px;object-fit:cover;" />
           <h3>Artemis</h3>
           <p>DJ mit Leidenschaft für experimentelle und chillige Sounds.</p>
         </div>
       </div>
-      <p>ZweiKlang steht für ein harmonisches Zusammenspiel zweier kreativer Köpfe – live, laut und voller Energie!</p>
+      <p style="margin-top:2em;font-size:1.1em;line-height:1.7;">ZweiKlang steht für ein harmonisches Zusammenspiel zweier kreativer Köpfe – live, laut und voller Energie!</p>
     </section>
   </main>
 
