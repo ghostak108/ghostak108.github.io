@@ -10,10 +10,7 @@
 <body>
   <header>
     <h1>ZweiKlang</h1>
-    <button class="nav-toggle" aria-label="Menü öffnen/schließen" id="navToggleBtn">
-      &#9776;
-    </button>
-    <nav id="mainNav">
+    <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="videos.html">Videos</a></li>
@@ -44,35 +41,5 @@
   <footer>
     <p>&copy; 2025 ZweiKlang – ghostak & Artemis</p>
   </footer>
-  <script>
-    // Navigation Toggle für Mobilgeräte (Script am Ende des Bodys, damit DOM geladen ist)
-    document.addEventListener('DOMContentLoaded', function() {
-      const navToggleBtn = document.getElementById('navToggleBtn');
-      const mainNav = document.getElementById('mainNav');
-      navToggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        document.body.classList.toggle('nav-open');
-        // Fokus auf erstes Link setzen für Barrierefreiheit
-        if(document.body.classList.contains('nav-open')) {
-          setTimeout(()=>mainNav.querySelector('a').focus(), 200);
-        }
-      });
-      // Schließe Navigation beim Klick außerhalb oder auf einen Link
-      document.addEventListener('click', function(e) {
-        if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
-          document.body.classList.remove('nav-open');
-        }
-      });
-      mainNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          document.body.classList.remove('nav-open');
-        });
-      });
-      // ESC schließt das Menü
-      document.addEventListener('keydown', function(e) {
-        if(e.key === 'Escape') document.body.classList.remove('nav-open');
-      });
-    });
-  </script>
 </body>
 </html>
