@@ -1,0 +1,225 @@
+/* style.css für ZweiKlang */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: #eee;
+}
+
+header {
+  background-color: #222;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #ff0055;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ff0055;
+}
+
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: #ff0055;
+  border-bottom: 2px solid #ff0055;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.video-gallery iframe {
+  width: 360px;
+  height: 203px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  background: #000;
+}
+
+.profile {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.member {
+  text-align: center;
+  max-width: 300px;
+}
+
+.member img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #222;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+a {
+  color: #ff0055;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Hero-Bereich */
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #1a1a1a 60%, #ff0055 100%);
+  border-radius: 18px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  padding: 32px 16px;
+  gap: 32px;
+}
+
+.hero-img {
+  width: 320px;
+  max-width: 90vw;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+
+.hero-text {
+  max-width: 400px;
+  color: #fff;
+  text-align: left;
+}
+
+/* Buttons */
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 32px;
+  background: #ff0055;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.cta-btn:hover {
+  background: #fff;
+  color: #ff0055;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Zusätzliche Styles */
+
+.events ul, .socials ul, .contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.events li, .socials li, .contact li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.impressum {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.impressum strong {
+  color: #fff;
+}
+
+.intro p, .contact p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.contact ul a {
+  text-decoration: none;
+}
+
+.contact ul a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .video-gallery iframe {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 4vw;
+  }
+  .hero-text {
+    text-align: center;
+  }
+  .video-gallery iframe {
+    width: 90vw;
+    max-width: 100%;
+    height: 200px;
+  }
+}
