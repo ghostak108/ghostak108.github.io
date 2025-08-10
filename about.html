@@ -1,35 +1,50 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZweiKlang - Über Uns</title>
+  <title>ZweiKlang - About Us</title>
+  <meta name="description" content="About ZweiKlang – DJ duo ghostak & Artemis. Learn our story, style, and find links." />
+  <link rel="canonical" href="https://ghostak108.github.io/about.html" />
+  <meta property="og:title" content="ZweiKlang – About Us" />
+  <meta property="og:description" content="Meet ghostak & Artemis, the DJ duo behind ZweiKlang." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ghostak108.github.io/about.html" />
+  <meta property="og:image" content="https://ghostak108.github.io/banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ZweiKlang – About Us" />
+  <meta name="twitter:description" content="Meet ghostak & Artemis, the DJ duo behind ZweiKlang." />
+  <meta name="twitter:image" content="https://ghostak108.github.io/banner.png" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="transparent.png" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header>
     <h1>ZweiKlang</h1>
-    <button class="nav-toggle" aria-label="Menü öffnen/schließen" id="navToggleBtn">
+  <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
       &#9776;
     </button>
-    <nav id="mainNav">
+  <nav id="mainNav" role="navigation" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="videos.html">Videos</a></li>
-        <li><a href="about.html">Über Uns</a></li>
-        <li><a href="contact.html">Kontakt & Impressum</a></li>
+        <li><a href="about.html" aria-current="page">About Us</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact & Legal</a></li>
       </ul>
     </nav>
   </header>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('js');
       const navToggleBtn = document.getElementById('navToggleBtn');
       const mainNav = document.getElementById('mainNav');
       if (!navToggleBtn || !mainNav) return;
       navToggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        document.body.classList.toggle('nav-open');
+        const open = document.body.classList.toggle('nav-open');
+        navToggleBtn.setAttribute('aria-expanded', String(open));
         if(document.body.classList.contains('nav-open')) {
           setTimeout(()=>mainNav.querySelector('a').focus(), 200);
         }
@@ -37,36 +52,38 @@
       document.addEventListener('click', function(e) {
         if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
           document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
         }
       });
       mainNav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
         });
       });
       document.addEventListener('keydown', function(e) {
-        if(e.key === 'Escape') document.body.classList.remove('nav-open');
+  if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
       });
     });
   </script>
-  <main>
+    <main id="main">
     <section class="about" style="background:#1a1a1a;padding:32px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.3);">
-      <h2 style="color:#ff0055;text-align:center;margin-bottom:24px;">Über Uns</h2>
+      <h2 style="color:#ff0055;text-align:center;margin-bottom:24px;">About Us</h2>
       <div class="profile" style="display:flex;flex-wrap:wrap;gap:40px;justify-content:center;align-items:center;">
         <div class="member" style="text-align:center;max-width:300px;background:#222;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
           <img src="ghostak.PNG" alt="ghostak" style="width:100%;height:auto;border-radius:10px;margin-bottom:10px;">
           <h3 style="color:#ff0055;">ghostak</h3>
-          <p style="color:#eee;">DJ mit Fokus auf melodischen Techno & Deep-House.</p>
-          <a href="https://www.instagram.com/ghostakmusic.wav" target="_blank" style="color:#ff0055;text-decoration:none;font-weight:bold;">Instagram</a>
+          <p style="color:#eee;">DJ focused on melodic techno & deep house.</p>
+          <a href="https://www.instagram.com/ghostakmusic.wav" target="_blank" rel="noopener noreferrer" style="color:#ff0055;text-decoration:none;font-weight:bold;">Instagram</a>
         </div>
         <div class="member" style="text-align:center;max-width:300px;background:#222;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
           <img src="artemis.png" alt="Artemis" style="width:100%;height:auto;border-radius:10px;margin-bottom:10px;">
           <h3 style="color:#ff0055;">Artemis</h3>
-          <p style="color:#eee;">DJ mit Leidenschaft für experimentelle und chillige Sounds.</p>
-          <a href="https://www.instagram.com/artemismusic.wav" target="_blank" style="color:#ff0055;text-decoration:none;font-weight:bold;">Instagram</a>
+          <p style="color:#eee;">DJ passionate about experimental and chill sounds.</p>
+          <a href="https://www.instagram.com/artemismusic.wav" target="_blank" rel="noopener noreferrer" style="color:#ff0055;text-decoration:none;font-weight:bold;">Instagram</a>
         </div>
       </div>
-      <p style="margin-top:2em;font-size:1.1em;line-height:1.7;color:#eee;text-align:center;">ZweiKlang steht für ein harmonisches Zusammenspiel zweier kreativer Köpfe – live, laut und voller Energie! Unsere Sets sind inspiriert von der Natur, Sonnenuntergängen und der Leidenschaft für Musik.</p>
+      <p style="margin-top:2em;font-size:1.1em;line-height:1.7;color:#eee;text-align:center;">ZweiKlang represents a harmonious interplay of two creative minds – live, loud, and full of energy! Our sets are inspired by nature, sunsets, and a passion for music.</p>
     </section>
   </main>
 

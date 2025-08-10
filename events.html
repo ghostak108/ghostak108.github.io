@@ -1,55 +1,95 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZweiKlang - Events</title>
+  <meta name="description" content="ZweiKlang events – find upcoming shows and past highlights, tickets and info." />
+  <link rel="canonical" href="https://ghostak108.github.io/events.html" />
+  <meta property="og:title" content="ZweiKlang – Events" />
+  <meta property="og:description" content="Find upcoming shows and past highlights from ZweiKlang." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ghostak108.github.io/events.html" />
+  <meta property="og:image" content="https://ghostak108.github.io/banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ZweiKlang – Events" />
+  <meta name="twitter:description" content="Find upcoming shows and past highlights from ZweiKlang." />
+  <meta name="twitter:image" content="https://ghostak108.github.io/banner.png" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="transparent.png" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header>
     <h1>ZweiKlang</h1>
-    <button class="nav-toggle" aria-label="Menü öffnen/schließen" id="navToggleBtn">&#9776;</button>
-    <nav id="mainNav">
+  <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">&#9776;</button>
+  <nav id="mainNav" role="navigation" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="videos.html">Videos</a></li>
-        <li><a href="about.html">Über Uns</a></li>
-        <li><a href="contact.html">Kontakt & Impressum</a></li>
-        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="events.html" aria-current="page">Events</a></li>
+        <li><a href="contact.html">Contact & Legal</a></li>
       </ul>
     </nav>
   </header>
-  <main>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('js');
+      const navToggleBtn = document.getElementById('navToggleBtn');
+      const mainNav = document.getElementById('mainNav');
+      if (!navToggleBtn || !mainNav) return;
+      navToggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const open = document.body.classList.toggle('nav-open');
+        navToggleBtn.setAttribute('aria-expanded', String(open));
+        if(open) setTimeout(()=>mainNav.querySelector('a').focus(), 200);
+      });
+      document.addEventListener('click', function(e) {
+        if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
+          document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.addEventListener('keydown', function(e) {
+        if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
+      });
+    });
+  </script>
+  <main id="main">
     <section class="events" style="background:#1a1a1a;padding:32px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.3);">
-      <h2 style="color:#ff0055;text-align:center;margin-bottom:24px;">Bevorstehende Events</h2>
+      <h2 style="color:#ff0055;text-align:center;margin-bottom:24px;">Upcoming Events</h2>
       <div class="event-cards" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;">
         <div class="event-card" style="background:#222;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);max-width:300px;text-align:center;">
-          <h3 style="color:#ff0055;">ZRCE Beach, Kroatien</h3>
-          <p style="color:#eee;">Erlebe ein exklusives DJ-Set am legendären Strand von ZRCE. Afro House und Deep Techno in einer atemberaubenden Kulisse.</p>
-          <p style="color:#eee;font-size:0.9em;">19. August 2025</p>
-          <a href="mailto:zweiklangkontakt@gmail.com" style="display:inline-block;padding:10px 20px;border:none;border-radius:8px;background:#ff0055;color:#fff;font-weight:bold;text-decoration:none;cursor:pointer;">Tickets per E-Mail</a>
+          <h3 style="color:#ff0055;">ZRCE Beach, Croatia</h3>
+          <p style="color:#eee;">Experience an exclusive DJ set at the legendary ZRCE Beach. Afro House and Deep Techno in a breathtaking setting.</p>
+          <p style="color:#eee;font-size:0.9em;">August 19, 2025</p>
+          <a href="mailto:zweiklangkontakt@gmail.com" style="display:inline-block;padding:10px 20px;border:none;border-radius:8px;background:#ff0055;color:#fff;font-weight:bold;text-decoration:none;cursor:pointer;">Tickets via Email</a>
         </div>
         <div class="event-card" style="background:#222;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);max-width:300px;text-align:center;">
-          <h3 style="color:#ff0055;">Mondschein Pavillon Vogtsburg</h3>
-          <p style="color:#eee;">Ein magischer Abend mit melodischem Techno und Organic House unter dem Sternenhimmel.</p>
-          <p style="color:#eee;font-size:0.9em;">14. Juni 2025</p>
-          <a href="mailto:zweiklangkontakt@gmail.com" style="display:inline-block;padding:10px 20px;border:none;border-radius:8px;background:#ff0055;color:#fff;font-weight:bold;text-decoration:none;cursor:pointer;">Tickets per E-Mail</a>
+          <h3 style="color:#ff0055;">Moonlight Pavilion Vogtsburg</h3>
+          <p style="color:#eee;">A magical evening with melodic techno and organic house under the starry sky.</p>
+          <p style="color:#eee;font-size:0.9em;">June 14, 2025</p>
+          <a href="mailto:zweiklangkontakt@gmail.com" style="display:inline-block;padding:10px 20px;border:none;border-radius:8px;background:#ff0055;color:#fff;font-weight:bold;text-decoration:none;cursor:pointer;">Tickets via Email</a>
         </div>
         <div class="event-card" style="background:#222;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);max-width:300px;text-align:center;">
           <h3 style="color:#ff0055;">Linachtalsperre Furtwangen</h3>
-          <p style="color:#eee;">Ein einzigartiges Set an einer beeindruckenden Location. Lass dich von den Beats treiben!</p>
-          <p style="color:#eee;font-size:0.9em;">21. Juni 2025</p>
-          <a href="mailto:zweiklangkontakt@gmail.com" style="display:inline-block;padding:10px 20px;border:none;border-radius:8px;background:#ff0055;color:#fff;font-weight:bold;text-decoration:none;cursor:pointer;">Tickets per E-Mail</a>
+          <p style="color:#eee;">A unique set at an impressive location. Let the beats carry you away!</p>
+          <p style="color:#eee;font-size:0.9em;">June 21, 2025</p>
+          <a href="mailto:zweiklangkontakt@gmail.com" style="display:inline-block;padding:10px 20px;border:none;border-radius:8px;background:#ff0055;color:#fff;font-weight:bold;text-decoration:none;cursor:pointer;">Tickets via Email</a>
         </div>
       </div>
-      <h2 style="color:#ff0055;text-align:center;margin-top:40px;margin-bottom:24px;">Vergangene Events</h2>
+      <h2 style="color:#ff0055;text-align:center;margin-top:40px;margin-bottom:24px;">Past Events</h2>
       <div class="event-cards" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;">
         <div class="event-card" style="background:#222;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);max-width:300px;text-align:center;">
           <h3 style="color:#ff0055;">Ravenna Bridge Set</h3>
-          <p style="color:#eee;">Ein unvergesslicher Auftritt in einer spektakulären Kulisse. Melodischer Techno und pure Energie.</p>
-          <p style="color:#eee;font-size:0.9em;">21. Mai 2025</p>
+          <p style="color:#eee;">An unforgettable performance in a spectacular setting. Melodic techno and pure energy.</p>
         </div>
       </div>
     </section>

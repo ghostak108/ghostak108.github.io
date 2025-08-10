@@ -1,79 +1,94 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZweiKlang - Videos</title>
+  <meta name="description" content="Watch ZweiKlang's latest videos and live sets." />
+  <link rel="canonical" href="https://ghostak108.github.io/videos.html" />
+  <meta property="og:title" content="ZweiKlang – Videos" />
+  <meta property="og:description" content="Watch ZweiKlang's latest videos and live sets." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ghostak108.github.io/videos.html" />
+  <meta property="og:image" content="https://ghostak108.github.io/banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ZweiKlang – Videos" />
+  <meta name="twitter:description" content="Watch ZweiKlang's latest videos and live sets." />
+  <meta name="twitter:image" content="https://ghostak108.github.io/banner.png" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="transparent.png" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header>
     <h1>ZweiKlang</h1>
-    <button class="nav-toggle" aria-label="Menü öffnen/schließen" id="navToggleBtn">
+  <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
       &#9776;
     </button>
-    <nav id="mainNav">
+  <nav id="mainNav" role="navigation" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="videos.html">Videos</a></li>
-        <li><a href="about.html">Über Uns</a></li>
-        <li><a href="contact.html">Kontakt & Impressum</a></li>
+        <li><a href="videos.html" aria-current="page">Videos</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact & Legal</a></li>
       </ul>
     </nav>
   </header>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('js');
       const navToggleBtn = document.getElementById('navToggleBtn');
       const mainNav = document.getElementById('mainNav');
       if (!navToggleBtn || !mainNav) return;
       navToggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        document.body.classList.toggle('nav-open');
-        if(document.body.classList.contains('nav-open')) {
-          setTimeout(()=>mainNav.querySelector('a').focus(), 200);
-        }
+        const open = document.body.classList.toggle('nav-open');
+        navToggleBtn.setAttribute('aria-expanded', String(open));
+        if(open) setTimeout(()=>mainNav.querySelector('a').focus(), 200);
       });
       document.addEventListener('click', function(e) {
         if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
           document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
         }
       });
       mainNav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
         });
       });
       document.addEventListener('keydown', function(e) {
-        if(e.key === 'Escape') document.body.classList.remove('nav-open');
+  if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
       });
     });
   </script>
 
-  <main>
+    <main id="main">
     <section class="videos">
-      <h2>Unsere Videos</h2>
-      <p>Hier findest du eine Auswahl unserer neuesten Sets und Auftritte:</p>
+      <h2>Our Videos</h2>
+      <p>Here you can find a selection of our latest sets and performances:</p>
       <div class="video-gallery">
         <div style="text-align:center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/hs6W8gJl-9k?si=gPZ7fk8CEKzaVw5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <p style="text-align:center;color:#eee;">"Live Set at Ravenna Bridge" - Ein unvergesslicher Auftritt in atemberaubender Kulisse. Lass dich von der Energie mitreißen!</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/hs6W8gJl-9k?si=gPZ7fk8CEKzaVw5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p style="text-align:center;color:#eee;">"Live Set at Ravenna Bridge" - An unforgettable performance in a breathtaking setting. Let yourself be carried away by the energy!</p>
         </div>
         <div style="text-align:center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/e1q2x49NKFg?si=_Z8kQxZ9271r5V34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <p style="text-align:center;color:#eee;">"Sunset Vibes" - Ein Set voller Energie und Emotionen, perfekt für den Sonnenuntergang.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/e1q2x49NKFg?si=_Z8kQxZ9271r5V34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p style="text-align:center;color:#eee;">"Sunset Vibes" - A set full of energy and emotions, perfect for the sunset.</p>
         </div>
         <div style="text-align:center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/Csz8FY4B8JI?si=mxKf8f9n-RrM9ZqD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <p style="text-align:center;color:#eee;">"Golden Hour Chill" - Perfekte Klänge für entspannte Momente in der Natur.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Csz8FY4B8JI?si=mxKf8f9n-RrM9ZqD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p style="text-align:center;color:#eee;">"Golden Hour Chill" - Perfect sounds for relaxing moments in nature.</p>
         </div>
         <div style="text-align:center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/BwiD9gV5-c0?si=_JkNQN-QAxSgXuvb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <p style="text-align:center;color:#eee;">"Deep House Grooves" - Lass dich von den Beats treiben und genieße die Atmosphäre.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/BwiD9gV5-c0?si=_JkNQN-QAxSgXuvb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p style="text-align:center;color:#eee;">"Deep House Grooves" - Let the beats take you away and enjoy the atmosphere.</p>
         </div>
         <div style="text-align:center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/vfBbp1tWZBs?si=gtKIo1HbXo5g1jek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <p style="text-align:center;color:#eee;">"Club Night Energy" - Die besten Tracks für die Tanzfläche, live und ehrlich.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/vfBbp1tWZBs?si=gtKIo1HbXo5g1jek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p style="text-align:center;color:#eee;">"Club Night Energy" - The best tracks for the dance floor, live and honest.</p>
         </div>
       </div>
     </section>

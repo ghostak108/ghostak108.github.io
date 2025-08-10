@@ -1,76 +1,92 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZweiKlang - Home</title>
+  <meta name="description" content="ZweiKlang – DJ duo blending melodic techno, deep house, and chill vibes. Discover events, videos, and contact info." />
+  <link rel="canonical" href="https://ghostak108.github.io/" />
+  <meta property="og:title" content="ZweiKlang – Home" />
+  <meta property="og:description" content="DJ duo blending melodic techno, deep house, and chill vibes. Discover events, videos, and contact info." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ghostak108.github.io/" />
+  <meta property="og:image" content="https://ghostak108.github.io/banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ZweiKlang – Home" />
+  <meta name="twitter:description" content="DJ duo blending melodic techno, deep house, and chill vibes." />
+  <meta name="twitter:image" content="https://ghostak108.github.io/banner.png" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="transparent.png" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header>
     <h1>ZweiKlang</h1>
-    <button class="nav-toggle" aria-label="Menü öffnen/schließen" id="navToggleBtn">
+  <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
       &#9776;
     </button>
-    <nav id="mainNav">
+  <nav id="mainNav" role="navigation" aria-label="Primary">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="videos.html">Videos</a></li>
-        <li><a href="about.html">Über Uns</a></li>
-        <li><a href="contact.html">Kontakt & Impressum</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact & Legal</a></li>
       </ul>
     </nav>
   </header>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // mark JS-enabled for CSS behaviors
+      document.body.classList.add('js');
       const navToggleBtn = document.getElementById('navToggleBtn');
       const mainNav = document.getElementById('mainNav');
       // Fallback: Navigation immer sichtbar, wenn JS deaktiviert
       if (!navToggleBtn || !mainNav) return;
       navToggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        document.body.classList.toggle('nav-open');
+        const open = document.body.classList.toggle('nav-open');
+        navToggleBtn.setAttribute('aria-expanded', String(open));
         if(document.body.classList.contains('nav-open')) {
           setTimeout(()=>mainNav.querySelector('a').focus(), 200);
         }
       });
-      document.addEventListener('click', function(e) {
+    document.addEventListener('click', function(e) {
         if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
           document.body.classList.remove('nav-open');
+      navToggleBtn.setAttribute('aria-expanded', 'false');
         }
       });
       mainNav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
         });
       });
       document.addEventListener('keydown', function(e) {
-        if(e.key === 'Escape') document.body.classList.remove('nav-open');
+  if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
       });
     });
   </script>
 
-  <main>
-
+  <main id="main">
     <section class="hero">
       <img src="youtube symbol.png" alt="ZweiKlang DJ Duo" class="hero-img" loading="lazy" />
       <div class="hero-text">
-        <h2 style="color:#fff;">Willkommen bei ZweiKlang</h2>
-        <p style="color:#eee;">Erlebe die Magie von Afro House, Organic House und Deep Techno an außergewöhnlichen Orten. Folge uns auf unserer musikalischen Reise!</p>
-        <a href="#newsletter" class="cta-btn">Newsletter abonnieren</a>
+        <h2>Welcome to ZweiKlang</h2>
+        <p>Experience the harmony of music and passion.</p>
       </div>
     </section>
 
     <section class="special-event" style="background:#1a1a1a;border-radius:16px;padding:24px;margin-bottom:32px;box-shadow:0 2px 16px rgba(0,0,0,0.3);text-align:center;">
-      <h2 style="color:#ff0055;">SOMMER SPECIAL: DJ-Set am ZRCE Beach!</h2>
-      <p style="font-size:1.2em;line-height:1.7;margin-bottom:18px;">Am <strong>19. August</strong> planen wir ein exklusives DJ-Set am legendären <strong>ZRCE Beach</strong> in Kroatien!<br>
-        Wenn du Lust auf Sonne, Musik und gute Vibes hast, komm vorbei und feiere mit uns direkt am Meer.<br>
-        <span style="color:#ff0055;font-weight:bold;">Alle sind herzlich eingeladen!</span>
+      <h2 style="color:#ff0055;">SUMMER SPECIAL: DJ Set at ZRCE Beach!</h2>
+      <p style="font-size:1.2em;line-height:1.7;margin-bottom:18px;">On <strong>August 19</strong>, we are planning an exclusive DJ set at the legendary <strong>ZRCE Beach</strong> in Croatia!<br>
+        If you crave sun, music, and good vibes, come by and celebrate with us right by the sea.<br>
+        <span style="color:#ff0055;font-weight:bold;">Everyone is warmly invited!</span>
       </p>
-      <p style="font-size:1.2em;line-height:1.7;margin-bottom:18px;">Tickets per E-Mail: <a href="mailto:zweiklangkontakt@gmail.com" style="color:#ff0055;text-decoration:none;">zweiklangkontakt@gmail.com</a></p>
+      <p style="font-size:1.2em;line-height:1.7;margin-bottom:18px;">Tickets via email: <a href="mailto:zweiklangkontakt@gmail.com" style="color:#ff0055;text-decoration:none;">zweiklangkontakt@gmail.com</a></p>
       <div style="max-width:600px;margin:auto;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.324964234624!2d15.06096431556344!3d44.54139397910009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761f6e2e2e2e2e3%3A0x2e2e2e2e2e2e2e2e!2sZrce%20Beach!5e0!3m2!1sde!2shr!4v1691500000000!5m2!1sde!2shr" width="100%" height="350" style="border:0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.324964234624!2d15.06096431556344!3d44.54139397910009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761f6e2e2e2e2e3%3A0x2e2e2e2e2e2e2e2e!2sZrce%20Beach!5e0!3m2!1sen!2shr!4v1691500000000!5m2!1sen!2shr" width="100%" height="350" style="border:0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div id="countdown" style="margin-top:20px;font-size:1.5em;color:#ff0055;"></div>
     </section>
@@ -81,7 +97,7 @@
         const now = new Date();
         const diff = eventDate - now;
         if (diff <= 0) {
-          countdown.textContent = 'Das Event findet heute statt!';
+          countdown.textContent = 'The event is today!';
           countdown.style.animation = 'pulse 1s infinite';
           return;
         }
@@ -89,7 +105,7 @@
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        countdown.textContent = `${days} Tage, ${hours} Stunden, ${minutes} Minuten, ${seconds} Sekunden`;
+        countdown.textContent = `${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
       }
       setInterval(updateCountdown, 1000);
       updateCountdown();
@@ -103,102 +119,33 @@
     </style>
 
     <section class="events">
-      <h2>Bevorstehende Events</h2>
-      <ul>
-        <li><strong>19. August 2025:</strong> ZRCE Beach, Kroatien – DJ-Set</li>
-        <li><strong>21. Juni 2025:</strong> Linachtalsperre Furtwangen</li>
-      </ul>
-      <b></b>
-      <h2>Vergangene Events</h2>
-      <ul>
-        <li><strong>21. Mai 2025:</strong> Ravenna Bridge Set (<a href="videos.html">Watch more...)</a></li>
-        <li><strong>14. Juni 2025:</strong> Mondschein Pavillon Vogtsburg</li>
-      </ul>
+      <h2>Upcoming Events</h2>
+      <p>Stay tuned for more details!</p>
     </section>
 
     <section class="video-links" style="background:#222;border-radius:12px;padding:18px;margin-bottom:32px;">
-      <h2 style="color:#ff0055;">Neue Videos</h2>
-      <ul style="list-style:none;padding:0;font-size:1.1em;">
-        <li><a href="https://youtu.be/Csz8FY4B8JI" target="_blank">Opfinger See</a></li>
-        <li><a href="https://youtu.be/BwiD9gV5-c0" target="_blank">Rooftop</a></li>
-        <li><a href="https://youtu.be/vfBbp1tWZBs" target="_blank">Staufen</a></li>
-      </ul>
-      <p style="color:#aaa;font-size:0.95em;margin-top:10px;">Schau dir die neuesten Videos auf dem <a href="videos.html">Video-Tab</a> an!</p>
+      <h2>Our Videos</h2>
+      <p>Check out our latest performances and sets.</p>
     </section>
 
     <section class="socials" style="background:#1a1a1a;padding:24px;border-radius:12px;margin-bottom:32px;text-align:center;">
-      <h2 style="color:#ff0055;">Folge uns</h2>
-      <p style="color:#eee;">Bleib auf dem Laufenden und folge uns auf Social Media:</p>
-      <div style="margin-top:16px;">
-        <a href="https://www.instagram.com/zweiklang_music" target="_blank" style="margin-right:16px;color:#ff0055;text-decoration:none;font-size:1.5em;">Instagram</a>
-        <a href="https://www.facebook.com/zweiklang" target="_blank" style="margin-right:16px;color:#ff0055;text-decoration:none;font-size:1.5em;">Facebook</a>
-        <a href="https://twitter.com/zweiklang" target="_blank" style="color:#ff0055;text-decoration:none;font-size:1.5em;">Twitter</a>
-      </div>
+      <h2>Follow Us</h2>
+      <p>Stay connected on social media.</p>
     </section>
 
     <section class="newsletter" style="background:#222;padding:24px;border-radius:12px;margin-bottom:32px;text-align:center;">
-      <h2 style="color:#ff0055;">Newsletter</h2>
-      <p style="color:#eee;">Abonniere unseren Newsletter, um keine Neuigkeiten zu verpassen:</p>
-      <form action="mailto:zweiklangkontakt@gmail.com" method="post" enctype="text/plain" style="margin-top:16px;">
-        <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required style="padding:10px;border-radius:8px;border:none;width:60%;max-width:300px;">
-        <button type="submit" style="padding:10px 20px;border-radius:8px;border:none;background:#ff0055;color:#fff;font-weight:bold;margin-left:8px;">Abonnieren</button>
-      </form>
+      <h2>Newsletter</h2>
+      <p>Subscribe to stay updated on our latest news and events.</p>
     </section>
-
-    <!--
-    <section class="event-gallery" style="background:#1a1a1a;border-radius:12px;padding:24px;margin:32px 0;">
-      <h2 style="color:#ff0055;">Event Galerie</h2>
-      <div style="display:flex;gap:16px;justify-content:center;">
-        <img src="event1.jpg" alt="Event 1" style="width:200px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
-        <img src="event2.jpg" alt="Event 2" style="width:200px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
-        <img src="event3.jpg" alt="Event 3" style="width:200px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
-      </div>
-    </section>
-    -->
 
     <section class="audio-player" style="background:#1a1a1a;border-radius:12px;padding:24px;margin:32px 0;text-align:center;">
-      <h2 style="color:#ff0055;">Hör dir unsere Sets an</h2>
-      <p style="color:#eee;">Genieße unser neuestes Set: "Jazzy House Grooves - Soulful Deep House DJ Set 2025" mit chilligen Vibes zur goldenen Stunde.</p>
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/zweiklang_music/jazzy-house-grooves-soulful-deep-house-dj-set-2025-chill-vibes-at-golden-hour%3Fsi%3D9d844984c92041b283d407432c9756ed&color=%23ff0055&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
-    </section>
-    <section class="social-sharing" style="background:#222;border-radius:12px;padding:24px;margin:32px 0;text-align:center;">
-      <h2 style="color:#ff0055;">Teile unsere Website</h2>
-      <div style="margin-top:16px;">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://zweiklang.com" target="_blank" style="margin-right:16px;color:#ff0055;text-decoration:none;font-size:1.5em;">Facebook</a>
-        <a href="https://twitter.com/intent/tweet?url=https://zweiklang.com&text=Schau%20dir%20ZweiKlang%20an!" target="_blank" style="margin-right:16px;color:#ff0055;text-decoration:none;font-size:1.5em;">Twitter</a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://zweiklang.com" target="_blank" style="color:#ff0055;text-decoration:none;font-size:1.5em;">LinkedIn</a>
-      </div>
-    </section>
-
-    <section class="event-details" style="background:#1a1a1a;border-radius:12px;padding:24px;margin:32px 0;">
-      <h2 style="color:#ff0055;">Mehr über unsere Events</h2>
-      <p style="color:#eee;">Erfahre mehr über unsere kommenden und vergangenen Events auf unserer <a href="events.html" style="color:#ff0055;text-decoration:underline;">Event-Seite</a>.</p>
-    </section>
-
-    <section class="about-us" style="background:#1a1a1a;padding:32px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.3);margin-top:40px;">
-      <h2 style="color:#ff0055;text-align:center;margin-bottom:24px;">About Us</h2>
-      <p style="color:#eee;font-size:1.1em;line-height:1.7;text-align:center;">
-        Wir sind <strong>Ghostak & Årtemis</strong>, ein DJ-Duo aus Deutschland, das Musik an außergewöhnliche Orte bringt.<br>
-        Unsere DJ-Sets entstehen im Freien, in der Natur – inspiriert von Sonnenuntergängen, offenen Räumen und guter Energie.<br>
-        Wir lieben <strong>Afro House, Organic House, Minimal</strong> und <strong>Deep Techno</strong>.<br>
-        Unsere Sets kombinieren hochwertige Ästhetik mit vibrierenden Sounds – roh, ehrlich und live.
-      </p>
-      <p style="color:#eee;text-align:center;margin-top:20px;">
-        <strong>Abonniere und begleite uns auf unserer musikalischen Reise.</strong>
-      </p>
+      <h2>Listen to Our Music</h2>
+      <p>Enjoy our tracks and mixes.</p>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 ZweiKlang – ghostak & Artemis</p>
   </footer>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXXXXXX-X');
-  </script>
 </body>
 </html>

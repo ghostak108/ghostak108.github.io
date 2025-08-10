@@ -1,72 +1,87 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZweiKlang - Kontakt & Impressum</title>
+  <title>ZweiKlang - Contact & Legal</title>
+  <meta name="description" content="Contact ZweiKlang for bookings and inquiries. Legal notice and imprint." />
+  <link rel="canonical" href="https://ghostak108.github.io/contact.html" />
+  <meta property="og:title" content="ZweiKlang – Contact & Legal" />
+  <meta property="og:description" content="Contact ZweiKlang for bookings and inquiries. Legal notice and imprint." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ghostak108.github.io/contact.html" />
+  <meta property="og:image" content="https://ghostak108.github.io/banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ZweiKlang – Contact & Legal" />
+  <meta name="twitter:description" content="Contact ZweiKlang for bookings and inquiries. Legal notice and imprint." />
+  <meta name="twitter:image" content="https://ghostak108.github.io/banner.png" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="transparent.png" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header>
     <h1>ZweiKlang</h1>
-    <button class="nav-toggle" aria-label="Menü öffnen/schließen" id="navToggleBtn">
+  <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
       &#9776;
     </button>
-    <nav id="mainNav">
+  <nav id="mainNav" role="navigation" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="videos.html">Videos</a></li>
-        <li><a href="about.html">Über Uns</a></li>
-        <li><a href="contact.html">Kontakt & Impressum</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html" aria-current="page">Contact & Legal</a></li>
       </ul>
     </nav>
   </header>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('js');
       const navToggleBtn = document.getElementById('navToggleBtn');
       const mainNav = document.getElementById('mainNav');
       if (!navToggleBtn || !mainNav) return;
       navToggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        document.body.classList.toggle('nav-open');
-        if(document.body.classList.contains('nav-open')) {
-          setTimeout(()=>mainNav.querySelector('a').focus(), 200);
-        }
+        const open = document.body.classList.toggle('nav-open');
+        navToggleBtn.setAttribute('aria-expanded', String(open));
+        if(open) setTimeout(()=>mainNav.querySelector('a').focus(), 200);
       });
       document.addEventListener('click', function(e) {
         if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
           document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
         }
       });
       mainNav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
         });
       });
       document.addEventListener('keydown', function(e) {
-        if(e.key === 'Escape') document.body.classList.remove('nav-open');
+  if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
       });
     });
   </script>
 
-  <main>
+    <main id="main">
     <section class="contact">
-      <h2>Kontakt</h2>
-      <p>Ihr wollt uns buchen oder habt Fragen? Schreibt uns gerne:</p>
+      <h2>Contact</h2>
+      <p>Want to book us or have questions? Feel free to write to us:</p>
       <ul>
         <li>Email: <a href="mailto:zweiklangkontakt@gmail.com">zweiklangkontakt@gmail.com</a></li>
       </ul>
-      <p style="margin-top:16px;color:#eee;">Wir freuen uns auf eure Nachrichten und Anfragen!</p>
+      <p style="margin-top:16px;color:#eee;">We look forward to your messages and inquiries!</p>
     </section>
 
     <section class="impressum">
-      <h2>Impressum</h2>
-      <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+      <h2>Legal Notice</h2>
+      <p><strong>Information according to § 5 TMG:</strong></p>
       <p>ZweiKlang<br />ghostak & Artemis<br />Högestraße 22<br />79108 Freiburg</p>
-      <p><strong>Vertreten durch:</strong> ghostak & Artemis</p>
-      <p><strong>Kontakt:</strong><br />E-Mail: zweiklangkontakt@gmail.com</p>
-      <p><strong>Haftungsausschluss:</strong> Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für externe Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+      <p><strong>Represented by:</strong> ghostak & Artemis</p>
+      <p><strong>Contact:</strong><br />Email: zweiklangkontakt@gmail.com</p>
+      <p><strong>Disclaimer:</strong> Despite careful content control, we assume no liability for external links. The content of the linked pages is the sole responsibility of their operators.</p>
     </section>
   </main>
 

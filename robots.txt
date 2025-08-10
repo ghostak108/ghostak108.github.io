@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ghostak108.github.io/sitemap.xml
