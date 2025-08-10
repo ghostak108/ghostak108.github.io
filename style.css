@@ -292,6 +292,41 @@ a:hover {
   }
 }
 
+/* Optimierungen für Smartphones */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  header h1 {
+    font-size: 1.8em;
+  }
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .hero-img {
+    width: 100%;
+    max-width: none;
+    border-radius: 12px;
+  }
+  .hero-text {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .event-card {
+    max-width: 100%;
+    padding: 15px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .video-gallery iframe {
+    width: 100%;
+    height: auto;
+  }
+}
+
 /* Bestehende Media Queries bleiben erhalten */
 @media screen and (max-width: 600px) {
   .profile {
