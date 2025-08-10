@@ -416,13 +416,3 @@ body {
   background-color: #111;
   color: #eee;
 }
-
-/* White-Mode/Dark-Mode-Button Fix für mobile Geräte */
-@media (max-width: 600px) {
-  .dark-mode-toggle {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
-  }
-}
