@@ -25,6 +25,7 @@
   <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
       &#9776;
     </button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button>
   <nav id="mainNav" role="navigation" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -40,6 +41,29 @@
       document.body.classList.add('js');
       const navToggleBtn = document.getElementById('navToggleBtn');
       const mainNav = document.getElementById('mainNav');
+      // Theme init
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        root.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        root.setAttribute('data-theme', 'light');
+      } else {
+        root.setAttribute('data-theme', 'dark');
+      }
+      const themeToggle = document.getElementById('themeToggle');
+      const updateToggleIcon = () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        themeToggle.textContent = isLight ? '☀' : '☾';
+      };
+      updateToggleIcon();
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateToggleIcon();
+      });
       if (!navToggleBtn || !mainNav) return;
       navToggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -66,29 +90,29 @@
   </script>
 
     <main id="main">
-    <section class="videos">
+    <section class="videos panel">
       <h2>Our Videos</h2>
       <p>Here you can find a selection of our latest sets and performances:</p>
       <div class="video-gallery">
-        <div style="text-align:center;">
+  <div class="text-center">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/hs6W8gJl-9k?si=gPZ7fk8CEKzaVw5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p style="text-align:center;color:#eee;">"Live Set at Ravenna Bridge" - An unforgettable performance in a breathtaking setting. Let yourself be carried away by the energy!</p>
+          <p>"Live Set at Ravenna Bridge" - An unforgettable performance in a breathtaking setting. Let yourself be carried away by the energy!</p>
         </div>
-        <div style="text-align:center;">
+  <div class="text-center">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/e1q2x49NKFg?si=_Z8kQxZ9271r5V34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p style="text-align:center;color:#eee;">"Sunset Vibes" - A set full of energy and emotions, perfect for the sunset.</p>
+          <p>"Sunset Vibes" - A set full of energy and emotions, perfect for the sunset.</p>
         </div>
-        <div style="text-align:center;">
+  <div class="text-center">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/Csz8FY4B8JI?si=mxKf8f9n-RrM9ZqD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p style="text-align:center;color:#eee;">"Golden Hour Chill" - Perfect sounds for relaxing moments in nature.</p>
+          <p>"Golden Hour Chill" - Perfect sounds for relaxing moments in nature.</p>
         </div>
-        <div style="text-align:center;">
+  <div class="text-center">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/BwiD9gV5-c0?si=_JkNQN-QAxSgXuvb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p style="text-align:center;color:#eee;">"Deep House Grooves" - Let the beats take you away and enjoy the atmosphere.</p>
+          <p>"Deep House Grooves" - Let the beats take you away and enjoy the atmosphere.</p>
         </div>
-        <div style="text-align:center;">
+  <div class="text-center">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/vfBbp1tWZBs?si=gtKIo1HbXo5g1jek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p style="text-align:center;color:#eee;">"Club Night Energy" - The best tracks for the dance floor, live and honest.</p>
+          <p>"Club Night Energy" - The best tracks for the dance floor, live and honest.</p>
         </div>
       </div>
     </section>

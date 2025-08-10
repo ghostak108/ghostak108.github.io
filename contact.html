@@ -25,6 +25,7 @@
   <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
       &#9776;
     </button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button>
   <nav id="mainNav" role="navigation" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -40,6 +41,29 @@
       document.body.classList.add('js');
       const navToggleBtn = document.getElementById('navToggleBtn');
       const mainNav = document.getElementById('mainNav');
+      // Theme init
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        root.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        root.setAttribute('data-theme', 'light');
+      } else {
+        root.setAttribute('data-theme', 'dark');
+      }
+      const themeToggle = document.getElementById('themeToggle');
+      const updateToggleIcon = () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        themeToggle.textContent = isLight ? '☀' : '☾';
+      };
+      updateToggleIcon();
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateToggleIcon();
+      });
       if (!navToggleBtn || !mainNav) return;
       navToggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -66,16 +90,16 @@
   </script>
 
     <main id="main">
-    <section class="contact">
+    <section class="contact panel">
       <h2>Contact</h2>
       <p>Want to book us or have questions? Feel free to write to us:</p>
       <ul>
         <li>Email: <a href="mailto:zweiklangkontakt@gmail.com">zweiklangkontakt@gmail.com</a></li>
       </ul>
-      <p style="margin-top:16px;color:#eee;">We look forward to your messages and inquiries!</p>
+  <p class="mt-16">We look forward to your messages and inquiries!</p>
     </section>
 
-    <section class="impressum">
+    <section class="impressum panel panel--alt">
       <h2>Legal Notice</h2>
       <p><strong>Information according to § 5 TMG:</strong></p>
       <p>ZweiKlang<br />ghostak & Artemis<br />Högestraße 22<br />79108 Freiburg</p>

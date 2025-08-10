@@ -25,6 +25,7 @@
   <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
       &#9776;
     </button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button>
   <nav id="mainNav" role="navigation" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -40,6 +41,29 @@
       document.body.classList.add('js');
       const navToggleBtn = document.getElementById('navToggleBtn');
       const mainNav = document.getElementById('mainNav');
+      // Theme init
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        root.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        root.setAttribute('data-theme', 'light');
+      } else {
+        root.setAttribute('data-theme', 'dark');
+      }
+      const themeToggle = document.getElementById('themeToggle');
+      const updateToggleIcon = () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        themeToggle.textContent = isLight ? '☀' : '☾';
+      };
+      updateToggleIcon();
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateToggleIcon();
+      });
       if (!navToggleBtn || !mainNav) return;
       navToggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -67,23 +91,23 @@
     });
   </script>
     <main id="main">
-    <section class="about" style="background:#1a1a1a;padding:32px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.3);">
-      <h2 style="color:#ff0055;text-align:center;margin-bottom:24px;">About Us</h2>
-      <div class="profile" style="display:flex;flex-wrap:wrap;gap:40px;justify-content:center;align-items:center;">
-        <div class="member" style="text-align:center;max-width:300px;background:#222;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
-          <img src="ghostak.PNG" alt="ghostak" style="width:100%;height:auto;border-radius:10px;margin-bottom:10px;">
-          <h3 style="color:#ff0055;">ghostak</h3>
-          <p style="color:#eee;">DJ focused on melodic techno & deep house.</p>
-          <a href="https://www.instagram.com/ghostakmusic.wav" target="_blank" rel="noopener noreferrer" style="color:#ff0055;text-decoration:none;font-weight:bold;">Instagram</a>
+    <section class="about panel">
+      <h2>About Us</h2>
+      <div class="profile">
+        <div class="member member-card">
+          <img src="ghostak.PNG" alt="ghostak">
+          <h3>ghostak</h3>
+          <p>DJ focused on melodic techno & deep house.</p>
+          <a href="https://www.instagram.com/ghostakmusic.wav" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
-        <div class="member" style="text-align:center;max-width:300px;background:#222;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
-          <img src="artemis.png" alt="Artemis" style="width:100%;height:auto;border-radius:10px;margin-bottom:10px;">
-          <h3 style="color:#ff0055;">Artemis</h3>
-          <p style="color:#eee;">DJ passionate about experimental and chill sounds.</p>
-          <a href="https://www.instagram.com/artemismusic.wav" target="_blank" rel="noopener noreferrer" style="color:#ff0055;text-decoration:none;font-weight:bold;">Instagram</a>
+        <div class="member member-card">
+          <img src="artemis.png" alt="Artemis">
+          <h3>Artemis</h3>
+          <p>DJ passionate about experimental and chill sounds.</p>
+          <a href="https://www.instagram.com/artemismusic.wav" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
-      <p style="margin-top:2em;font-size:1.1em;line-height:1.7;color:#eee;text-align:center;">ZweiKlang represents a harmonious interplay of two creative minds – live, loud, and full of energy! Our sets are inspired by nature, sunsets, and a passion for music.</p>
+      <p class="lead text-center mt-32">ZweiKlang represents a harmonious interplay of two creative minds – live, loud, and full of energy! Our sets are inspired by nature, sunsets, and a passion for music.</p>
     </section>
   </main>
 

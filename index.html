@@ -25,6 +25,7 @@
   <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
       &#9776;
     </button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button>
   <nav id="mainNav" role="navigation" aria-label="Primary">
       <ul>
         <li><a href="index.html" aria-current="page">Home</a></li>
@@ -41,6 +42,29 @@
       document.body.classList.add('js');
       const navToggleBtn = document.getElementById('navToggleBtn');
       const mainNav = document.getElementById('mainNav');
+      // Theme init
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        root.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        root.setAttribute('data-theme', 'light');
+      } else {
+        root.setAttribute('data-theme', 'dark');
+      }
+      const themeToggle = document.getElementById('themeToggle');
+      const updateToggleIcon = () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        themeToggle.textContent = isLight ? '☀' : '☾';
+      };
+      updateToggleIcon();
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateToggleIcon();
+      });
       // Fallback: Navigation immer sichtbar, wenn JS deaktiviert
       if (!navToggleBtn || !mainNav) return;
       navToggleBtn.addEventListener('click', function(e) {
@@ -78,17 +102,17 @@
       </div>
     </section>
 
-    <section class="special-event" style="background:#1a1a1a;border-radius:16px;padding:24px;margin-bottom:32px;box-shadow:0 2px 16px rgba(0,0,0,0.3);text-align:center;">
-      <h2 style="color:#ff0055;">SUMMER SPECIAL: DJ Set at ZRCE Beach!</h2>
-      <p style="font-size:1.2em;line-height:1.7;margin-bottom:18px;">On <strong>August 19</strong>, we are planning an exclusive DJ set at the legendary <strong>ZRCE Beach</strong> in Croatia!<br>
+    <section class="special-event panel panel--center">
+      <h2>SUMMER SPECIAL: DJ Set at ZRCE Beach!</h2>
+      <p class="lead mt-16">On <strong>August 19</strong>, we are planning an exclusive DJ set at the legendary <strong>ZRCE Beach</strong> in Croatia!<br>
         If you crave sun, music, and good vibes, come by and celebrate with us right by the sea.<br>
-        <span style="color:#ff0055;font-weight:bold;">Everyone is warmly invited!</span>
+        <span class="highlight">Everyone is warmly invited!</span>
       </p>
-      <p style="font-size:1.2em;line-height:1.7;margin-bottom:18px;">Tickets via email: <a href="mailto:zweiklangkontakt@gmail.com" style="color:#ff0055;text-decoration:none;">zweiklangkontakt@gmail.com</a></p>
-      <div style="max-width:600px;margin:auto;">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.324964234624!2d15.06096431556344!3d44.54139397910009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761f6e2e2e2e2e3%3A0x2e2e2e2e2e2e2e2e!2sZrce%20Beach!5e0!3m2!1sen!2shr!4v1691500000000!5m2!1sen!2shr" width="100%" height="350" style="border:0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p class="lead">Tickets via email: <a href="mailto:zweiklangkontakt@gmail.com">zweiklangkontakt@gmail.com</a></p>
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.324964234624!2d15.06096431556344!3d44.54139397910009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761f6e2e2e2e2e3%3A0x2e2e2e2e2e2e2e2e!2sZrce%20Beach!5e0!3m2!1sen!2shr!4v1691500000000!5m2!1sen!2shr" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <div id="countdown" style="margin-top:20px;font-size:1.5em;color:#ff0055;"></div>
+  <div id="countdown"></div>
     </section>
     <script>
       const countdown = document.getElementById('countdown');
@@ -110,37 +134,39 @@
       setInterval(updateCountdown, 1000);
       updateCountdown();
     </script>
-    <style>
-      @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-      }
-    </style>
+    
 
     <section class="events">
       <h2>Upcoming Events</h2>
       <p>Stay tuned for more details!</p>
     </section>
 
-    <section class="video-links" style="background:#222;border-radius:12px;padding:18px;margin-bottom:32px;">
+  <section class="video-links panel panel--alt">
       <h2>Our Videos</h2>
       <p>Check out our latest performances and sets.</p>
     </section>
 
-    <section class="socials" style="background:#1a1a1a;padding:24px;border-radius:12px;margin-bottom:32px;text-align:center;">
+  <section class="socials panel panel--center">
       <h2>Follow Us</h2>
       <p>Stay connected on social media.</p>
     </section>
 
-    <section class="newsletter" style="background:#222;padding:24px;border-radius:12px;margin-bottom:32px;text-align:center;">
+  <section class="newsletter panel panel--alt panel--center">
       <h2>Newsletter</h2>
       <p>Subscribe to stay updated on our latest news and events.</p>
     </section>
 
-    <section class="audio-player" style="background:#1a1a1a;border-radius:12px;padding:24px;margin:32px 0;text-align:center;">
+  <section class="audio-player panel panel--center">
       <h2>Listen to Our Music</h2>
       <p>Enjoy our tracks and mixes.</p>
+      <div class="sc-embed">
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2125890612&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        <div class="sc-credit">
+          <a href="https://soundcloud.com/zweiklang_music" title="ZWEIKLANG" target="_blank" rel="noopener noreferrer">ZWEIKLANG</a>
+          ·
+          <a href="https://soundcloud.com/zweiklang_music/afro-house-sunset-vibes-2025-keinemusik-black-coffee-hugel-boys-noize-deep-house-dj-set" title="Afro House Sunset Vibes 2025" target="_blank" rel="noopener noreferrer">Afro House Sunset Vibes 2025</a>
+        </div>
+      </div>
     </section>
   </main>
 
