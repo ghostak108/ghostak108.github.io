@@ -6,6 +6,9 @@ body {
   padding: 0;
   background-color: #111;
   color: #eee;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 header {
@@ -48,9 +51,11 @@ nav a:focus {
 }
 
 main {
-  padding: 20px;
-  max-width: 900px;
+  padding: 0 10px;
+  width: 100%;
+  max-width: 1200px;
   margin: auto;
+  box-sizing: border-box;
 }
 
 section {
@@ -74,8 +79,11 @@ h2 {
 }
 
 .video-gallery iframe {
-  width: 360px;
-  height: 203px;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.3);
   background: #000;
@@ -126,19 +134,21 @@ a:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-sizing: border-box;
   background: linear-gradient(120deg, #1a1a1a 60%, #ff0055 100%);
-  border-radius: 18px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
   padding: 32px 16px;
   gap: 32px;
 }
 
 .hero-img {
-  width: 320px;
-  max-width: 90vw;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-sizing: border-box;
 }
 
 .hero-text {
@@ -288,7 +298,12 @@ a:hover {
     gap: 10px;
   }
   .event-card {
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 12px;
+    box-sizing: border-box;
   }
 }
 
@@ -314,8 +329,12 @@ a:hover {
     margin-top: 20px;
   }
   .event-card {
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
     padding: 15px;
+    border-radius: 12px;
+    box-sizing: border-box;
   }
   nav ul {
     flex-direction: column;
@@ -351,6 +370,69 @@ a:hover {
   .video-gallery iframe {
     width: 100%;
     margin: 0;
+  }
+}
+
+/* Automatische Anpassung an alle Bildschirmgrößen */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+main {
+  padding: 0 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.event-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.video-gallery iframe {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (min-width: 601px) {
+  .hero {
+    flex-direction: row;
+  }
+  .event-card {
+    display: inline-block;
+    margin: 10px;
   }
 }
 
