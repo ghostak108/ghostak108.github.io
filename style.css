@@ -55,6 +55,7 @@ main {
 
 section {
   margin-bottom: 40px;
+  padding: 20px;
 }
 
 h2 {
@@ -278,47 +279,16 @@ a:hover {
 
 /* Mobile Optimierung */
 @media (max-width: 600px) {
-  header {
-    padding: 12px 4vw;
-  }
-  header h1 {
-    font-size: 1.5em;
+  .hero-img {
+    width: 100%;
+    height: auto;
   }
   nav ul {
     flex-direction: column;
     gap: 10px;
   }
-  main {
-    padding: 8px 2vw;
-  }
-  .hero {
-    flex-direction: column;
-    padding: 16px 2vw;
-    gap: 16px;
-  }
-  .hero-img {
-    width: 90vw;
-    max-width: 320px;
-  }
-  .hero-text {
+  .event-card {
     max-width: 100%;
-    font-size: 1em;
-    text-align: center;
-  }
-  .events ul, .socials ul {
-    padding-left: 0;
-  }
-  .events li, .socials li {
-    font-size: 1em;
-  }
-  .cta-btn {
-    width: 100%;
-    padding: 12px 0;
-    font-size: 1em;
-  }
-  footer {
-    padding: 12px 2vw;
-    font-size: 0.9em;
   }
 }
 
@@ -384,4 +354,39 @@ body.light-mode .cta-btn:hover {
 .newsletter button:hover {
   background: #fff;
   color: #ff0055;
+}
+
+/* Hover-Effekte für Buttons */
+button:hover, .cta-btn:hover {
+  background: #fff;
+  color: #ff0055;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Hover-Effekte für Links */
+a:hover {
+  color: #ff0055;
+  text-decoration: underline;
+}
+
+/* Einheitliche Abstände */
+section {
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+/* Konsistentes Farbschema */
+body {
+  background-color: #111;
+  color: #eee;
+}
+
+/* White-Mode/Dark-Mode-Button Fix für mobile Geräte */
+@media (max-width: 600px) {
+  .dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
 }
