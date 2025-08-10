@@ -148,24 +148,24 @@ nav a:hover { color: var(--color-primary); }
 @media (max-width: 768px) {
   body.js .nav-toggle { display: grid; }
   /* Fading backdrop for off-canvas */
-  body.js::before { content: ""; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 998; opacity: 0; pointer-events: none; transition: opacity var(--anim-fast) var(--ease-out); }
+  body.js::before { content: ""; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1200; opacity: 0; pointer-events: none; transition: opacity var(--anim-fast) var(--ease-out); }
   body.js.nav-open::before { opacity: 1; pointer-events: auto; }
   /* Only apply off-canvas when JS is enabled; otherwise keep nav visible for no-JS users */
-  body.js nav {
+  body.js header nav {
     position: fixed;
     top: 0; right: 0; height: 100vh; width: 78vw; max-width: 360px;
-    background: var(--color-surface-2); padding: calc(56px + env(safe-area-inset-top, 0px)) 20px 20px; z-index: 999;
+  background: var(--color-surface-2); padding: calc(56px + env(safe-area-inset-top, 0px)) 20px 20px; z-index: 1201;
     transform: translateX(100%);
     transition: transform var(--anim-med) var(--ease-out);
     will-change: transform;
-  box-shadow: -12px 0 24px rgba(0,0,0,.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+    box-shadow: -12px 0 24px rgba(0,0,0,.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
-  nav ul { flex-direction: column; gap: 0; }
-  nav li { border-bottom: 1px solid rgba(255,255,255,.06); }
-  nav a { display: block; padding: 14px 4px; font-size: 1.05rem; }
-  body.js.nav-open nav { transform: translateX(0); }
+  header nav ul { flex-direction: column; gap: 0; }
+  header nav li { border-bottom: 1px solid rgba(255,255,255,.06); }
+  header nav a { display: block; padding: 14px 4px; font-size: 1.05rem; }
+  body.js.nav-open header nav { transform: translateX(0); }
 }
 
 /* Main */
@@ -305,7 +305,7 @@ nav a[aria-current="page"] { color: var(--color-primary-acc); text-decoration: u
 .bottom-nav {
   position: fixed;
   left: 0; right: 0; bottom: 0;
-  z-index: 1001;
+  z-index: 900;
   background: var(--color-surface-2);
   border-top: 1px solid rgba(255,255,255,.08);
   padding: 8px max(12px, env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-right));
