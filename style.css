@@ -421,8 +421,8 @@ body {
 @media (max-width: 600px) {
   .dark-mode-toggle {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 10px;
+    left: 10px;
     z-index: 1000;
   }
 }
