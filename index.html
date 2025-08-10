@@ -13,7 +13,6 @@
     <button class="nav-toggle" aria-label="Menü öffnen/schließen" id="navToggleBtn">
       &#9776;
     </button>
-    <button id="themeToggle" aria-label="Dark/Light Mode umschalten" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#ff0055;font-size:1.5em;cursor:pointer;">🌙</button>
     <nav id="mainNav">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -49,11 +48,6 @@
       document.addEventListener('keydown', function(e) {
         if(e.key === 'Escape') document.body.classList.remove('nav-open');
       });
-    });
-    const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      themeToggle.textContent = document.body.classList.contains('light-mode') ? '🌞' : '🌙';
     });
   </script>
 

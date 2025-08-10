@@ -356,29 +356,6 @@ a:hover {
   }
 }
 
-/* Dark/Light Mode Styles */
-body.light-mode {
-  background-color: #fff;
-  color: #111;
-}
-body.light-mode header {
-  background-color: #f4f4f4;
-}
-body.light-mode a {
-  color: #ff0055;
-}
-body.light-mode a:hover {
-  color: #111;
-}
-body.light-mode .cta-btn {
-  background: #111;
-  color: #fff;
-}
-body.light-mode .cta-btn:hover {
-  background: #ff0055;
-  color: #fff;
-}
-
 /* Newsletter Styles */
 .newsletter input {
   font-size: 1em;
