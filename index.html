@@ -13,6 +13,7 @@
     <button class="nav-toggle" aria-label="Menü öffnen/schließen" id="navToggleBtn">
       &#9776;
     </button>
+    <button id="themeToggle" aria-label="Dark/Light Mode umschalten" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#ff0055;font-size:1.5em;cursor:pointer;">🌙</button>
     <nav id="mainNav">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -49,9 +50,15 @@
         if(e.key === 'Escape') document.body.classList.remove('nav-open');
       });
     });
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      themeToggle.textContent = document.body.classList.contains('light-mode') ? '🌞' : '🌙';
+    });
   </script>
 
   <main>
+
     <section class="hero">
       <img src="youtube symbol.png" alt="ZweiKlang DJ Duo" class="hero-img" />
       <div class="hero-text">
@@ -61,9 +68,41 @@
       </div>
     </section>
 
+    <section class="special-event" style="background:#1a1a1a;border-radius:16px;padding:24px;margin-bottom:32px;box-shadow:0 2px 16px rgba(0,0,0,0.3);text-align:center;">
+      <h2 style="color:#ff0055;">SOMMER SPECIAL: DJ-Set am ZRCE Beach!</h2>
+      <p style="font-size:1.2em;line-height:1.7;margin-bottom:18px;">Am <strong>19. August</strong> planen wir ein exklusives DJ-Set am legendären <strong>ZRCE Beach</strong> in Kroatien!<br>
+        Wenn du Lust auf Sonne, Musik und gute Vibes hast, komm vorbei und feiere mit uns direkt am Meer.<br>
+        <span style="color:#ff0055;font-weight:bold;">Alle sind herzlich eingeladen!</span>
+      </p>
+      <div style="max-width:600px;margin:auto;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.324964234624!2d15.06096431556344!3d44.54139397910009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761f6e2e2e2e2e3%3A0x2e2e2e2e2e2e2e2e!2sZrce%20Beach!5e0!3m2!1sde!2shr!4v1691500000000!5m2!1sde!2shr" width="100%" height="350" style="border:0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div id="countdown" style="margin-top:20px;font-size:1.5em;color:#ff0055;"></div>
+    </section>
+    <script>
+      const countdown = document.getElementById('countdown');
+      const eventDate = new Date('2025-08-19T00:00:00');
+      function updateCountdown() {
+        const now = new Date();
+        const diff = eventDate - now;
+        if (diff <= 0) {
+          countdown.textContent = 'Das Event findet heute statt!';
+          return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        countdown.textContent = `${days} Tage, ${hours} Stunden, ${minutes} Minuten, ${seconds} Sekunden`;
+      }
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+
     <section class="events">
       <h2>Bevorstehende Events</h2>
       <ul>
+        <li><strong>19. August 2025:</strong> ZRCE Beach, Kroatien – DJ-Set</li>
         <li><strong>14. Juni 2025:</strong> Mondschein Pavillon Vogtsburg</li>
         <li><strong>21. Juni 2025:</strong> Linachtalsperre Furtwangen</li>
       </ul>
@@ -72,6 +111,16 @@
       <ul>
         <li><strong>21. Mai 2025:</strong> Ravenna Bridge Set (<a href="videos.html">Watch more...)</a></li>
       </ul>
+    </section>
+
+    <section class="video-links" style="background:#222;border-radius:12px;padding:18px;margin-bottom:32px;">
+      <h2 style="color:#ff0055;">Neue Videos zum Ergänzen</h2>
+      <ul style="list-style:none;padding:0;font-size:1.1em;">
+        <li><a href="videos.html#video1">Video-Link 1: Sommernacht am See</a></li>
+        <li><a href="videos.html#video2">Video-Link 2: Rooftop Session</a></li>
+        <li><a href="videos.html#video3">Video-Link 3: Club Night</a></li>
+      </ul>
+      <p style="color:#aaa;font-size:0.95em;margin-top:10px;">Füge die Videos auf dem <a href="videos.html">Video-Tab</a> hinzu, damit unsere Community sie direkt erleben kann!</p>
     </section>
 
     <section class="socials">
@@ -83,10 +132,57 @@
         <li><a href="https://linktr.ee/zweiklang.music">LinkTree</a></li>
       </ul>
     </section>
+
+    <section class="newsletter" style="background:#222;border-radius:12px;padding:24px;margin:32px 0;text-align:center;">
+      <h2 style="color:#ff0055;">Newsletter</h2>
+      <p style="color:#eee;">Melde dich an, um über zukünftige Events informiert zu bleiben:</p>
+      <form action="#" method="POST" style="margin-top:16px;">
+        <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required style="padding:10px;border-radius:8px;border:none;width:80%;max-width:300px;">
+        <button type="submit" style="padding:10px 20px;border-radius:8px;border:none;background:#ff0055;color:#fff;font-weight:bold;margin-left:8px;cursor:pointer;">Anmelden</button>
+      </form>
+    </section>
+
+    <section class="event-gallery" style="background:#1a1a1a;border-radius:12px;padding:24px;margin:32px 0;">
+      <h2 style="color:#ff0055;">Event-Galerie</h2>
+      <div class="gallery" style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <img src="event1.jpg" alt="Event 1" style="width:200px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+        <img src="event2.jpg" alt="Event 2" style="width:200px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+        <img src="event3.jpg" alt="Event 3" style="width:200px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+      </div>
+    </section>
+
+    <section class="audio-player" style="background:#1a1a1a;border-radius:12px;padding:24px;margin:32px 0;text-align:center;">
+      <h2 style="color:#ff0055;">Hör dir unsere Sets an</h2>
+      <audio controls style="width:100%;max-width:600px;margin-top:16px;">
+        <source src="sample-track.mp3" type="audio/mpeg">
+        Dein Browser unterstützt den Audio-Player nicht.
+      </audio>
+    </section>
+    <section class="social-sharing" style="background:#222;border-radius:12px;padding:24px;margin:32px 0;text-align:center;">
+      <h2 style="color:#ff0055;">Teile unsere Website</h2>
+      <div style="margin-top:16px;">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://zweiklang.com" target="_blank" style="margin-right:16px;color:#ff0055;text-decoration:none;font-size:1.5em;">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?url=https://zweiklang.com&text=Schau%20dir%20ZweiKlang%20an!" target="_blank" style="margin-right:16px;color:#ff0055;text-decoration:none;font-size:1.5em;">Twitter</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://zweiklang.com" target="_blank" style="color:#ff0055;text-decoration:none;font-size:1.5em;">LinkedIn</a>
+      </div>
+    </section>
+
+    <section class="event-details" style="background:#1a1a1a;border-radius:12px;padding:24px;margin:32px 0;">
+      <h2 style="color:#ff0055;">Mehr über unsere Events</h2>
+      <p style="color:#eee;">Erfahre mehr über unsere kommenden und vergangenen Events auf unserer <a href="events.html" style="color:#ff0055;text-decoration:underline;">Event-Seite</a>.</p>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2024 ZweiKlang – ghostak & Artemis</p>
+    <p>&copy; 2025 ZweiKlang – ghostak & Artemis</p>
   </footer>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXXX-X');
+  </script>
 </body>
 </html>
