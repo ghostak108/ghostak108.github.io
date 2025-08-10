@@ -327,6 +327,33 @@ a:hover {
   }
 }
 
+/* Volle Bildschirmbreite auf Smartphones */
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  main {
+    padding: 0;
+    width: 100%;
+  }
+  .hero {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+  .event-card {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+  .video-gallery iframe {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 /* Bestehende Media Queries bleiben erhalten */
 @media screen and (max-width: 600px) {
   .profile {
