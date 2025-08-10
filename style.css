@@ -310,39 +310,54 @@ a:hover {
 /* Optimierungen für Smartphones */
 @media (max-width: 600px) {
   body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 1em;
+  }
+  header {
     padding: 10px;
   }
   header h1 {
-    font-size: 1.8em;
-  }
-  .hero {
-    flex-direction: column;
-    padding: 20px;
-  }
-  .hero-img {
-    width: 100%;
-    max-width: none;
-    border-radius: 12px;
-  }
-  .hero-text {
-    text-align: center;
-    margin-top: 20px;
-  }
-  .event-card {
-    width: 100%;
-    max-width: 400px;
-    margin: 10px auto;
-    padding: 15px;
-    border-radius: 12px;
-    box-sizing: border-box;
+    font-size: 1.5em;
+    margin: 0;
   }
   nav ul {
     flex-direction: column;
     gap: 10px;
+    padding: 0;
+  }
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    margin: 0;
+  }
+  .hero-img {
+    width: 100%;
+    max-width: none;
+    border-radius: 8px;
+  }
+  .hero-text {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .event-card {
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
   .video-gallery iframe {
     width: 100%;
     height: auto;
+    margin-bottom: 20px;
+  }
+  footer {
+    font-size: 0.9em;
+    padding: 10px;
   }
 }
 
