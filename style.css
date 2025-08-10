@@ -147,6 +147,9 @@ nav a:hover { color: var(--color-primary); }
 /* Mobile Nav (slide-in panel) */
 @media (max-width: 768px) {
   body.js .nav-toggle { display: grid; }
+  /* Use bottom tab bar on mobile; hide header nav entirely */
+  header nav { display: none; }
+  body.js .nav-toggle { display: none; }
   /* Fading backdrop for off-canvas */
   body.js::before { content: ""; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1200; opacity: 0; pointer-events: none; transition: opacity var(--anim-fast) var(--ease-out); }
   body.js.nav-open::before { opacity: 1; pointer-events: auto; }
@@ -266,6 +269,11 @@ p { margin-bottom: 1em; }
   main { padding-bottom: 88px; }
 }
 
+/* Also reserve bottom space for tablets in portrait */
+@media (max-width: 768px) {
+  main { padding-bottom: 88px; }
+}
+
 @media (max-width: 1200px) { .event-cards { flex-wrap: wrap; gap: 16px; } .event-card { max-width: 45%; } }
 @media (max-width: 768px) { .event-card { max-width: 100%; } header h1 { font-size: 1.6em; } }
 @media (max-width: 480px) { .cta-btn { padding: 10px 24px; } }
@@ -312,7 +320,22 @@ nav a[aria-current="page"] { color: var(--color-primary-acc); text-decoration: u
   display: none;
 }
 .bottom-nav ul { list-style: none; display: flex; justify-content: space-between; gap: 8px; }
-.bottom-nav a { flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; height: 48px; border-radius: 10px; color: var(--color-text); text-decoration: none; font-weight: 700; }
+.bottom-nav a {
+  flex: 1 1 auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 60px;
+  border-radius: 10px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.1;
+}
+.bottom-nav svg { width: 22px; height: 22px; display: block; fill: currentColor; }
 .bottom-nav a[aria-current="page"] { background: rgba(255,255,255,.08); color: var(--color-primary-acc); }
 .bottom-nav a:active { transform: scale(.98); }
 @media (max-width: 768px) { .bottom-nav { display: block; } }
@@ -323,4 +346,17 @@ nav a[aria-current="page"] { color: var(--color-primary-acc); text-decoration: u
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* Screen-reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
