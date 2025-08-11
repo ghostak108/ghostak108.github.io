@@ -313,11 +313,14 @@ nav a[aria-current="page"] { color: var(--color-primary-acc); text-decoration: u
 .bottom-nav {
   position: fixed;
   left: 0; right: 0; bottom: 0;
-  z-index: 900;
+  z-index: 2000;
   background: var(--color-surface-2);
   border-top: 1px solid rgba(255,255,255,.08);
   padding: 8px max(12px, env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-right));
   display: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
 }
 .bottom-nav ul { list-style: none; display: flex; justify-content: space-between; gap: 8px; }
 .bottom-nav a {
@@ -339,6 +342,11 @@ nav a[aria-current="page"] { color: var(--color-primary-acc); text-decoration: u
 .bottom-nav a[aria-current="page"] { background: rgba(255,255,255,.08); color: var(--color-primary-acc); }
 .bottom-nav a:active { transform: scale(.98); }
 @media (max-width: 768px) { .bottom-nav { display: block; } }
+
+/* Prevent footer text from hiding behind the fixed bottom bar */
+@media (max-width: 768px) {
+  footer { padding-bottom: 72px; }
+}
 
 /* Selection color for better readability */
 ::selection { background: var(--color-primary); color: #fff; }

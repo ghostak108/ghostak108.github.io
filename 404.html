@@ -7,20 +7,77 @@
   <meta name="robots" content="noindex" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="transparent.png" />
-  <style>
-    .nf { max-width: 720px; margin: 120px auto 40px; text-align: center; padding: 24px; background: #1a1a1a; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.3); }
-    .nf h1 { color: #ff0055; margin-bottom: 12px; }
-    .nf a { display:inline-block; margin-top: 12px; }
-  </style>
-  <script>
-    // Redirect to home after 5 seconds
-    setTimeout(function(){ location.href = '/'; }, 5000);
-  </script>
-  <meta http-equiv="refresh" content="10; url=/" />
 </head>
 <body>
-  <main>
-    <section class="nf">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <h1>ZweiKlang</h1>
+    <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">&#9776;</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button>
+    <nav id="mainNav" role="navigation" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact & Legal</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('js');
+      const navToggleBtn = document.getElementById('navToggleBtn');
+      const mainNav = document.getElementById('mainNav');
+      // Theme init
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        root.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        root.setAttribute('data-theme', 'light');
+      } else {
+        root.setAttribute('data-theme', 'dark');
+      }
+      const themeToggle = document.getElementById('themeToggle');
+      const updateToggleIcon = () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        themeToggle.textContent = isLight ? '☀' : '☾';
+      };
+      updateToggleIcon();
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateToggleIcon();
+      });
+      if (!navToggleBtn || !mainNav) return;
+      navToggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const open = document.body.classList.toggle('nav-open');
+        navToggleBtn.setAttribute('aria-expanded', String(open));
+        if(open) setTimeout(()=>mainNav.querySelector('a').focus(), 200);
+      });
+      document.addEventListener('click', function(e) {
+        if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
+          document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          document.body.classList.remove('nav-open');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.addEventListener('keydown', function(e) {
+        if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
+      });
+    });
+  </script>
+  <main id="main">
+    <section class="panel panel--center">
       <h1>404 – Page not found</h1>
       <p>Sorry, the page you're looking for doesn't exist.</p>
       <a class="cta-btn" href="/">Go to Home</a>
@@ -29,5 +86,39 @@
   <footer>
     <p>&copy; 2025 ZweiKlang – ghostak & Artemis</p>
   </footer>
+  <nav class="bottom-nav" aria-label="Mobile">
+    <ul>
+      <li>
+        <a href="index.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5l9-7 9 7V21a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-6h-4v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10.5z"/></svg>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="videos.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7-11-7z"/></svg>
+          <span>Videos</span>
+        </a>
+      </li>
+      <li>
+        <a href="events.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2zm-1 6h12v10H6V8z"/></svg>
+          <span>Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <span>About</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4V6zm0-2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4zm16 2l-8 6-8-6"/></svg>
+          <span>Contact</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </body>
 </html>
