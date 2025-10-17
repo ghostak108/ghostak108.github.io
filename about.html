@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZweiKlang - About Us</title>
-  <meta name="description" content="About ZweiKlang – DJ duo ghostak & Artemis. Learn our story, style, and find links." />
+  <meta name="description" content="About ZweiKlang – DJ duo ghostak & Artemis. Learn our story, sound, and creative vision." />
   <link rel="canonical" href="https://ghostak108.github.io/about.html" />
   <meta property="og:title" content="ZweiKlang – About Us" />
   <meta property="og:description" content="Meet ghostak & Artemis, the DJ duo behind ZweiKlang." />
@@ -15,105 +15,134 @@
   <meta name="twitter:title" content="ZweiKlang – About Us" />
   <meta name="twitter:description" content="Meet ghostak & Artemis, the DJ duo behind ZweiKlang." />
   <meta name="twitter:image" content="https://ghostak108.github.io/banner.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="transparent.png" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header>
-    <h1>ZweiKlang</h1>
-  <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
-      &#9776;
-    </button>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button>
-  <nav id="mainNav" role="navigation" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="logo_black.png" alt="ZweiKlang emblem" class="brand__logo" loading="lazy" />
+      <span>
+        <span class="brand__name">ZweiKlang</span>
+        <span class="brand__tagline">Melodic Techno</span>
+      </span>
+    </a>
+    <nav id="mainNav" role="navigation" aria-label="Primary" data-nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="videos.html">Videos</a></li>
         <li><a href="about.html" aria-current="page">About Us</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="contact.html">Contact & Legal</a></li>
+        <li><a href="contact.html">Contact &amp; Legal</a></li>
       </ul>
     </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+        <span aria-hidden="true" data-theme-icon-slot>☾</span>
+        <span class="sr-only" data-theme-toggle-label>Switch to light theme</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav" data-nav-toggle>
+        <span aria-hidden="true">&#9776;</span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+    </div>
   </header>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.body.classList.add('js');
-      const navToggleBtn = document.getElementById('navToggleBtn');
-      const mainNav = document.getElementById('mainNav');
-      // Theme init
-      const root = document.documentElement;
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light' || savedTheme === 'dark') {
-        root.setAttribute('data-theme', savedTheme);
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        root.setAttribute('data-theme', 'light');
-      } else {
-        root.setAttribute('data-theme', 'dark');
-      }
-      const themeToggle = document.getElementById('themeToggle');
-      const updateToggleIcon = () => {
-        const isLight = root.getAttribute('data-theme') === 'light';
-        themeToggle.textContent = isLight ? '☀' : '☾';
-      };
-      updateToggleIcon();
-      themeToggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        const next = current === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        updateToggleIcon();
-      });
-      if (!navToggleBtn || !mainNav) return;
-      navToggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const open = document.body.classList.toggle('nav-open');
-        navToggleBtn.setAttribute('aria-expanded', String(open));
-        if(document.body.classList.contains('nav-open')) {
-          setTimeout(()=>mainNav.querySelector('a').focus(), 200);
-        }
-      });
-      document.addEventListener('click', function(e) {
-        if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
-          document.body.classList.remove('nav-open');
-          navToggleBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-      mainNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          document.body.classList.remove('nav-open');
-          navToggleBtn.setAttribute('aria-expanded', 'false');
-        });
-      });
-      document.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
-      });
-    });
-  </script>
-    <main id="main">
-    <section class="about panel">
-      <h2>About Us</h2>
-      <div class="profile">
-        <div class="member member-card">
-          <img src="ghostak.PNG" alt="ghostak" loading="lazy" onerror="this.onerror=null;this.src='transparent.png';this.alt='ghostak (image unavailable)';">
-          <h3>ghostak</h3>
-          <p>DJ focused on melodic techno & deep house.</p>
-          <a href="https://www.instagram.com/ghostakmusic.wav" target="_blank" rel="noopener noreferrer">Instagram</a>
+
+  <main id="main">
+    <section class="panel panel--split">
+      <div>
+        <div class="section-heading section-heading--column">
+          <span class="section-eyebrow">The duo</span>
+          <h2>Two minds. One sonic language.</h2>
+          <p class="section-subtitle">ZweiKlang merges ghostak’s cinematic techno storytelling with Artemis’ organic, experimental flair. Together we craft soundtracks for sunsets, rooftops, and dancefloors.</p>
         </div>
-        <div class="member member-card">
-          <img src="artemis.png" alt="Artemis" loading="lazy" onerror="this.onerror=null;this.src='transparent.png';this.alt='Artemis (image unavailable)';">
-          <h3>Artemis</h3>
-          <p>DJ passionate about experimental and chill sounds.</p>
-          <a href="https://www.instagram.com/artemismusic.wav" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <p class="lead">From the Black Forest to Croatia’s beaches, we perform immersive sets packed with slow-burning builds, euphoric peaks, and raw emotions. Every show is tailored to the location, the crowd, and the moment in time.</p>
+        <div class="tag-grid">
+          <span class="tag">Melodic Techno</span>
+          <span class="tag">Deep House</span>
+          <span class="tag">Organic Grooves</span>
+          <span class="tag">Sunset Stories</span>
         </div>
       </div>
-      <p class="lead text-center mt-32">ZweiKlang represents a harmonious interplay of two creative minds – live, loud, and full of energy! Our sets are inspired by nature, sunsets, and a passion for music.</p>
+      <div class="profile">
+        <div class="member member-card">
+          <img src="ghostak.PNG" alt="ghostak" loading="lazy" onerror="this.onerror=null;this.src='transparent.png';this.alt='ghostak (image unavailable)';" />
+          <h3>ghostak</h3>
+          <p>Melodic techno architect with a love for cinematic progressions and deep, rolling basslines.</p>
+          <a class="cta-link" href="https://www.instagram.com/ghostakmusic.wav" target="_blank" rel="noopener noreferrer">Instagram →</a>
+        </div>
+        <div class="member member-card">
+          <img src="artemis.png" alt="Artemis" loading="lazy" onerror="this.onerror=null;this.src='transparent.png';this.alt='Artemis (image unavailable)';" />
+          <h3>Artemis</h3>
+          <p>Explorer of experimental textures, downtempo rhythms, and hypnotic vocal chops.</p>
+          <a class="cta-link" href="https://www.instagram.com/artemismusic.wav" target="_blank" rel="noopener noreferrer">Instagram →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel--alt">
+      <div class="section-heading">
+        <span class="section-eyebrow">Values</span>
+        <h2>What drives our sets</h2>
+        <p class="section-subtitle">We design every experience around connection, atmosphere, and storytelling.</p>
+      </div>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3 class="info-card__title">Immersive journeys</h3>
+          <p class="info-card__text">Slow-build transitions and layered harmonies that guide the crowd from sunrise calm to midnight euphoria.</p>
+        </div>
+        <div class="info-card">
+          <h3 class="info-card__title">Nature-inspired</h3>
+          <p class="info-card__text">We take inspiration from forests, beaches, and mountain air – translating landscapes into rhythm and mood.</p>
+        </div>
+        <div class="info-card">
+          <h3 class="info-card__title">Community first</h3>
+          <p class="info-card__text">Collaboration with local artists, live instrumentalists, and visual storytellers keeps each set unique.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <span class="section-eyebrow">Timeline</span>
+        <h2>Milestones</h2>
+        <p class="section-subtitle">Highlights from our journey so far.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-item__title">Ravenna Bridge debut</span>
+          <span class="timeline-item__date">2024 · Black Forest, Germany</span>
+          <p>Our breakthrough livestream in a dramatic canyon setting introduced ZweiKlang to a global audience.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-item__title">Sound of ZRCE Beach</span>
+          <span class="timeline-item__date">2025 · Novalja, Croatia</span>
+          <p>An immersive beach takeover with custom visuals and sunrise encore set.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-item__title">Forest Sessions Series</span>
+          <span class="timeline-item__date">Ongoing</span>
+          <p>Pop-up performances in nature, recorded live and shared with our community.</p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 ZweiKlang – ghostak & Artemis</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="videos.html">Videos</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p>&copy; 2025 ZweiKlang – ghostak &amp; Artemis.</p>
   </footer>
+
   <nav class="bottom-nav" aria-label="Mobile">
     <ul>
       <li>
@@ -148,5 +177,7 @@
       </li>
     </ul>
   </nav>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
