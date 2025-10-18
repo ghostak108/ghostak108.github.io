@@ -15,152 +15,223 @@
   <meta name="twitter:title" content="ZweiKlang – Home" />
   <meta name="twitter:description" content="DJ duo blending melodic techno, deep house, and chill vibes." />
   <meta name="twitter:image" content="https://ghostak108.github.io/banner.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="transparent.png" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header>
-    <h1>ZweiKlang</h1>
-  <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
-      &#9776;
-    </button>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button>
-  <nav id="mainNav" role="navigation" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="logo_black.png" alt="ZweiKlang emblem" class="brand__logo" loading="lazy" />
+      <span>
+        <span class="brand__name">ZweiKlang</span>
+        <span class="brand__tagline">Melodic Techno</span>
+      </span>
+    </a>
+    <nav id="mainNav" role="navigation" aria-label="Primary" data-nav>
       <ul>
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="videos.html">Videos</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="contact.html">Contact & Legal</a></li>
+        <li><a href="contact.html">Contact &amp; Legal</a></li>
       </ul>
     </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" id="themeToggle" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+        <span aria-hidden="true" data-theme-icon-slot>☾</span>
+        <span class="sr-only" data-theme-toggle-label>Switch to light theme</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav" data-nav-toggle>
+        <span aria-hidden="true">&#9776;</span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+    </div>
   </header>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // mark JS-enabled for CSS behaviors
-      document.body.classList.add('js');
-      const navToggleBtn = document.getElementById('navToggleBtn');
-      const mainNav = document.getElementById('mainNav');
-      // Theme init
-      const root = document.documentElement;
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light' || savedTheme === 'dark') {
-        root.setAttribute('data-theme', savedTheme);
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        root.setAttribute('data-theme', 'light');
-      } else {
-        root.setAttribute('data-theme', 'dark');
-      }
-      const themeToggle = document.getElementById('themeToggle');
-      const updateToggleIcon = () => {
-        const isLight = root.getAttribute('data-theme') === 'light';
-        themeToggle.textContent = isLight ? '☀' : '☾';
-      };
-      updateToggleIcon();
-      themeToggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        const next = current === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        updateToggleIcon();
-      });
-      // Fallback: Navigation immer sichtbar, wenn JS deaktiviert
-      if (!navToggleBtn || !mainNav) return;
-      navToggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const open = document.body.classList.toggle('nav-open');
-        navToggleBtn.setAttribute('aria-expanded', String(open));
-        if(document.body.classList.contains('nav-open')) {
-          setTimeout(()=>mainNav.querySelector('a').focus(), 200);
-        }
-      });
-    document.addEventListener('click', function(e) {
-        if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
-          document.body.classList.remove('nav-open');
-      navToggleBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-      mainNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          document.body.classList.remove('nav-open');
-          navToggleBtn.setAttribute('aria-expanded', 'false');
-        });
-      });
-      document.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
-      });
-    });
-  </script>
 
   <main id="main">
-    <section class="hero">
-      <img src="youtube symbol.png" alt="ZweiKlang DJ Duo" class="hero-img" loading="lazy" />
-      <div class="hero-text">
-        <h2>Welcome to ZweiKlang</h2>
-        <p>Experience the harmony of music and passion.</p>
+    <section class="hero panel">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Melodic Techno &amp; Deep House</p>
+        <h2 class="hero__title">Welcome to ZweiKlang</h2>
+        <p class="hero__subtitle">We are ghostak &amp; Artemis – a DJ duo delivering atmospheric grooves, sunrise emotions, and dancefloor energy.</p>
+        <div class="hero__actions">
+          <a class="cta-btn" href="events.html">See upcoming shows</a>
+          <a class="cta-link cta-link--on-dark" href="videos.html">Watch our performances →</a>
+        </div>
+        <dl class="hero-stats">
+          <div>
+            <dt>Live shows</dt>
+            <dd>40+</dd>
+          </div>
+          <div>
+            <dt>Countries played</dt>
+            <dd>5</dd>
+          </div>
+          <div>
+            <dt>Sunset sets</dt>
+            <dd>25</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="hero__media">
+        <img src="youtube symbol.png" alt="ZweiKlang performing live" loading="lazy" />
+      </figure>
+    </section>
+
+    <section class="special-event panel panel--accent">
+      <div class="section-heading">
+        <span class="section-eyebrow">Next highlight</span>
+        <h2>Summer Special: DJ Set at ZRCE Beach</h2>
+      </div>
+      <p class="lead">On <strong>19 August 2025</strong> we bring our Afro House and melodic techno journey to the legendary <strong>ZRCE Beach</strong> in Croatia. Dance with us beside the sea, surrounded by good vibes and blazing sunsets.</p>
+      <div class="info-strip">
+        <span class="info-strip__item">☀ Golden hour vibes</span>
+        <span class="info-strip__item">🌊 Seaside stage</span>
+        <span class="info-strip__item">🎧 Extended DJ set</span>
+      </div>
+      <div class="special-event__meta">
+        <div class="countdown-card">
+          <span class="countdown-card__label">Countdown</span>
+          <p class="countdown-card__timer" data-countdown="2025-08-19T20:00:00+02:00">Loading…</p>
+          <p class="newsletter-note">Arrive early for sunset cocktails &amp; exclusive intro set.</p>
+        </div>
+        <div class="info-card">
+          <h3 class="info-card__title">Plan your night</h3>
+          <ul class="list-reset">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 17.5L4 12l1.41-1.41L9.5 14.67l9.09-9.09L20 7l-10.5 10.5z"/></svg>
+              Sunset warm-up &amp; beach lounge area
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 17.5L4 12l1.41-1.41L9.5 14.67l9.09-9.09L20 7l-10.5 10.5z"/></svg>
+              Deep, melodic techno set from ZweiKlang
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 17.5L4 12l1.41-1.41L9.5 14.67l9.09-9.09L20 7l-10.5 10.5z"/></svg>
+              Afterglow meet &amp; greet on the pier
+            </li>
+          </ul>
+          <a class="cta-btn" href="mailto:zweiklangkontakt@gmail.com">Request tickets</a>
+        </div>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.324964234624!2d15.06096431556344!3d44.54139397910009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761f6e2e2e2e2e3%3A0x2e2e2e2e2e2e2e2e!2sZrce%20Beach!5e0!3m2!1sen!2shr!4v1691500000000!5m2!1sen!2shr" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ZRCE Beach map"></iframe>
+        </div>
       </div>
     </section>
 
-    <section class="special-event panel panel--center">
-      <h2>SUMMER SPECIAL: DJ Set at ZRCE Beach!</h2>
-      <p class="lead mt-16">On <strong>August 19</strong>, we are planning an exclusive DJ set at the legendary <strong>ZRCE Beach</strong> in Croatia!<br>
-        If you crave sun, music, and good vibes, come by and celebrate with us right by the sea.<br>
-        <span class="highlight">Everyone is warmly invited!</span>
-      </p>
-      <p class="lead">Tickets via email: <a href="mailto:zweiklangkontakt@gmail.com">zweiklangkontakt@gmail.com</a></p>
-      <div class="map-embed">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.324964234624!2d15.06096431556344!3d44.54139397910009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761f6e2e2e2e2e3%3A0x2e2e2e2e2e2e2e2e!2sZrce%20Beach!5e0!3m2!1sen!2shr!4v1691500000000!5m2!1sen!2shr" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="panel">
+      <div class="section-heading">
+        <span class="section-eyebrow">Highlights</span>
+        <h2>Upcoming Events</h2>
+        <p class="section-subtitle">Festival stages, intimate rooftops, and nature-inspired spots – here is where you can dance with us next.</p>
       </div>
-  <div id="countdown"></div>
-    </section>
-    <script>
-      const countdown = document.getElementById('countdown');
-      const eventDate = new Date('2025-08-19T00:00:00');
-      function updateCountdown() {
-        const now = new Date();
-        const diff = eventDate - now;
-        if (diff <= 0) {
-          countdown.textContent = 'The event is today!';
-          countdown.style.animation = 'pulse 1s infinite';
-          return;
-        }
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        countdown.textContent = `${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
-      }
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
-    </script>
-    
-
-    <section class="events">
-      <h2>Upcoming Events</h2>
-      <p>Stay tuned for more details!</p>
-    </section>
-
-  <section class="video-links panel panel--alt">
-      <h2>Our Videos</h2>
-      <p>Check out our latest performances and sets.</p>
+      <div class="event-cards">
+        <article class="event-card">
+          <span class="pill pill--light">19 Aug 2025</span>
+          <h3>ZRCE Beach, Croatia</h3>
+          <p>Sun-drenched Afro House journey on the Adriatic coast.</p>
+          <small>Novalja · Sunset Stage</small>
+          <a class="cta-btn" href="mailto:zweiklangkontakt@gmail.com">Tickets via email</a>
+        </article>
+        <article class="event-card">
+          <span class="pill pill--light">14 Jun 2025</span>
+          <h3>Moonlight Pavilion, Vogtsburg</h3>
+          <p>Open-air night with melodic techno under the stars.</p>
+          <small>Vogtsburg · Moonlight Sessions</small>
+          <a class="cta-btn" href="mailto:zweiklangkontakt@gmail.com">Reserve your spot</a>
+        </article>
+        <article class="event-card">
+          <span class="pill pill--light">21 Jun 2025</span>
+          <h3>Linachtalsperre, Furtwangen</h3>
+          <p>Immersive sound at an impressive dam location with visuals.</p>
+          <small>Furtwangen · Lakeside Series</small>
+          <a class="cta-btn" href="mailto:zweiklangkontakt@gmail.com">Join the guestlist</a>
+        </article>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-item__title">Ravenna Bridge Set</span>
+          <span class="timeline-item__date">Summer 2024 · Black Forest, Germany</span>
+          <p>An unforgettable performance in a breathtaking canyon with cinematic visuals.</p>
+        </div>
+      </div>
     </section>
 
-  <section class="socials panel panel--center">
-      <h2>Follow Us</h2>
-      <p>Stay connected on social media.</p>
+    <section class="panel panel--alt">
+      <div class="section-heading">
+        <span class="section-eyebrow">Watch</span>
+        <h2>Latest Videos</h2>
+        <p class="section-subtitle">Live sessions captured in the wild and behind the decks. Headphones recommended.</p>
+      </div>
+      <div class="video-gallery">
+        <article class="video-card">
+          <iframe src="https://www.youtube.com/embed/hs6W8gJl-9k?si=gPZ7fk8CEKzaVw5I" title="Live Set at Ravenna Bridge" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p>Live Set at Ravenna Bridge – melodic techno in a dramatic canyon location.</p>
+        </article>
+        <article class="video-card">
+          <iframe src="https://www.youtube.com/embed/e1q2x49NKFg?si=_Z8kQxZ9271r5V34" title="Sunset Vibes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p>Sunset Vibes – energy and emotion captured at golden hour.</p>
+        </article>
+        <article class="video-card">
+          <iframe src="https://www.youtube.com/embed/Csz8FY4B8JI?si=mxKf8f9n-RrM9ZqD" title="Golden Hour Chill" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p>Golden Hour Chill – organic house selections for easy sunsets.</p>
+        </article>
+        <article class="video-card">
+          <iframe src="https://www.youtube.com/embed/BwiD9gV5-c0?si=_JkNQN-QAxSgXuvb" title="Deep House Grooves" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p>Deep House Grooves – club-driven sounds straight from the dance floor.</p>
+        </article>
+      </div>
     </section>
 
-  <section class="newsletter panel panel--alt panel--center">
-      <h2>Newsletter</h2>
-      <p>Subscribe to stay updated on our latest news and events.</p>
+    <section class="panel panel--center">
+      <div class="section-heading section-heading--center">
+        <span class="section-eyebrow">Stay connected</span>
+        <h2>Follow &amp; Subscribe</h2>
+        <p class="section-subtitle">Music, tour dates, and behind-the-scenes stories – delivered straight to your feed.</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/ghostakmusic.wav" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/artemismusic.wav" target="_blank" rel="noopener noreferrer">Artemis</a>
+        <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+      </div>
+      <form class="newsletter-form" action="https://formsubmit.co/zweiklangkontakt@gmail.com" method="POST">
+        <label for="newsletter-email">Newsletter</label>
+        <input type="hidden" name="_subject" value="ZweiKlang Newsletter" />
+        <input type="email" id="newsletter-email" name="email" placeholder="you@example.com" required autocomplete="email" />
+        <button class="cta-btn" type="submit">Subscribe</button>
+        <p class="newsletter-note">We send occasional updates about new mixes, shows, and exclusive downloads. No spam, ever.</p>
+      </form>
     </section>
 
-  <section class="audio-player panel panel--center">
-      <h2>Listen to Our Music</h2>
-      <p>Enjoy our tracks and mixes.</p>
+    <section class="audio-player panel panel--split">
+      <div>
+        <div class="section-heading section-heading--column">
+          <span class="section-eyebrow">Listen</span>
+          <h2>SoundCloud Spotlight</h2>
+          <p class="section-subtitle">Press play for our latest mix – crafted for sunset sessions and late-night drives.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-card__value">90</span>
+            <span class="stat-card__label">Minutes</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__value">118</span>
+            <span class="stat-card__label">BPM Flow</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__value">6</span>
+            <span class="stat-card__label">Unreleased IDs</span>
+          </div>
+        </div>
+      </div>
       <div class="sc-embed">
-        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2125890612&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2125890612&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" title="SoundCloud player"></iframe>
         <div class="sc-credit">
           <a href="https://soundcloud.com/zweiklang_music" title="ZWEIKLANG" target="_blank" rel="noopener noreferrer">ZWEIKLANG</a>
           ·
@@ -168,44 +239,42 @@
         </div>
       </div>
     </section>
+
+    <section class="panel panel--alt">
+      <div class="section-heading">
+        <span class="section-eyebrow">Booking</span>
+        <h2>Bring ZweiKlang to your stage</h2>
+        <p class="section-subtitle">Clubs, festivals, rooftops, or private celebrations – let us curate a bespoke soundtrack.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3 class="contact-card__title">Bookings &amp; Press</h3>
+          <p class="contact-card__body">Tell us about your event, preferred vibe, and desired set length. We respond within 24 hours.</p>
+          <a href="mailto:zweiklangkontakt@gmail.com">zweiklangkontakt@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <h3 class="contact-card__title">Technical Rider</h3>
+          <p class="contact-card__body">Two Pioneer CDJ-3000 or 2000NXS2 decks, DJM-900NXS2 mixer, 2x monitor wedges. Custom lighting optional.</p>
+        </div>
+        <div class="contact-card">
+          <h3 class="contact-card__title">Social Assets</h3>
+          <p class="contact-card__body">Need artwork or teaser clips? Request our media kit with logos, banners, and promo snippets.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 ZweiKlang – ghostak & Artemis</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="videos.html">Videos</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p>&copy; 2025 ZweiKlang – ghostak &amp; Artemis. Crafted with love and loud monitors.</p>
   </footer>
-  <nav class="bottom-nav" aria-label="Mobile">
-    <ul>
-      <li>
-        <a href="index.html" aria-current="page">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5l9-7 9 7V21a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-6h-4v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10.5z"/></svg>
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="videos.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7-11-7z"/></svg>
-          <span>Videos</span>
-        </a>
-      </li>
-      <li>
-        <a href="events.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2zm-1 6h12v10H6V8z"/></svg>
-          <span>Events</span>
-        </a>
-      </li>
-      <li>
-        <a href="about.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          <span>About</span>
-        </a>
-      </li>
-      <li>
-        <a href="contact.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4V6zm0-2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4zm16 2l-8 6-8-6"/></svg>
-          <span>Contact</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

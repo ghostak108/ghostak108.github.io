@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZweiKlang - Videos</title>
-  <meta name="description" content="Watch ZweiKlang's latest videos and live sets." />
+  <meta name="description" content="Watch ZweiKlang's latest videos, live sets, and behind-the-scenes sessions." />
   <link rel="canonical" href="https://ghostak108.github.io/videos.html" />
   <meta property="og:title" content="ZweiKlang – Videos" />
   <meta property="og:description" content="Watch ZweiKlang's latest videos and live sets." />
@@ -15,145 +15,109 @@
   <meta name="twitter:title" content="ZweiKlang – Videos" />
   <meta name="twitter:description" content="Watch ZweiKlang's latest videos and live sets." />
   <meta name="twitter:image" content="https://ghostak108.github.io/banner.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="transparent.png" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header>
-    <h1>ZweiKlang</h1>
-  <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">
-      &#9776;
-    </button>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button>
-  <nav id="mainNav" role="navigation" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="logo_black.png" alt="ZweiKlang emblem" class="brand__logo" loading="lazy" />
+      <span>
+        <span class="brand__name">ZweiKlang</span>
+        <span class="brand__tagline">Melodic Techno</span>
+      </span>
+    </a>
+    <nav id="mainNav" role="navigation" aria-label="Primary" data-nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="videos.html" aria-current="page">Videos</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="contact.html">Contact & Legal</a></li>
+        <li><a href="contact.html">Contact &amp; Legal</a></li>
       </ul>
     </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+        <span aria-hidden="true" data-theme-icon-slot>☾</span>
+        <span class="sr-only" data-theme-toggle-label>Switch to light theme</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav" data-nav-toggle>
+        <span aria-hidden="true">&#9776;</span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+    </div>
   </header>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.body.classList.add('js');
-      const navToggleBtn = document.getElementById('navToggleBtn');
-      const mainNav = document.getElementById('mainNav');
-      // Theme init
-      const root = document.documentElement;
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light' || savedTheme === 'dark') {
-        root.setAttribute('data-theme', savedTheme);
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        root.setAttribute('data-theme', 'light');
-      } else {
-        root.setAttribute('data-theme', 'dark');
-      }
-      const themeToggle = document.getElementById('themeToggle');
-      const updateToggleIcon = () => {
-        const isLight = root.getAttribute('data-theme') === 'light';
-        themeToggle.textContent = isLight ? '☀' : '☾';
-      };
-      updateToggleIcon();
-      themeToggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        const next = current === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        updateToggleIcon();
-      });
-      if (!navToggleBtn || !mainNav) return;
-      navToggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const open = document.body.classList.toggle('nav-open');
-        navToggleBtn.setAttribute('aria-expanded', String(open));
-        if(open) setTimeout(()=>mainNav.querySelector('a').focus(), 200);
-      });
-      document.addEventListener('click', function(e) {
-        if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
-          document.body.classList.remove('nav-open');
-          navToggleBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-      mainNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          document.body.classList.remove('nav-open');
-          navToggleBtn.setAttribute('aria-expanded', 'false');
-        });
-      });
-      document.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
-      });
-    });
-  </script>
 
-    <main id="main">
-    <section class="videos panel">
-      <h2>Our Videos</h2>
-      <p>Here you can find a selection of our latest sets and performances:</p>
+  <main id="main">
+    <section class="panel panel--alt">
+      <div class="section-heading">
+        <span class="section-eyebrow">Watch</span>
+        <h2>Latest Sessions</h2>
+        <p class="section-subtitle">Transport yourself to rooftops, forests, and festival stages with our curated selection of sets.</p>
+      </div>
       <div class="video-gallery">
-  <div class="text-center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/hs6W8gJl-9k?si=gPZ7fk8CEKzaVw5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p>"Live Set at Ravenna Bridge" - An unforgettable performance in a breathtaking setting. Let yourself be carried away by the energy!</p>
+        <article class="video-card">
+          <iframe src="https://www.youtube.com/embed/hs6W8gJl-9k?si=gPZ7fk8CEKzaVw5I" title="Live Set at Ravenna Bridge" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p>Live Set at Ravenna Bridge – dramatic canyon acoustics and euphoric melodic techno.</p>
+        </article>
+        <article class="video-card">
+          <iframe src="https://www.youtube.com/embed/e1q2x49NKFg?si=_Z8kQxZ9271r5V34" title="Sunset Vibes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p>Sunset Vibes – golden-hour grooves captured high above the city.</p>
+        </article>
+        <article class="video-card">
+          <iframe src="https://www.youtube.com/embed/Csz8FY4B8JI?si=mxKf8f9n-RrM9ZqD" title="Golden Hour Chill" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p>Golden Hour Chill – organic house selections to unwind and breathe.</p>
+        </article>
+        <article class="video-card">
+          <iframe src="https://www.youtube.com/embed/BwiD9gV5-c0?si=_JkNQN-QAxSgXuvb" title="Deep House Grooves" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p>Deep House Grooves – high-energy club edition recorded live.</p>
+        </article>
+        <article class="video-card">
+          <iframe src="https://www.youtube.com/embed/vfBbp1tWZBs?si=gtKIo1HbXo5g1jek" title="Club Night Energy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          <p>Club Night Energy – relentless rhythms and basslines for after-hours.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <span class="section-eyebrow">Behind the scenes</span>
+        <h2>How we capture the vibe</h2>
+        <p class="section-subtitle">Every video is designed to feel intimate, immersive, and true to the moment.</p>
+      </div>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3 class="info-card__title">Location scouting</h3>
+          <p class="info-card__text">From alpine viewpoints to industrial rooftops, we hand-pick locations that mirror the mood of each set.</p>
         </div>
-  <div class="text-center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/e1q2x49NKFg?si=_Z8kQxZ9271r5V34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p>"Sunset Vibes" - A set full of energy and emotions, perfect for the sunset.</p>
+        <div class="info-card">
+          <h3 class="info-card__title">Visual storytelling</h3>
+          <p class="info-card__text">We work with filmmakers and light designers to highlight details – misty mornings, neon reflections, city skylines.</p>
         </div>
-  <div class="text-center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/Csz8FY4B8JI?si=mxKf8f9n-RrM9ZqD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p>"Golden Hour Chill" - Perfect sounds for relaxing moments in nature.</p>
-        </div>
-  <div class="text-center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/BwiD9gV5-c0?si=_JkNQN-QAxSgXuvb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p>"Deep House Grooves" - Let the beats take you away and enjoy the atmosphere.</p>
-        </div>
-  <div class="text-center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/vfBbp1tWZBs?si=gtKIo1HbXo5g1jek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p>"Club Night Energy" - The best tracks for the dance floor, live and honest.</p>
+        <div class="info-card">
+          <h3 class="info-card__title">Community energy</h3>
+          <p class="info-card__text">Most sessions are recorded live with our community. Their reactions fuel the pacing, track selection, and edits.</p>
         </div>
       </div>
+      <p class="mt-24">Want to collaborate on a film project or livestream? <a class="cta-link" href="mailto:zweiklangkontakt@gmail.com">Let’s create →</a></p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 ZweiKlang – ghostak & Artemis</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="videos.html" aria-current="page">Videos</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p>&copy; 2025 ZweiKlang – ghostak &amp; Artemis.</p>
   </footer>
-  <nav class="bottom-nav" aria-label="Mobile">
-    <ul>
-      <li>
-        <a href="index.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5l9-7 9 7V21a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-6h-4v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10.5z"/></svg>
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="videos.html" aria-current="page">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7-11-7z"/></svg>
-          <span>Videos</span>
-        </a>
-      </li>
-      <li>
-        <a href="events.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2zm-1 6h12v10H6V8z"/></svg>
-          <span>Events</span>
-        </a>
-      </li>
-      <li>
-        <a href="about.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          <span>About</span>
-        </a>
-      </li>
-      <li>
-        <a href="contact.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4V6zm0-2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4zm16 2l-8 6-8-6"/></svg>
-          <span>Contact</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
