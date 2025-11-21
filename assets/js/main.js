@@ -183,6 +183,56 @@
     revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
+  // Micro-interaction: gradient focus point for CTA buttons
+  document.querySelectorAll('.cta-btn').forEach((btn) => {
+    const setPosition = (event) => {
+      const rect = btn.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      btn.style.setProperty('--x', `${x}%`);
+      btn.style.setProperty('--y', `${y}%`);
+    };
+    ['pointermove', 'touchmove'].forEach((evt) => btn.addEventListener(evt, setPosition, { passive: true }));
+    btn.addEventListener('pointerenter', setPosition);
+  });
+
+  // Header float + active section highlighting
+  const header = document.querySelector('header');
+  let lastScrollY = 0;
+  if (header) {
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      const isGoingDown = current > lastScrollY;
+      header.classList.toggle('is-floating', current > 20);
+      if (isGoingDown && current > 140) {
+        header.classList.add('is-hidden');
+      } else {
+        header.classList.remove('is-hidden');
+      }
+      lastScrollY = current;
+    }, { passive: true });
+  }
+
+  const sectionObserverTargets = Array.from(document.querySelectorAll('section[id]'));
+  const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+  if ('IntersectionObserver' in window && sectionObserverTargets.length && navLinks.length) {
+    const navMap = new Map(
+      navLinks.map((link) => [link.getAttribute('href').replace('#', ''), link])
+    );
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.id;
+        const link = navMap.get(id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach((l) => l.classList.remove('is-active'));
+          link.classList.add('is-active');
+        }
+      });
+    }, { threshold: 0.4 });
+    sectionObserverTargets.forEach((section) => sectionObserver.observe(section));
+  }
+
   // Simple filter for music cards
   const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
   const filterTarget = document.querySelector('[data-filter-target]');
