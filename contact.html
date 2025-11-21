@@ -1,142 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZweiKlang - Contact & Legal</title>
-  <meta name="description" content="Contact ZweiKlang for bookings and inquiries. Legal notice and imprint." />
+  <title>ZweiKlang · Contact & Legal</title>
+  <meta name="description" content="Kontakt, Booking-Anfrage und Impressum f&uuml;r ZweiKlang." />
   <link rel="canonical" href="https://ghostak108.github.io/contact.html" />
-  <meta property="og:title" content="ZweiKlang – Contact & Legal" />
-  <meta property="og:description" content="Contact ZweiKlang for bookings and inquiries. Legal notice and imprint." />
+  <meta property="og:title" content="ZweiKlang · Contact & Legal" />
+  <meta property="og:description" content="Direkter Kontakt zu ZweiKlang und rechtliche Hinweise." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ghostak108.github.io/contact.html" />
   <meta property="og:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ZweiKlang – Contact & Legal" />
-  <meta name="twitter:description" content="Contact ZweiKlang for bookings and inquiries. Legal notice and imprint." />
+  <meta name="twitter:title" content="ZweiKlang · Contact & Legal" />
+  <meta name="twitter:description" content="Booking &amp; Kollab Kontakt, Impressum und Datenschutz." />
   <meta name="twitter:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="transparent.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-zweiklang.svg" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header>
-    <a class="brand" href="index.html">
-      <!-- // NEUES LOGO oben links (Header) -->
-      <img src="assets/logo-zweiklang.svg" alt="ZweiKlang emblem" class="brand__logo" loading="lazy" />
-      <span>
-        <span class="brand__name">ZweiKlang</span>
-        <span class="brand__tagline">Melodic Techno</span>
-      </span>
-    </a>
-    <nav id="mainNav" role="navigation" aria-label="Primary" data-nav>
-      <ul>
-        <!-- // NAV-Link Home -->
-        <li><a href="index.html">Home</a></li>
-        <!-- // NAV-Link Music -->
-        <li><a href="index.html#music">Music</a></li>
-        <!-- // NAV-Link Videos -->
-        <li><a href="videos.html">Videos</a></li>
-        <!-- // NAV-Link About -->
-        <li><a href="about.html">About Us</a></li>
-        <!-- // NAV-Link Events -->
-        <li><a href="events.html">Events</a></li>
-        <!-- // NAV-Link Contact -->
-        <li><a href="contact.html" aria-current="page">Contact &amp; Legal</a></li>
-      </ul>
-    </nav>
-    <div class="header-actions">
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
-        <span aria-hidden="true" data-theme-icon-slot>☾</span>
-        <span class="sr-only" data-theme-toggle-label>Switch to light theme</span>
-      </button>
-      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav" data-nav-toggle>
-        <span aria-hidden="true">&#9776;</span>
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="panel reveal">
-      <div class="section-heading">
-        <span class="section-eyebrow">Contact</span>
-        <h2>Talk to us</h2>
-        <p class="section-subtitle">Bookings, collaborations, or just to say hi – we’d love to hear from you.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-card hover-lift tilt-card hover-glow" data-tilt>
-          <h3 class="contact-card__title">General inquiries</h3>
-          <p class="contact-card__body">Drop a line with your idea, preferred date, and location. We respond within 24 hours.</p>
-          <a href="mailto:zweiklangkontakt@gmail.com">zweiklangkontakt@gmail.com</a>
-        </div>
-        <div class="contact-card hover-lift tilt-card hover-glow" data-tilt>
-          <h3 class="contact-card__title">Press &amp; media</h3>
-          <p class="contact-card__body">Request our press kit, hi-res photos, and artist bio for promo materials.</p>
-        </div>
-        <div class="contact-card hover-lift tilt-card hover-glow" data-tilt>
-          <h3 class="contact-card__title">Collaboration</h3>
-          <p class="contact-card__body">We’re open to joint sets, livestreams, brand events, and creative experiments.</p>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html#hero">
+          <!-- // LOGO: Header Brandmark -->
+          <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+          <div>
+            <!-- // BRAND_NAME -->
+            <span>ZweiKlang</span>
+            <!-- // BRAND_TAGLINE -->
+            <small style="color: var(--fg-200);">Cinematic Techno Duo</small>
+          </div>
+        </a>
+        <nav aria-label="Hauptnavigation">
+          <ul id="navList">
+            <li><a href="index.html#hero"><!-- // NAV_ITEM: Home -->Home</a></li>
+            <li><a href="index.html#music"><!-- // NAV_ITEM: Music -->Music</a></li>
+            <li><a href="index.html#watch"><!-- // NAV_ITEM: Videos -->Videos</a></li>
+            <li><a href="about.html"><!-- // NAV_ITEM: About -->About</a></li>
+            <li><a href="index.html#events"><!-- // NAV_ITEM: Events -->Events</a></li>
+            <li><a href="index.html#services"><!-- // NAV_ITEM: Services -->Services</a></li>
+            <li><a href="contact.html" aria-current="page"><!-- // NAV_ITEM: Contact -->Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-ghost" href="mailto:booking@zweiklang.io">
+            <!-- // HEADER_CTA: Booking Button -->booking@zweiklang.io
+          </a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen" id="navToggle">
+            <span aria-hidden="true">☰</span>
+          </button>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section class="panel panel--alt reveal">
-      <div class="section-heading">
-        <span class="section-eyebrow">Imprint</span>
-        <h2>Legal Notice (§ 5 TMG)</h2>
-      </div>
-      <div class="legal-panel">
-        <ul class="legal-list">
-          <li>
-            <strong>ZweiKlang</strong><br />
-            ghostak &amp; Artemis<br />
-            Högestraße 22<br />
-            79108 Freiburg
-          </li>
-          <li>
-            <strong>Represented by:</strong><br />
-            ghostak &amp; Artemis
-          </li>
-          <li>
-            <strong>Contact:</strong><br />
-            Email: <a href="mailto:zweiklangkontakt@gmail.com">zweiklangkontakt@gmail.com</a>
-          </li>
-        </ul>
-        <p class="newsletter-note"><strong>Disclaimer:</strong> Despite careful content control, we assume no liability for external links. The content of linked pages is the sole responsibility of their operators.</p>
-      </div>
-    </section>
-  </main>
+    <main id="main">
+      <section class="section" id="contact-intro">
+        <div class="container contact-grid">
+          <div class="contact-text reveal">
+            <div class="section-heading">
+              <!-- // CONTACT_PAGE_HEADING -->
+              <p class="eyebrow">Contact</p>
+              <!-- // CONTACT_PAGE_TITLE -->
+              <h1>Direkter Draht f&uuml;r Booking &amp; Kollab</h1>
+              <!-- // CONTACT_PAGE_SUBTITLE -->
+              <p>Teile Venue, Datum, Wunsch-Vibe und besondere Anforderungen. Wir antworten innerhalb von 24h mit Tech-Rider und Ablaufplan.</p>
+            </div>
+            <div class="meta-row">
+              <!-- // CONTACT_PAGE_EMAIL -->
+              <a class="pill" href="mailto:booking@zweiklang.io">booking@zweiklang.io</a>
+              <!-- // CONTACT_PAGE_PHONE -->
+              <span class="pill">+49 170 000000</span>
+            </div>
+            <div class="social-row">
+              <a class="social-btn" href="https://www.instagram.com/zweiklang_official" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <!-- // CONTACT_SOCIAL_INSTAGRAM -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.2"/></svg>
+              </a>
+              <a class="social-btn" href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <!-- // CONTACT_SOCIAL_YOUTUBE -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.8 8.001s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C16.3 5 12 5 12 5h0s-4.3 0-7.1.1c-.4 0-1.2.1-1.9.9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.7.8 1.6.8 2 0.9 1.5.1 6.9.1 6.9.1s4.3 0 7.1-.1c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5c0-1.6-.2-3.2-.2-3.2Zm-12 6.7V9.3l5 2.7-5 2.7Z"/></svg>
+              </a>
+              <a class="social-btn" href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
+                <!-- // CONTACT_SOCIAL_SOUNDCLOUD -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7.2c-.6 0-1 .4-1 1l-.6 8.4h2.1l.5-8.4c0-.6-.4-1-1-1Zm-3.2 1.2c-.5 0-1 .4-1 1l-.5 7.2h2l.5-7.2c0-.6-.5-1-1-1Zm-3 2c-.5 0-.9.4-.9 1l-.3 5.2H3l.4-5.3c0-.5-.4-.9-.9-.9Zm14-2.2c-1 0-1.9.5-2.5 1.2-.3-.1-.6-.2-1-.2-.5 0-1 .2-1.4.5-.3-.6-.9-1-1.6-1-.2 0-.4 0-.6.1v8.4H20v-3.5c0-2.3-1.8-4.1-4-4.1Z"/></svg>
+              </a>
+              <a class="social-btn" href="https://open.spotify.com/artist/" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+                <!-- // CONTACT_SOCIAL_SPOTIFY -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2Zm4.6 14.5c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.4-.8-.4.1-.7-.1-.8-.5a.7.7 0 0 1 .5-.8c4-.9 7.6-.6 10.4 1 .3.2.4.6.2.9Zm1.2-2.8c-.2.3-.7.5-1 .3-2.9-1.7-7.2-2.2-10.5-1-.4.2-.8 0-.9-.4-.2-.4 0-.8.4-1 3.9-1.3 8.6-.8 11.9 1.2.3.2.4.6.1.9Zm0-3.1C14.3 9 9.4 8.8 6 9.9c-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1C9.3 7.1 14.7 7.3 18.7 9.6c.4.2.5.7.3 1Z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form reveal">
+            <div class="form-card">
+              <!-- // CONTACT_FORM_TITLE -->
+              <h3>Kontaktformular</h3>
+              <!-- // CONTACT_FORM_SUBTITLE -->
+              <p style="margin:0 0 8px 0;">Antwort mit Tech-Rider, Ablauf und optionalen Visuals.</p>
+              <form>
+                <div class="form-grid">
+                  <label>
+                    <!-- // CONTACT_FIELD_NAME_LABEL -->
+                    <span>Name / Agentur</span>
+                    <input type="text" name="contact-name" placeholder="Ihr Name" />
+                  </label>
+                  <label>
+                    <!-- // CONTACT_FIELD_EMAIL_LABEL -->
+                    <span>E-Mail</span>
+                    <input type="email" name="contact-email" placeholder="mail@example.com" />
+                  </label>
+                  <label>
+                    <!-- // CONTACT_FIELD_DATE_LABEL -->
+                    <span>Datum</span>
+                    <input type="date" name="contact-date" />
+                  </label>
+                  <label>
+                    <!-- // CONTACT_FIELD_CITY_LABEL -->
+                    <span>Ort / Venue</span>
+                    <input type="text" name="contact-city" placeholder="z. B. Berlin, Echo Vault" />
+                  </label>
+                </div>
+                <label>
+                  <!-- // CONTACT_FIELD_MESSAGE_LABEL -->
+                  <span>Details</span>
+                  <textarea name="contact-message" placeholder="Slot, Format, besondere Anforderungen"></textarea>
+                </label>
+                <div class="meta-row" style="justify-content: space-between; align-items: center;">
+                  <label style="display:flex; gap:8px; align-items:center;">
+                    <input type="checkbox" />
+                    <!-- // CONTACT_DSGVO_TEXT -->
+                    <span>Ich stimme der Verarbeitung laut Datenschutzerkl&auml;rung zu.</span>
+                  </label>
+                  <button class="btn" type="submit">
+                    <!-- // CONTACT_SUBMIT_BUTTON -->
+                    Abschicken
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <!-- // NEUES LOGO im Footer -->
-        <img src="assets/logo-zweiklang.svg" alt="ZweiKlang footer logo" loading="lazy" />
+      <section class="section" id="legal">
+        <div class="container reveal">
+          <div class="section-heading">
+            <!-- // LEGAL_HEADING -->
+            <p class="eyebrow">Impressum</p>
+            <!-- // LEGAL_TITLE -->
+            <h2>Rechtliche Hinweise (§ 5 TMG)</h2>
+            <!-- // LEGAL_SUBTITLE -->
+            <p>Verantwortlich f&uuml;r Inhalt und Kontakt.</p>
+          </div>
+          <div class="legal-panel">
+            <ul class="legal-list">
+              <li>
+                <strong><!-- // LEGAL_COMPANY -->ZweiKlang</strong><br />
+                <!-- // LEGAL_NAMES -->ghostak &amp; Artemis<br />
+                <!-- // LEGAL_STREET -->H&ouml;gestra&szlig;e 22<br />
+                <!-- // LEGAL_CITY -->79108 Freiburg
+              </li>
+              <li>
+                <strong>Vertreten durch:</strong><br />
+                <!-- // LEGAL_REP -->ghostak &amp; Artemis
+              </li>
+              <li>
+                <strong>Kontakt:</strong><br />
+                <!-- // LEGAL_EMAIL -->Email: <a href="mailto:booking@zweiklang.io">booking@zweiklang.io</a>
+              </li>
+            </ul>
+            <p class="badge" style="margin-top:12px; display:inline-flex;">Keine Haftung f&uuml;r externe Links. Betreiber sind f&uuml;r deren Inhalte verantwortlich.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
         <div>
-          <p>&copy; 2025 ZweiKlang – ghostak &amp; Artemis.</p>
-          <p>Premium melodic techno &amp; organic house journeys.</p>
+          <a class="brand" href="index.html#hero">
+            <!-- // FOOTER_LOGO -->
+            <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+            <div>
+              <!-- // FOOTER_BRAND_NAME -->
+              <span>ZweiKlang</span>
+              <!-- // FOOTER_BRAND_TAGLINE -->
+              <small style="color: var(--fg-200);">Cinematic Techno</small>
+            </div>
+          </a>
+          <!-- // FOOTER_COPY -->
+          <p style="margin-top:10px;">Immersive Sound &amp; Visual Storytelling.</p>
+        </div>
+        <div>
+          <!-- // FOOTER_NAV_TITLE -->
+          <h4>Navigation</h4>
+          <div class="footer-nav">
+            <a href="index.html#music"><!-- // FOOTER_NAV_MUSIC -->Music</a>
+            <a href="index.html#watch"><!-- // FOOTER_NAV_VIDEOS -->Videos</a>
+            <a href="index.html#events"><!-- // FOOTER_NAV_EVENTS -->Events</a>
+            <a href="index.html#services"><!-- // FOOTER_NAV_SERVICES -->Services</a>
+            <a href="contact.html"><!-- // FOOTER_NAV_CONTACT -->Contact</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_SOCIAL_TITLE -->
+          <h4>Socials</h4>
+          <div class="footer-nav">
+            <a href="https://www.instagram.com/zweiklang_official" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_INSTAGRAM -->Instagram</a>
+            <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SOUNDCLOUD -->SoundCloud</a>
+            <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_YOUTUBE -->YouTube</a>
+            <a href="https://open.spotify.com/artist/" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SPOTIFY -->Spotify</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_LEGAL_TITLE -->
+          <h4>Rechtliches</h4>
+          <div class="footer-nav">
+            <a href="contact.html"><!-- // FOOTER_LEGAL_IMPRINT -->Impressum</a>
+            <a href="contact.html"><!-- // FOOTER_LEGAL_PRIVACY -->Datenschutz</a>
+          </div>
         </div>
       </div>
-      <div class="footer-actions">
-        <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 15l5.19-3L10 9v6zm12-3c0-2.5-.2-4.1-.46-5.16-.26-1-.97-1.71-1.93-1.96C17.5 4.5 12 4.5 12 4.5s-5.5 0-7.61.38c-.96.25-1.67.96-1.93 1.96C2.2 7.9 2 9.5 2 12s.2 4.1.46 5.16c.26 1 .97 1.71 1.93 1.96C4.5 19.5 12 19.5 12 19.5s5.5 0 7.61-.38c.96-.25 1.67-.96 1.93-1.96.26-1.06.46-2.66.46-5.16z"/></svg>
-          <span>YouTube</span>
-        </a>
-        <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 9.5c-.3 0-.6.1-.8.2-.5-2-2.3-3.5-4.4-3.5-1.4 0-2.8.7-3.6 1.8-.4-.3-.9-.5-1.4-.5C4 7.5 2.5 9 2.5 10.9s1.5 3.4 3.3 3.4H17c1.4 0 2.5-1.1 2.5-2.5S18.4 9.5 17 9.5Z"/></svg>
-          <span>SoundCloud</span>
-        </a>
-        <a href="mailto:zweiklangkontakt@gmail.com" aria-label="Booking email">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 13 2 6.76V18h20V6.76L12 13Zm0-2.47L21.72 5H2.28L12 10.53Z"/></svg>
-          <span>Booking</span>
-        </a>
-      </div>
+    </footer>
+  </div>
+
+  <div class="cookie" id="cookieBanner">
+    <!-- // COOKIE_TEXT -->
+    <p>Wir nutzen technisch notwendige Cookies f&uuml;r Performance &amp; Security. Keine Third-Party-Tracker.</p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="btn" id="cookieAccept" type="button">
+        <!-- // COOKIE_ACCEPT_LABEL -->
+        Akzeptieren
+      </button>
+      <button class="btn btn-ghost" id="cookieDecline" type="button">
+        <!-- // COOKIE_DECLINE_LABEL -->
+        Nur technisch notwendige
+      </button>
     </div>
-  </footer>
+  </div>
 
   <script src="assets/js/main.js" defer></script>
 </body>

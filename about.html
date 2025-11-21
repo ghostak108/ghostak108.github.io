@@ -1,171 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZweiKlang - About Us</title>
-  <meta name="description" content="About ZweiKlang – DJ duo ghostak & Artemis. Learn our story, sound, and creative vision." />
+  <title>ZweiKlang · About</title>
+  <meta name="description" content="ZweiKlang verbindet cineastischen Melodic Techno mit organischen Texturen. Lerne Ghostak & Artemis kennen." />
   <link rel="canonical" href="https://ghostak108.github.io/about.html" />
-  <meta property="og:title" content="ZweiKlang – About Us" />
-  <meta property="og:description" content="Meet ghostak & Artemis, the DJ duo behind ZweiKlang." />
+  <meta property="og:title" content="ZweiKlang · About" />
+  <meta property="og:description" content="Das cineastische Duo hinter ZweiKlang: Ghostak & Artemis." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ghostak108.github.io/about.html" />
   <meta property="og:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ZweiKlang – About Us" />
-  <meta name="twitter:description" content="Meet ghostak & Artemis, the DJ duo behind ZweiKlang." />
+  <meta name="twitter:title" content="ZweiKlang · About" />
+  <meta name="twitter:description" content="ZweiKlang steht f&uuml;r immersive, filmische Clubmomente." />
   <meta name="twitter:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="transparent.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-zweiklang.svg" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header>
-    <a class="brand" href="index.html">
-      <!-- // NEUES LOGO oben links (Header) -->
-      <img src="assets/logo-zweiklang.svg" alt="ZweiKlang emblem" class="brand__logo" loading="lazy" />
-      <span>
-        <span class="brand__name">ZweiKlang</span>
-        <span class="brand__tagline">Melodic Techno</span>
-      </span>
-    </a>
-    <nav id="mainNav" role="navigation" aria-label="Primary" data-nav>
-      <ul>
-        <!-- // NAV-Link Home -->
-        <li><a href="index.html">Home</a></li>
-        <!-- // NAV-Link Music -->
-        <li><a href="index.html#music">Music</a></li>
-        <!-- // NAV-Link Videos -->
-        <li><a href="videos.html">Videos</a></li>
-        <!-- // NAV-Link About -->
-        <li><a href="about.html" aria-current="page">About Us</a></li>
-        <!-- // NAV-Link Events -->
-        <li><a href="events.html">Events</a></li>
-        <!-- // NAV-Link Contact -->
-        <li><a href="contact.html">Contact &amp; Legal</a></li>
-      </ul>
-    </nav>
-    <div class="header-actions">
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
-        <span aria-hidden="true" data-theme-icon-slot>☾</span>
-        <span class="sr-only" data-theme-toggle-label>Switch to light theme</span>
-      </button>
-      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav" data-nav-toggle>
-        <span aria-hidden="true">&#9776;</span>
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-    </div>
-  </header>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html#hero">
+          <!-- // LOGO: Header Brandmark -->
+          <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+          <div>
+            <!-- // BRAND_NAME -->
+            <span>ZweiKlang</span>
+            <!-- // BRAND_TAGLINE -->
+            <small style="color: var(--fg-200);">Cinematic Techno Duo</small>
+          </div>
+        </a>
+        <nav aria-label="Hauptnavigation">
+          <ul id="navList">
+            <li><a href="index.html#hero"><!-- // NAV_ITEM: Home -->Home</a></li>
+            <li><a href="index.html#music"><!-- // NAV_ITEM: Music -->Music</a></li>
+            <li><a href="index.html#watch"><!-- // NAV_ITEM: Videos -->Videos</a></li>
+            <li><a href="about.html" aria-current="page"><!-- // NAV_ITEM: About -->About</a></li>
+            <li><a href="index.html#events"><!-- // NAV_ITEM: Events -->Events</a></li>
+            <li><a href="index.html#services"><!-- // NAV_ITEM: Services -->Services</a></li>
+            <li><a href="contact.html"><!-- // NAV_ITEM: Contact -->Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-ghost" href="contact.html">
+            <!-- // HEADER_CTA: Booking Button -->Booking anfragen
+          </a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen" id="navToggle">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+    </header>
 
-  <main id="main">
-    <section class="panel panel--split reveal">
-      <div>
-        <div class="section-heading section-heading--column">
-          <span class="section-eyebrow">The duo</span>
-          <h2>Two minds. One sonic language.</h2>
-          <p class="section-subtitle">ZweiKlang merges ghostak’s cinematic techno storytelling with Artemis’ organic, experimental flair. Together we craft soundtracks for sunsets, rooftops, and dancefloors.</p>
+    <main id="main">
+      <section class="section" id="about-hero">
+        <div class="container split">
+          <div class="split-left reveal">
+            <div class="section-heading">
+              <!-- // ABOUT_PAGE_HEADING -->
+              <p class="eyebrow">The Duo</p>
+              <!-- // ABOUT_PAGE_TITLE -->
+              <h1>ZweiKlang ist die Schnittstelle zwischen cineastischer Spannung und organischem Groove.</h1>
+              <!-- // ABOUT_PAGE_SUBTITLE -->
+              <p>Ghostak &amp; Artemis schreiben ihre Sets wie Filmskripte: Aufbau, Steigerung, kathartischer Peak. Analoge S&auml;ttigung, Vocal-Fragmente und tiefe B&auml;sse f&uuml;r Club, Rooftop und Streams.</p>
+            </div>
+            <div class="badge-row">
+              <!-- // ABOUT_PAGE_TAG_1 -->
+              <span class="badge">Hybrid &amp; DJ Only</span>
+              <!-- // ABOUT_PAGE_TAG_2 -->
+              <span class="badge">Live Visual Seeds</span>
+              <!-- // ABOUT_PAGE_TAG_3 -->
+              <span class="badge">Antwort in 24h</span>
+            </div>
+          </div>
+          <div class="split-right reveal">
+            <div class="glass-card" style="padding:20px; display:grid; gap:12px;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="pill">Ghostak</span>
+                <span class="pill">Artemis</span>
+              </div>
+              <div class="portrait-stack">
+                <div class="portrait-main tilt">
+                  <!-- // ABOUT_MAIN_IMAGE -->
+                  <img src="new banner.png" alt="ZweiKlang Performance" loading="lazy" />
+                </div>
+                <div class="portrait-side tilt">
+                  <!-- // ABOUT_SIDE_IMAGE_1 -->
+                  <img src="ghostak.PNG" alt="Ghostak" loading="lazy" />
+                </div>
+                <div class="portrait-side tilt">
+                  <!-- // ABOUT_SIDE_IMAGE_2 -->
+                  <img src="artemis.png" alt="Artemis" loading="lazy" />
+                </div>
+              </div>
+              <p style="margin:0;">
+                <!-- // ABOUT_PAGE_QUOTE -->
+                „Wir fokussieren nicht auf Drops, sondern auf Atmosph&auml;re. Jede Minute soll im Raum bestehen." 
+              </p>
+              <div class="meta-row">
+                <!-- // ABOUT_PAGE_META_1 -->
+                <span class="pill">BPM 115–124</span>
+                <!-- // ABOUT_PAGE_META_2 -->
+                <span class="pill">Analog Outboard</span>
+                <!-- // ABOUT_PAGE_META_3 -->
+                <span class="pill">Stems &amp; Visuals</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="lead">From the Black Forest to Croatia’s beaches, we perform immersive sets packed with slow-burning builds, euphoric peaks, and raw emotions. Every show is tailored to the location, the crowd, and the moment in time.</p>
-        <div class="tag-grid">
-          <span class="tag">Melodic Techno</span>
-          <span class="tag">Deep House</span>
-          <span class="tag">Organic Grooves</span>
-          <span class="tag">Sunset Stories</span>
-        </div>
-      </div>
-      <div class="profile">
-        <div class="member member-card hover-lift tilt-card hover-glow" data-tilt>
-          <img src="ghostak.PNG" alt="ghostak" loading="lazy" onerror="this.onerror=null;this.src='transparent.png';this.alt='ghostak (image unavailable)';" />
-          <h3>ghostak</h3>
-          <p>Melodic techno architect with a love for cinematic progressions and deep, rolling basslines.</p>
-          <a class="cta-link" href="https://www.instagram.com/ghostakmusic.wav" target="_blank" rel="noopener noreferrer">Instagram →</a>
-        </div>
-        <div class="member member-card hover-lift tilt-card hover-glow" data-tilt>
-          <img src="artemis.png" alt="Artemis" loading="lazy" onerror="this.onerror=null;this.src='transparent.png';this.alt='Artemis (image unavailable)';" />
-          <h3>Artemis</h3>
-          <p>Explorer of experimental textures, downtempo rhythms, and hypnotic vocal chops.</p>
-          <a class="cta-link" href="https://www.instagram.com/artemismusic.wav" target="_blank" rel="noopener noreferrer">Instagram →</a>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="panel panel--alt reveal">
-      <div class="section-heading">
-        <span class="section-eyebrow">Values</span>
-        <h2>What drives our sets</h2>
-        <p class="section-subtitle">We design every experience around connection, atmosphere, and storytelling.</p>
-      </div>
-      <div class="card-grid">
-        <div class="info-card hover-lift hover-glow tilt-card" data-tilt>
-          <h3 class="info-card__title">Immersive journeys</h3>
-          <p class="info-card__text">Slow-build transitions and layered harmonies that guide the crowd from sunrise calm to midnight euphoria.</p>
+      <section class="section" id="values">
+        <div class="container reveal">
+          <div class="section-heading">
+            <!-- // VALUES_HEADING -->
+            <p class="eyebrow">Values</p>
+            <!-- // VALUES_TITLE -->
+            <h2>Worauf jede Show baut</h2>
+            <!-- // VALUES_SUBTITLE -->
+            <p>Immersive Dramaturgie, technischer Feinschliff und Community-N&auml;he definieren jeden Slot.</p>
+          </div>
+          <div class="service-grid">
+            <div class="service-card tilt">
+              <!-- // VALUE_1_TITLE -->
+              <h3>Story-first Sets</h3>
+              <!-- // VALUE_1_DESC -->
+              <p>Lang aufgebaute Spannungsb&ouml;gen mit analogen Leads und Vocal Shards.</p>
+              <div class="meta-row">
+                <span class="pill">Filmische Arcs</span>
+                <span class="pill">Extended Blends</span>
+              </div>
+            </div>
+            <div class="service-card tilt">
+              <!-- // VALUE_2_TITLE -->
+              <h3>Sound &amp; Safety</h3>
+              <!-- // VALUE_2_DESC -->
+              <p>Rider-sicher, Ersatz-Decks, Recording-Chain und klarer Gain-Staging-Plan.</p>
+              <div class="meta-row">
+                <span class="pill">Redundanz</span>
+                <span class="pill">Club &amp; Stream Ready</span>
+              </div>
+            </div>
+            <div class="service-card tilt">
+              <!-- // VALUE_3_TITLE -->
+              <h3>Visual Synergy</h3>
+              <!-- // VALUE_3_DESC -->
+              <p>Licht- und Visual-Seeds abgestimmt auf Ort, Uhrzeit und Publikum.</p>
+              <div class="meta-row">
+                <span class="pill">Custom LUTs</span>
+                <span class="pill">Atmos FX</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="info-card hover-lift hover-glow tilt-card" data-tilt>
-          <h3 class="info-card__title">Nature-inspired</h3>
-          <p class="info-card__text">We take inspiration from forests, beaches, and mountain air – translating landscapes into rhythm and mood.</p>
-        </div>
-        <div class="info-card hover-lift hover-glow tilt-card" data-tilt>
-          <h3 class="info-card__title">Community first</h3>
-          <p class="info-card__text">Collaboration with local artists, live instrumentalists, and visual storytellers keeps each set unique.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="panel reveal">
-      <div class="section-heading">
-        <span class="section-eyebrow">Timeline</span>
-        <h2>Milestones</h2>
-        <p class="section-subtitle">Highlights from our journey so far.</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-item__title">Ravenna Bridge debut</span>
-          <span class="timeline-item__date">2024 · Black Forest, Germany</span>
-          <p>Our breakthrough livestream in a dramatic canyon setting introduced ZweiKlang to a global audience.</p>
+      <section class="section" id="timeline">
+        <div class="container reveal">
+          <div class="section-heading">
+            <!-- // TIMELINE_HEADING -->
+            <p class="eyebrow">Timeline</p>
+            <!-- // TIMELINE_TITLE -->
+            <h2>Momente, die ZweiKlang geformt haben</h2>
+            <!-- // TIMELINE_SUBTITLE -->
+            <p>Jede Location bringt neue Texturen und Reaktionen. Diese Highlights haben den Sound definiert.</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <!-- // TIMELINE_ITEM_1_TITLE -->
+              <h3>Ravenna Bridge Debut</h3>
+              <!-- // TIMELINE_ITEM_1_META -->
+              <p class="pill" style="width: fit-content;">2024 · Black Forest</p>
+              <!-- // TIMELINE_ITEM_1_DESC -->
+              <p>Cinematic Livestream im Canyon, analoger Druck und globaler Reach.</p>
+            </div>
+            <div class="timeline-item">
+              <!-- // TIMELINE_ITEM_2_TITLE -->
+              <h3>Sunrise Coastal Session</h3>
+              <!-- // TIMELINE_ITEM_2_META -->
+              <p class="pill" style="width: fit-content;">2025 · Adriatic Coast</p>
+              <!-- // TIMELINE_ITEM_2_DESC -->
+              <p>Golden Hour mit Vocal Layers, Ocean Reverb und organischen Drums.</p>
+            </div>
+            <div class="timeline-item">
+              <!-- // TIMELINE_ITEM_3_TITLE -->
+              <h3>Forest Sessions</h3>
+              <!-- // TIMELINE_ITEM_3_META -->
+              <p class="pill" style="width: fit-content;">Ongoing</p>
+              <!-- // TIMELINE_ITEM_3_DESC -->
+              <p>Pop-up Sets in Naturkulissen, aufgezeichnet zusammen mit der Community.</p>
+            </div>
+          </div>
         </div>
-        <div class="timeline-item">
-          <span class="timeline-item__title">Sunrise Coastal Session</span>
-          <span class="timeline-item__date">2025 · Adriatic Coast</span>
-          <p>Stripped-back beach takeover mit Custom Visuals, Sunrise Encore und crowd-driven Flow.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-item__title">Forest Sessions Series</span>
-          <span class="timeline-item__date">Ongoing</span>
-          <p>Pop-up performances in nature, recorded live and shared with our community.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <!-- // NEUES LOGO im Footer -->
-        <img src="assets/logo-zweiklang.svg" alt="ZweiKlang footer logo" loading="lazy" />
+    <footer>
+      <div class="container footer-grid">
         <div>
-          <p>&copy; 2025 ZweiKlang – ghostak &amp; Artemis.</p>
-          <p>Premium melodic techno &amp; organic house journeys.</p>
+          <a class="brand" href="index.html#hero">
+            <!-- // FOOTER_LOGO -->
+            <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+            <div>
+              <!-- // FOOTER_BRAND_NAME -->
+              <span>ZweiKlang</span>
+              <!-- // FOOTER_BRAND_TAGLINE -->
+              <small style="color: var(--fg-200);">Cinematic Techno</small>
+            </div>
+          </a>
+          <!-- // FOOTER_COPY -->
+          <p style="margin-top:10px;">Immersive Sound &amp; Visual Storytelling.</p>
+        </div>
+        <div>
+          <!-- // FOOTER_NAV_TITLE -->
+          <h4>Navigation</h4>
+          <div class="footer-nav">
+            <a href="index.html#music"><!-- // FOOTER_NAV_MUSIC -->Music</a>
+            <a href="index.html#watch"><!-- // FOOTER_NAV_VIDEOS -->Videos</a>
+            <a href="index.html#events"><!-- // FOOTER_NAV_EVENTS -->Events</a>
+            <a href="index.html#services"><!-- // FOOTER_NAV_SERVICES -->Services</a>
+            <a href="contact.html"><!-- // FOOTER_NAV_CONTACT -->Contact</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_SOCIAL_TITLE -->
+          <h4>Socials</h4>
+          <div class="footer-nav">
+            <a href="https://www.instagram.com/zweiklang_official" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_INSTAGRAM -->Instagram</a>
+            <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SOUNDCLOUD -->SoundCloud</a>
+            <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_YOUTUBE -->YouTube</a>
+            <a href="https://open.spotify.com/artist/" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SPOTIFY -->Spotify</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_LEGAL_TITLE -->
+          <h4>Rechtliches</h4>
+          <div class="footer-nav">
+            <a href="contact.html"><!-- // FOOTER_LEGAL_IMPRINT -->Impressum</a>
+            <a href="contact.html"><!-- // FOOTER_LEGAL_PRIVACY -->Datenschutz</a>
+          </div>
         </div>
       </div>
-      <div class="footer-actions">
-        <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 15l5.19-3L10 9v6zm12-3c0-2.5-.2-4.1-.46-5.16-.26-1-.97-1.71-1.93-1.96C17.5 4.5 12 4.5 12 4.5s-5.5 0-7.61.38c-.96.25-1.67.96-1.93 1.96C2.2 7.9 2 9.5 2 12s.2 4.1.46 5.16c.26 1 .97 1.71 1.93 1.96C4.5 19.5 12 19.5 12 19.5s5.5 0 7.61-.38c.96-.25 1.67-.96 1.93-1.96.26-1.06.46-2.66.46-5.16z"/></svg>
-          <span>YouTube</span>
-        </a>
-        <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 9.5c-.3 0-.6.1-.8.2-.5-2-2.3-3.5-4.4-3.5-1.4 0-2.8.7-3.6 1.8-.4-.3-.9-.5-1.4-.5C4 7.5 2.5 9 2.5 10.9s1.5 3.4 3.3 3.4H17c1.4 0 2.5-1.1 2.5-2.5S18.4 9.5 17 9.5Z"/></svg>
-          <span>SoundCloud</span>
-        </a>
-        <a href="mailto:zweiklangkontakt@gmail.com" aria-label="Booking email">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 13 2 6.76V18h20V6.76L12 13Zm0-2.47L21.72 5H2.28L12 10.53Z"/></svg>
-          <span>Booking</span>
-        </a>
-      </div>
+    </footer>
+  </div>
+
+  <div class="cookie" id="cookieBanner">
+    <!-- // COOKIE_TEXT -->
+    <p>Wir nutzen technisch notwendige Cookies f&uuml;r Performance &amp; Security. Keine Third-Party-Tracker.</p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="btn" id="cookieAccept" type="button">
+        <!-- // COOKIE_ACCEPT_LABEL -->
+        Akzeptieren
+      </button>
+      <button class="btn btn-ghost" id="cookieDecline" type="button">
+        <!-- // COOKIE_DECLINE_LABEL -->
+        Nur technisch notwendige
+      </button>
     </div>
-  </footer>
+  </div>
 
   <script src="assets/js/main.js" defer></script>
 </body>

@@ -1,162 +1,289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZweiKlang - Events</title>
-  <meta name="description" content="ZweiKlang Live – aktuell keine Termine. Buche uns f&uuml;r Clubs, Rooftops, Livestreams oder private Gatherings." />
+  <title>ZweiKlang · Events</title>
+  <meta name="description" content="ZweiKlang Events – Upcoming Shows, Past Highlights und Booking f&uuml;r Clubs, Rooftops &amp; Brands." />
   <link rel="canonical" href="https://ghostak108.github.io/events.html" />
-  <meta property="og:title" content="ZweiKlang – Events" />
-  <meta property="og:description" content="Keine aktuelle Tournee. Frag ZweiKlang direkt f&uuml;r Bookings oder erfahre mehr &uuml;ber vergangene Highlights." />
+  <meta property="og:title" content="ZweiKlang · Events" />
+  <meta property="og:description" content="Curated Shows, Past Highlights und direkte Booking-M&ouml;glichkeit." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ghostak108.github.io/events.html" />
   <meta property="og:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ZweiKlang – Events" />
-  <meta name="twitter:description" content="Keine aktuellen Daten. Buche ZweiKlang f&uuml;r dein Event oder entdecke vergangene Highlights." />
+  <meta name="twitter:title" content="ZweiKlang · Events" />
+  <meta name="twitter:description" content="ZweiKlang live: cineastische Dramaturgie, Rider-sicher, Visual Seeds inklusive." />
   <meta name="twitter:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="transparent.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-zweiklang.svg" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header>
-    <a class="brand" href="index.html">
-      <!-- // NEUES LOGO oben links (Header) -->
-      <img src="assets/logo-zweiklang.svg" alt="ZweiKlang emblem" class="brand__logo" loading="lazy" />
-      <span>
-        <span class="brand__name">ZweiKlang</span>
-        <span class="brand__tagline">Melodic Techno</span>
-      </span>
-    </a>
-    <nav id="mainNav" role="navigation" aria-label="Primary" data-nav>
-      <ul>
-        <!-- // NAV-Link Home -->
-        <li><a href="index.html">Home</a></li>
-        <!-- // NAV-Link Music -->
-        <li><a href="index.html#music">Music</a></li>
-        <!-- // NAV-Link Videos -->
-        <li><a href="videos.html">Videos</a></li>
-        <!-- // NAV-Link About -->
-        <li><a href="about.html">About Us</a></li>
-        <!-- // NAV-Link Events -->
-        <li><a href="events.html" aria-current="page">Events</a></li>
-        <!-- // NAV-Link Contact -->
-        <li><a href="contact.html">Contact &amp; Legal</a></li>
-      </ul>
-    </nav>
-    <div class="header-actions">
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
-        <span aria-hidden="true" data-theme-icon-slot>☾</span>
-        <span class="sr-only" data-theme-toggle-label>Switch to light theme</span>
-      </button>
-      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav" data-nav-toggle>
-        <span aria-hidden="true">&#9776;</span>
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-    </div>
-  </header>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html#hero">
+          <!-- // LOGO: Header Brandmark -->
+          <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+          <div>
+            <!-- // BRAND_NAME -->
+            <span>ZweiKlang</span>
+            <!-- // BRAND_TAGLINE -->
+            <small style="color: var(--fg-200);">Cinematic Techno Duo</small>
+          </div>
+        </a>
+        <nav aria-label="Hauptnavigation">
+          <ul id="navList">
+            <li><a href="index.html#hero"><!-- // NAV_ITEM: Home -->Home</a></li>
+            <li><a href="index.html#music"><!-- // NAV_ITEM: Music -->Music</a></li>
+            <li><a href="index.html#watch"><!-- // NAV_ITEM: Videos -->Videos</a></li>
+            <li><a href="about.html"><!-- // NAV_ITEM: About -->About</a></li>
+            <li><a href="events.html" aria-current="page"><!-- // NAV_ITEM: Events -->Events</a></li>
+            <li><a href="index.html#services"><!-- // NAV_ITEM: Services -->Services</a></li>
+            <li><a href="contact.html"><!-- // NAV_ITEM: Contact -->Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-ghost" href="contact.html">
+            <!-- // HEADER_CTA: Booking Button -->Booking anfragen
+          </a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen" id="navToggle">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+    </header>
 
-  <main id="main">
-    <section class="panel reveal">
-      <div class="section-heading">
-        <span class="section-eyebrow">Live</span>
-        <h2>Keine öffentlichen Dates gerade</h2>
-        <p class="section-subtitle">Wir kuratieren neue Shows. Keine alten Flyer, keine abgelaufenen Termine &ndash; nur frische Sets, die sofort funktionieren.</p>
-      </div>
-      <div class="event-empty">
-        <p class="lead">Schreib uns f&uuml;r Club-, Rooftop-, Private- oder Livestream-Slots. Wir reagieren schnell und stimmen den Sound auf dein Publikum ab.</p>
-        <div class="hero__actions">
-          <a class="cta-btn" href="mailto:zweiklangkontakt@gmail.com">Booking anfragen</a>
-          <a class="cta-link" href="index.html#listen">Aktuellen Mix anhören &rarr;</a>
+    <main id="main">
+      <section class="section" id="upcoming">
+        <div class="container reveal">
+          <div class="section-heading">
+            <!-- // EVENTS_PAGE_HEADING -->
+            <p class="eyebrow">Live</p>
+            <!-- // EVENTS_PAGE_TITLE -->
+            <h1>Upcoming Shows</h1>
+            <!-- // EVENTS_PAGE_SUBTITLE -->
+            <p>Alle Slots sind rider-sicher mit Visual Seeds, Tech-Plan und klaren Timecodes. Kontakt f&uuml;r weitere Termine offen.</p>
+          </div>
+          <div class="event-grid">
+            <div class="event-card tilt">
+              <!-- // UPCOMING_EVENT_1_DATE -->
+              <p class="eyebrow" style="margin:0;">21 Feb 2025</p>
+              <!-- // UPCOMING_EVENT_1_TITLE -->
+              <h3>Echo Vault · Berlin</h3>
+              <!-- // UPCOMING_EVENT_1_DESC -->
+              <p>Hybrid-Set, modulare FX-Loops, Visual LUTs abgestimmt auf den Raum.</p>
+              <div class="meta-row">
+                <!-- // UPCOMING_EVENT_1_TIME -->
+                <span class="pill">01:00–02:30</span>
+                <!-- // UPCOMING_EVENT_1_CITY -->
+                <span class="pill">Berlin</span>
+              </div>
+            </div>
+            <div class="event-card tilt">
+              <!-- // UPCOMING_EVENT_2_DATE -->
+              <p class="eyebrow" style="margin:0;">08 Mar 2025</p>
+              <!-- // UPCOMING_EVENT_2_TITLE -->
+              <h3>Sunrise Loft · Amsterdam</h3>
+              <!-- // UPCOMING_EVENT_2_DESC -->
+              <p>Opening Set mit Organic House, Vocal Layers und sanfter Steigerung.</p>
+              <div class="meta-row">
+                <!-- // UPCOMING_EVENT_2_TIME -->
+                <span class="pill">22:00–23:30</span>
+                <!-- // UPCOMING_EVENT_2_CITY -->
+                <span class="pill">Amsterdam</span>
+              </div>
+            </div>
+            <div class="event-card tilt">
+              <!-- // UPCOMING_EVENT_3_DATE -->
+              <p class="eyebrow" style="margin:0;">29 Mar 2025</p>
+              <!-- // UPCOMING_EVENT_3_TITLE -->
+              <h3>Helios Stage · Barcelona</h3>
+              <!-- // UPCOMING_EVENT_3_DESC -->
+              <p>Peak-Time Techno, Vocal Shards, analoge Leads und kontrollierte Drops.</p>
+              <div class="meta-row">
+                <!-- // UPCOMING_EVENT_3_TIME -->
+                <span class="pill">02:00–04:00</span>
+                <!-- // UPCOMING_EVENT_3_CITY -->
+                <span class="pill">Barcelona</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="signal-row">
-          <span class="signal-chip">Hybrid Sets</span>
-          <span class="signal-chip">120 Min Max</span>
-          <span class="signal-chip">Custom Visuals</span>
-          <span class="signal-chip">Rider ready</span>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="panel panel--alt reveal">
-      <div class="section-heading">
-        <span class="section-eyebrow">Memories</span>
-        <h2>Past highlights</h2>
-        <p class="section-subtitle">Unforgettable locations, intimate crowds, and moments we still feel today.</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item hover-lift hover-glow tilt-card" data-tilt>
-          <span class="timeline-item__title">Ravenna Bridge Set</span>
-          <span class="timeline-item__date">Summer 2024 · Black Forest, Germany</span>
-          <p>Melodic techno in a dramatic canyon with custom visuals and a roaring livestream crowd.</p>
+      <section class="section" id="past">
+        <div class="container reveal">
+          <div class="section-heading">
+            <!-- // PAST_HEADING -->
+            <p class="eyebrow">Memories</p>
+            <!-- // PAST_TITLE -->
+            <h2>Vergangene Highlights</h2>
+            <!-- // PAST_SUBTITLE -->
+            <p>Jede Location war ein neuer Filmakt: Licht, Crowd, Timing und Tiefe.</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <!-- // PAST_ITEM_1_TITLE -->
+              <h3>Ravenna Bridge Livestream</h3>
+              <!-- // PAST_ITEM_1_META -->
+              <p class="pill" style="width: fit-content;">2024 · Black Forest</p>
+              <!-- // PAST_ITEM_1_DESC -->
+              <p>Cinematic Techno im Canyon, global gestreamt, voller Vocal-Flares.</p>
+            </div>
+            <div class="timeline-item">
+              <!-- // PAST_ITEM_2_TITLE -->
+              <h3>Forest Sessions Pop-Up</h3>
+              <!-- // PAST_ITEM_2_META -->
+              <p class="pill" style="width: fit-content;">2024 · Schwarzwald</p>
+              <!-- // PAST_ITEM_2_DESC -->
+              <p>Secret Gathering, analoger Jam, Sunrise Encore mit modularen Tones.</p>
+            </div>
+            <div class="timeline-item">
+              <!-- // PAST_ITEM_3_TITLE -->
+              <h3>Club Aurora Residency</h3>
+              <!-- // PAST_ITEM_3_META -->
+              <p class="pill" style="width: fit-content;">2023 · Basel</p>
+              <!-- // PAST_ITEM_3_DESC -->
+              <p>Monatliche Club-N&auml;chte mit Deep Cuts, Indie Vocals und Lichtdesign.</p>
+            </div>
+          </div>
         </div>
-        <div class="timeline-item hover-lift hover-glow tilt-card" data-tilt>
-          <span class="timeline-item__title">Forest Sessions Pop-Up</span>
-          <span class="timeline-item__date">2024 · Schwarzwald</span>
-          <p>Secret gathering with biodegradable decor, analog synth jam, and sunrise encore.</p>
-        </div>
-        <div class="timeline-item hover-lift hover-glow tilt-card" data-tilt>
-          <span class="timeline-item__title">Club Aurora Residency</span>
-          <span class="timeline-item__date">2023 · Basel, Switzerland</span>
-          <p>Monthly residency blending indie vocals, deep cuts, and immersive lighting design.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="panel reveal">
-      <div class="section-heading">
-        <span class="section-eyebrow">Booking</span>
-        <h2>Host ZweiKlang</h2>
-        <p class="section-subtitle">We tailor each performance to your venue and audience. Let’s build something unforgettable.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-card hover-lift hover-glow tilt-card" data-tilt>
-          <h3 class="contact-card__title">Booking request</h3>
-          <p class="contact-card__body">Share your event date, city, and desired vibe. We’ll coordinate logistics, visuals, and promotion.</p>
-          <a href="mailto:zweiklangkontakt@gmail.com">zweiklangkontakt@gmail.com</a>
+      <section class="section" id="events-cta">
+        <div class="container split">
+          <div class="split-left reveal">
+            <div class="section-heading">
+              <!-- // EVENTS_CTA_HEADING -->
+              <p class="eyebrow">Booking</p>
+              <!-- // EVENTS_CTA_TITLE -->
+              <h2>Host ZweiKlang</h2>
+              <!-- // EVENTS_CTA_SUBTITLE -->
+              <p>Hybrid Live, DJ Curated oder Brand Scoring: Wir liefern Ablauf, Tech-Rider, Visual Seeds und Social Assets.</p>
+            </div>
+            <div class="badge-row">
+              <!-- // EVENTS_CTA_TAG_1 -->
+              <span class="badge">Rider ready</span>
+              <!-- // EVENTS_CTA_TAG_2 -->
+              <span class="badge">Visual LUTs</span>
+              <!-- // EVENTS_CTA_TAG_3 -->
+              <span class="badge">Antwort in 24h</span>
+            </div>
+            <div class="meta-row">
+              <a class="btn" href="mailto:booking@zweiklang.io">
+                <!-- // EVENTS_CTA_BTN_MAIL -->
+                booking@zweiklang.io
+              </a>
+              <a class="btn btn-ghost" href="contact.html">
+                <!-- // EVENTS_CTA_BTN_FORM -->
+                Kontaktformular &ouml;ffnen
+              </a>
+            </div>
+          </div>
+          <div class="split-right reveal">
+            <div class="glass-card" style="padding:18px; display:grid; gap:10px;">
+              <!-- // EVENTS_CTA_NOTE_TITLE -->
+              <h3>Tech Snapshot</h3>
+              <ul class="list">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <!-- // EVENTS_CTA_NOTE_1 -->
+                    <strong>Decks</strong>
+                    <p>CDJ 3000 / 2000NXS2, DJM V10 / 900NXS2, RCA/ XLR Out.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <!-- // EVENTS_CTA_NOTE_2 -->
+                    <strong>Hybrid</strong>
+                    <p>Elektron Analog Rytm, Modular FX, Vocal Mic mit Reverb Tail.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <!-- // EVENTS_CTA_NOTE_3 -->
+                    <strong>Visuals</strong>
+                    <p>Custom LUTs, Nebel &amp; Light Cues f&uuml;r Sunrise oder Peak.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="contact-card hover-lift hover-glow tilt-card" data-tilt>
-          <h3 class="contact-card__title">Set formats</h3>
-          <p class="contact-card__body">Sunset warm-ups, peak-time club sets, sunrise after-hours, or storytelling journeys.</p>
-        </div>
-        <div class="contact-card hover-lift hover-glow tilt-card" data-tilt>
-          <h3 class="contact-card__title">Collaboration</h3>
-          <p class="contact-card__body">We love teaming up with visual artists, live instrumentalists, and local crews.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <!-- // NEUES LOGO im Footer -->
-        <img src="assets/logo-zweiklang.svg" alt="ZweiKlang footer logo" loading="lazy" />
+    <footer>
+      <div class="container footer-grid">
         <div>
-          <p>&copy; 2025 ZweiKlang – ghostak &amp; Artemis.</p>
-          <p>Premium melodic techno &amp; organic house journeys.</p>
+          <a class="brand" href="index.html#hero">
+            <!-- // FOOTER_LOGO -->
+            <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+            <div>
+              <!-- // FOOTER_BRAND_NAME -->
+              <span>ZweiKlang</span>
+              <!-- // FOOTER_BRAND_TAGLINE -->
+              <small style="color: var(--fg-200);">Cinematic Techno</small>
+            </div>
+          </a>
+          <!-- // FOOTER_COPY -->
+          <p style="margin-top:10px;">Immersive Sound &amp; Visual Storytelling.</p>
+        </div>
+        <div>
+          <!-- // FOOTER_NAV_TITLE -->
+          <h4>Navigation</h4>
+          <div class="footer-nav">
+            <a href="index.html#music"><!-- // FOOTER_NAV_MUSIC -->Music</a>
+            <a href="index.html#watch"><!-- // FOOTER_NAV_VIDEOS -->Videos</a>
+            <a href="index.html#events"><!-- // FOOTER_NAV_EVENTS -->Events</a>
+            <a href="index.html#services"><!-- // FOOTER_NAV_SERVICES -->Services</a>
+            <a href="contact.html"><!-- // FOOTER_NAV_CONTACT -->Contact</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_SOCIAL_TITLE -->
+          <h4>Socials</h4>
+          <div class="footer-nav">
+            <a href="https://www.instagram.com/zweiklang_official" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_INSTAGRAM -->Instagram</a>
+            <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SOUNDCLOUD -->SoundCloud</a>
+            <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_YOUTUBE -->YouTube</a>
+            <a href="https://open.spotify.com/artist/" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SPOTIFY -->Spotify</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_LEGAL_TITLE -->
+          <h4>Rechtliches</h4>
+          <div class="footer-nav">
+            <a href="contact.html"><!-- // FOOTER_LEGAL_IMPRINT -->Impressum</a>
+            <a href="contact.html"><!-- // FOOTER_LEGAL_PRIVACY -->Datenschutz</a>
+          </div>
         </div>
       </div>
-      <div class="footer-actions">
-        <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 15l5.19-3L10 9v6zm12-3c0-2.5-.2-4.1-.46-5.16-.26-1-.97-1.71-1.93-1.96C17.5 4.5 12 4.5 12 4.5s-5.5 0-7.61.38c-.96.25-1.67.96-1.93 1.96C2.2 7.9 2 9.5 2 12s.2 4.1.46 5.16c.26 1 .97 1.71 1.93 1.96C4.5 19.5 12 19.5 12 19.5s5.5 0 7.61-.38c.96-.25 1.67-.96 1.93-1.96.26-1.06.46-2.66.46-5.16z"/></svg>
-          <span>YouTube</span>
-        </a>
-        <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 9.5c-.3 0-.6.1-.8.2-.5-2-2.3-3.5-4.4-3.5-1.4 0-2.8.7-3.6 1.8-.4-.3-.9-.5-1.4-.5C4 7.5 2.5 9 2.5 10.9s1.5 3.4 3.3 3.4H17c1.4 0 2.5-1.1 2.5-2.5S18.4 9.5 17 9.5Z"/></svg>
-          <span>SoundCloud</span>
-        </a>
-        <a href="mailto:zweiklangkontakt@gmail.com" aria-label="Booking email">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 13 2 6.76V18h20V6.76L12 13Zm0-2.47L21.72 5H2.28L12 10.53Z"/></svg>
-          <span>Booking</span>
-        </a>
-      </div>
+    </footer>
+  </div>
+
+  <div class="cookie" id="cookieBanner">
+    <!-- // COOKIE_TEXT -->
+    <p>Wir nutzen technisch notwendige Cookies f&uuml;r Performance &amp; Security. Keine Third-Party-Tracker.</p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="btn" id="cookieAccept" type="button">
+        <!-- // COOKIE_ACCEPT_LABEL -->
+        Akzeptieren
+      </button>
+      <button class="btn btn-ghost" id="cookieDecline" type="button">
+        <!-- // COOKIE_DECLINE_LABEL -->
+        Nur technisch notwendige
+      </button>
     </div>
-  </footer>
+  </div>
 
   <script src="assets/js/main.js" defer></script>
 </body>

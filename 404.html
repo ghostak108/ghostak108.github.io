@@ -1,93 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found – ZweiKlang</title>
+  <title>404 · ZweiKlang</title>
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="transparent.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-zweiklang.svg" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header>
-    <h1>ZweiKlang</h1>
-    <button class="nav-toggle" aria-label="Open/Close Menu" aria-expanded="false" id="navToggleBtn">&#9776;</button>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button>
-    <nav id="mainNav" role="navigation" aria-label="Primary">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="videos.html">Videos</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="contact.html">Contact & Legal</a></li>
-      </ul>
-    </nav>
-  </header>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.body.classList.add('js');
-      const navToggleBtn = document.getElementById('navToggleBtn');
-      const mainNav = document.getElementById('mainNav');
-      // Theme init
-      const root = document.documentElement;
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light' || savedTheme === 'dark') {
-        root.setAttribute('data-theme', savedTheme);
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        root.setAttribute('data-theme', 'light');
-      } else {
-        root.setAttribute('data-theme', 'dark');
-      }
-      const themeToggle = document.getElementById('themeToggle');
-      const updateToggleIcon = () => {
-        const isLight = root.getAttribute('data-theme') === 'light';
-        themeToggle.textContent = isLight ? '☀' : '☾';
-      };
-      updateToggleIcon();
-      themeToggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        const next = current === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        updateToggleIcon();
-      });
-      if (!navToggleBtn || !mainNav) return;
-      navToggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const open = document.body.classList.toggle('nav-open');
-        navToggleBtn.setAttribute('aria-expanded', String(open));
-        if(open) setTimeout(()=>mainNav.querySelector('a').focus(), 200);
-      });
-      document.addEventListener('click', function(e) {
-        if (document.body.classList.contains('nav-open') && !mainNav.contains(e.target) && e.target !== navToggleBtn) {
-          document.body.classList.remove('nav-open');
-          navToggleBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-      mainNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          document.body.classList.remove('nav-open');
-          navToggleBtn.setAttribute('aria-expanded', 'false');
-        });
-      });
-      document.addEventListener('keydown', function(e) {
-        if(e.key === 'Escape') { document.body.classList.remove('nav-open'); navToggleBtn.setAttribute('aria-expanded', 'false'); }
-      });
-    });
-  </script>
-  <main id="main">
-    <section class="panel panel--center">
-      <h1>404 – Page not found</h1>
-      <p>Sorry, the page you're looking for doesn't exist.</p>
-      <a class="cta-btn" href="/">Go to Home</a>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 ZweiKlang – ghostak & Artemis</p>
-  </footer>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html#hero">
+          <!-- // LOGO: Header Brandmark -->
+          <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+          <div>
+            <!-- // BRAND_NAME -->
+            <span>ZweiKlang</span>
+            <!-- // BRAND_TAGLINE -->
+            <small style="color: var(--fg-200);">Cinematic Techno Duo</small>
+          </div>
+        </a>
+        <nav aria-label="Hauptnavigation">
+          <ul id="navList">
+            <li><a href="index.html#hero"><!-- // NAV_ITEM: Home -->Home</a></li>
+            <li><a href="index.html#music"><!-- // NAV_ITEM: Music -->Music</a></li>
+            <li><a href="index.html#watch"><!-- // NAV_ITEM: Videos -->Videos</a></li>
+            <li><a href="about.html"><!-- // NAV_ITEM: About -->About</a></li>
+            <li><a href="contact.html"><!-- // NAV_ITEM: Contact -->Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-ghost" href="contact.html">
+            <!-- // HEADER_CTA: Booking Button -->Booking
+          </a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen" id="navToggle">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section">
+        <div class="container reveal">
+          <div class="section-heading">
+            <!-- // 404_HEADING -->
+            <p class="eyebrow">404</p>
+            <!-- // 404_TITLE -->
+            <h1>Seite nicht gefunden</h1>
+            <!-- // 404_SUBTITLE -->
+            <p>Der angeforderte Inhalt existiert nicht oder wurde verschoben. Zur&uuml;ck zur Hauptb&uuml;hne.</p>
+          </div>
+          <div class="badge-row">
+            <a class="btn" href="index.html#hero">
+              <!-- // 404_BTN_BACK -->
+              Zur&uuml;ck zur Startseite
+            </a>
+            <a class="btn btn-ghost" href="contact.html">
+              <!-- // 404_BTN_CONTACT -->
+              Kontakt aufnehmen
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="index.html#hero">
+            <!-- // FOOTER_LOGO -->
+            <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+            <div>
+              <!-- // FOOTER_BRAND_NAME -->
+              <span>ZweiKlang</span>
+              <!-- // FOOTER_BRAND_TAGLINE -->
+              <small style="color: var(--fg-200);">Cinematic Techno</small>
+            </div>
+          </a>
+          <!-- // FOOTER_COPY -->
+          <p style="margin-top:10px;">Immersive Sound &amp; Visual Storytelling.</p>
+        </div>
+        <div>
+          <!-- // FOOTER_NAV_TITLE -->
+          <h4>Navigation</h4>
+          <div class="footer-nav">
+            <a href="index.html#music"><!-- // FOOTER_NAV_MUSIC -->Music</a>
+            <a href="index.html#watch"><!-- // FOOTER_NAV_VIDEOS -->Videos</a>
+            <a href="index.html#events"><!-- // FOOTER_NAV_EVENTS -->Events</a>
+            <a href="index.html#services"><!-- // FOOTER_NAV_SERVICES -->Services</a>
+            <a href="contact.html"><!-- // FOOTER_NAV_CONTACT -->Contact</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_SOCIAL_TITLE -->
+          <h4>Socials</h4>
+          <div class="footer-nav">
+            <a href="https://www.instagram.com/zweiklang_official" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_INSTAGRAM -->Instagram</a>
+            <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SOUNDCLOUD -->SoundCloud</a>
+            <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_YOUTUBE -->YouTube</a>
+            <a href="https://open.spotify.com/artist/" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SPOTIFY -->Spotify</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_LEGAL_TITLE -->
+          <h4>Rechtliches</h4>
+          <div class="footer-nav">
+            <a href="contact.html"><!-- // FOOTER_LEGAL_IMPRINT -->Impressum</a>
+            <a href="contact.html"><!-- // FOOTER_LEGAL_PRIVACY -->Datenschutz</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="cookie" id="cookieBanner">
+    <!-- // COOKIE_TEXT -->
+    <p>Wir nutzen technisch notwendige Cookies f&uuml;r Performance &amp; Security. Keine Third-Party-Tracker.</p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="btn" id="cookieAccept" type="button">
+        <!-- // COOKIE_ACCEPT_LABEL -->
+        Akzeptieren
+      </button>
+      <button class="btn btn-ghost" id="cookieDecline" type="button">
+        <!-- // COOKIE_DECLINE_LABEL -->
+        Nur technisch notwendige
+      </button>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
