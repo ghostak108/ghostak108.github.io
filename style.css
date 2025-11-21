@@ -329,7 +329,27 @@ footer { padding: 30px 0 60px; border-top: 1px solid rgba(255, 255, 255, 0.06); 
 .tilt { will-change: transform; }
 
 @media (max-width: 960px) {
-  nav ul { position: absolute; top: 64px; right: 12px; left: 12px; flex-direction: column; background: rgba(7, 11, 20, 0.96); padding: 14px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: var(--shadow-1); transform-origin: top; transform: scaleY(0.4); opacity: 0; pointer-events: none; transition: transform 0.3s ease, opacity 0.3s ease; }
+  .header-actions .btn { display: none; }
+  nav ul {
+    position: absolute;
+    top: 64px;
+    right: 12px;
+    left: 12px;
+    max-height: 70vh;
+    overflow: auto;
+    flex-direction: column;
+    background: rgba(7, 11, 20, 0.96);
+    padding: 14px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-1);
+    transform-origin: top;
+    transform: scaleY(0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 25;
+  }
   nav ul.open { opacity: 1; pointer-events: auto; transform: scaleY(1); }
   .nav-toggle { display: inline-flex; }
   nav { position: relative; }
