@@ -340,34 +340,37 @@ footer { padding: 30px 0 60px; border-top: 1px solid rgba(255, 255, 255, 0.06); 
 
 @media (max-width: 960px) {
   .header-inner {
-    width: calc(100% - 24px);
-    height: 70px;
-    padding: 0 12px;
-    gap: 10px;
+    width: calc(100% - 18px);
+    height: 64px;
+    padding: 0 10px;
+    gap: 8px;
   }
   .brand {
-    grid-template-columns: auto;
+    grid-template-columns: auto 1fr;
     align-items: center;
+    gap: 8px;
   }
   .brand small {
     display: block;
     margin-top: 2px;
   }
+  .brand img {
+    height: 34px;
+  }
   .nav-toggle {
-    width: 64px;
-    height: 64px;
-    font-size: 1.55rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.15rem;
   }
   .header-actions .btn { display: none; }
-  nav ul {
+  nav ul { flex-direction: column; gap: 8px; }
+  body.nav-ready nav ul {
     position: fixed;
     top: 78px;
     right: 12px;
     left: 12px;
     max-height: calc(100vh - 96px);
     overflow-y: auto;
-    flex-direction: column;
-    gap: 8px;
     background: rgba(7, 11, 20, 0.96);
     padding: 18px;
     border-radius: 18px;
@@ -381,8 +384,10 @@ footer { padding: 30px 0 60px; border-top: 1px solid rgba(255, 255, 255, 0.06); 
   }
   nav li { width: 100%; }
   nav a { display: block; width: 100%; padding: 14px 12px; }
-  nav ul.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  body.nav-ready nav ul.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  body:not(.nav-ready) nav ul { background: transparent; padding: 0; position: static; max-height: none; }
   .nav-toggle { display: inline-flex; }
+  body:not(.nav-ready) .nav-toggle { display: none; }
   nav { position: static; }
   .grid-2, .split, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .hero-content, .hero-aside, .split-left, .split-right, .about-text, .about-visual, .contact-text, .contact-form { grid-column: span 12; }

@@ -2,6 +2,8 @@
   const navToggle = document.getElementById('navToggle');
   const navList = document.getElementById('navList');
 
+  document.body.classList.add('nav-ready');
+
   const closeNav = () => {
     if (!navList) return;
     navList.classList.remove('open');
