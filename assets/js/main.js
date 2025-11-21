@@ -183,6 +183,92 @@
     revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
+  // Micro-interaction: gradient focus point for CTA buttons
+  document.querySelectorAll('.cta-btn').forEach((btn) => {
+    const setPosition = (event) => {
+      const rect = btn.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      btn.style.setProperty('--x', `${x}%`);
+      btn.style.setProperty('--y', `${y}%`);
+    };
+    ['pointermove', 'touchmove'].forEach((evt) => btn.addEventListener(evt, setPosition, { passive: true }));
+    btn.addEventListener('pointerenter', setPosition);
+  });
+
+  // Micro-interaction: ripple pulse on clickable elements
+  const rippleTargets = document.querySelectorAll('button, .cta-btn, .filter-btn, .footer-actions a');
+  rippleTargets.forEach((el) => {
+    el.addEventListener('click', (event) => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      const rect = el.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = `${size}px`;
+      ripple.style.left = `${event.clientX - rect.left - size / 2}px`;
+      ripple.style.top = `${event.clientY - rect.top - size / 2}px`;
+      el.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  });
+
+  // Tilt follow effect for featured cards
+  const tiltCards = Array.from(document.querySelectorAll('[data-tilt]'));
+  if (tiltCards.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    tiltCards.forEach((card) => {
+      const dampen = 30;
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+        const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+        card.style.setProperty('--tilt-x', `${x / dampen}deg`);
+        card.style.setProperty('--tilt-y', `${-y / dampen}deg`);
+      }, { passive: true });
+      card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+      });
+    });
+  }
+
+  // Header float + active section highlighting
+  const header = document.querySelector('header');
+  let lastScrollY = 0;
+  if (header) {
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      const isGoingDown = current > lastScrollY;
+      header.classList.toggle('is-floating', current > 20);
+      if (isGoingDown && current > 140) {
+        header.classList.add('is-hidden');
+      } else {
+        header.classList.remove('is-hidden');
+      }
+      lastScrollY = current;
+    }, { passive: true });
+  }
+
+  const sectionObserverTargets = Array.from(document.querySelectorAll('section[id]'));
+  const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+  if ('IntersectionObserver' in window && sectionObserverTargets.length && navLinks.length) {
+    const navMap = new Map(
+      navLinks.map((link) => [link.getAttribute('href').replace('#', ''), link])
+    );
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.id;
+        const link = navMap.get(id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach((l) => l.classList.remove('is-active'));
+          link.classList.add('is-active');
+        }
+      });
+    }, { threshold: 0.4 });
+    sectionObserverTargets.forEach((section) => sectionObserver.observe(section));
+  }
+
   // Simple filter for music cards
   const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
   const filterTarget = document.querySelector('[data-filter-target]');
