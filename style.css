@@ -1155,8 +1155,6 @@ footer {
   color: var(--color-muted);
   padding: 32px clamp(16px, 5vw, 64px) 48px;
   border-top: 1px solid rgba(255,255,255,0.08);
-  position: relative;
-  overflow: hidden;
 }
 
 footer p { margin-bottom: 0; }

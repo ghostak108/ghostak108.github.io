@@ -196,42 +196,6 @@
     btn.addEventListener('pointerenter', setPosition);
   });
 
-  // Micro-interaction: ripple pulse on clickable elements
-  const rippleTargets = document.querySelectorAll('button, .cta-btn, .filter-btn, .footer-actions a');
-  rippleTargets.forEach((el) => {
-    el.addEventListener('click', (event) => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const ripple = document.createElement('span');
-      ripple.className = 'ripple';
-      const rect = el.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      ripple.style.width = ripple.style.height = `${size}px`;
-      ripple.style.left = `${event.clientX - rect.left - size / 2}px`;
-      ripple.style.top = `${event.clientY - rect.top - size / 2}px`;
-      el.appendChild(ripple);
-      ripple.addEventListener('animationend', () => ripple.remove());
-    });
-  });
-
-  // Tilt follow effect for featured cards
-  const tiltCards = Array.from(document.querySelectorAll('[data-tilt]'));
-  if (tiltCards.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    tiltCards.forEach((card) => {
-      const dampen = 30;
-      card.addEventListener('pointermove', (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-        const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
-        card.style.setProperty('--tilt-x', `${x / dampen}deg`);
-        card.style.setProperty('--tilt-y', `${-y / dampen}deg`);
-      }, { passive: true });
-      card.addEventListener('pointerleave', () => {
-        card.style.setProperty('--tilt-x', '0deg');
-        card.style.setProperty('--tilt-y', '0deg');
-      });
-    });
-  }
-
   // Header float + active section highlighting
   const header = document.querySelector('header');
   let lastScrollY = 0;
