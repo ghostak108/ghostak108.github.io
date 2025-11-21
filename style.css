@@ -344,36 +344,35 @@ footer { padding: 30px 0 60px; border-top: 1px solid rgba(255, 255, 255, 0.06); 
     display: block;
     margin-top: 2px;
   }
-  .nav-toggle {
-    width: 50px;
-    height: 50px;
-    font-size: 1.35rem;
-  }
+.nav-toggle {
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+}
   .header-actions .btn { display: none; }
   .header-actions .btn { display: none; }
   nav ul {
-    position: absolute;
-    top: 70px;
+    position: fixed;
+    top: 82px;
     right: 12px;
     left: 12px;
-    max-height: 70vh;
-    overflow: auto;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
     flex-direction: column;
     background: rgba(7, 11, 20, 0.96);
-    padding: 14px;
+    padding: 18px;
     border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: var(--shadow-1);
-    transform-origin: top;
-    transform: scaleY(0.4);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.55);
+    transform: translateY(-12px);
     opacity: 0;
     pointer-events: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    z-index: 25;
+    transition: transform 0.26s ease, opacity 0.26s ease;
+    z-index: 80;
   }
-  nav ul.open { opacity: 1; pointer-events: auto; transform: scaleY(1); }
+  nav ul.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
   .nav-toggle { display: inline-flex; }
-  nav { position: relative; }
+  nav { position: static; }
   .grid-2, .split, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .hero-content, .hero-aside, .split-left, .split-right, .about-text, .about-visual, .contact-text, .contact-form { grid-column: span 12; }
   .hero-frame { inset: -40px; }
