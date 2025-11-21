@@ -10,11 +10,11 @@
   <meta property="og:description" content="Keine aktuelle Tournee. Frag ZweiKlang direkt f&uuml;r Bookings oder erfahre mehr &uuml;ber vergangene Highlights." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ghostak108.github.io/events.html" />
-  <meta property="og:image" content="https://ghostak108.github.io/banner.png" />
+  <meta property="og:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="ZweiKlang – Events" />
   <meta name="twitter:description" content="Keine aktuellen Daten. Buche ZweiKlang f&uuml;r dein Event oder entdecke vergangene Highlights." />
-  <meta name="twitter:image" content="https://ghostak108.github.io/banner.png" />
+  <meta name="twitter:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -25,7 +25,8 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header>
     <a class="brand" href="index.html">
-      <img src="logo_black.png" alt="ZweiKlang emblem" class="brand__logo" loading="lazy" />
+      <!-- // NEUES LOGO oben links (Header) -->
+      <img src="assets/logo-zweiklang.svg" alt="ZweiKlang emblem" class="brand__logo" loading="lazy" />
       <span>
         <span class="brand__name">ZweiKlang</span>
         <span class="brand__tagline">Melodic Techno</span>
@@ -33,10 +34,17 @@
     </a>
     <nav id="mainNav" role="navigation" aria-label="Primary" data-nav>
       <ul>
+        <!-- // NAV-Link Home -->
         <li><a href="index.html">Home</a></li>
+        <!-- // NAV-Link Music -->
+        <li><a href="index.html#music">Music</a></li>
+        <!-- // NAV-Link Videos -->
         <li><a href="videos.html">Videos</a></li>
+        <!-- // NAV-Link About -->
         <li><a href="about.html">About Us</a></li>
+        <!-- // NAV-Link Events -->
         <li><a href="events.html" aria-current="page">Events</a></li>
+        <!-- // NAV-Link Contact -->
         <li><a href="contact.html">Contact &amp; Legal</a></li>
       </ul>
     </nav>
@@ -124,7 +132,30 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 ZweiKlang – ghostak &amp; Artemis.</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <!-- // NEUES LOGO im Footer -->
+        <img src="assets/logo-zweiklang.svg" alt="ZweiKlang footer logo" loading="lazy" />
+        <div>
+          <p>&copy; 2025 ZweiKlang – ghostak &amp; Artemis.</p>
+          <p>Premium melodic techno &amp; organic house journeys.</p>
+        </div>
+      </div>
+      <div class="footer-actions">
+        <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 15l5.19-3L10 9v6zm12-3c0-2.5-.2-4.1-.46-5.16-.26-1-.97-1.71-1.93-1.96C17.5 4.5 12 4.5 12 4.5s-5.5 0-7.61.38c-.96.25-1.67.96-1.93 1.96C2.2 7.9 2 9.5 2 12s.2 4.1.46 5.16c.26 1 .97 1.71 1.93 1.96C4.5 19.5 12 19.5 12 19.5s5.5 0 7.61-.38c.96-.25 1.67-.96 1.93-1.96.26-1.06.46-2.66.46-5.16z"/></svg>
+          <span>YouTube</span>
+        </a>
+        <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 9.5c-.3 0-.6.1-.8.2-.5-2-2.3-3.5-4.4-3.5-1.4 0-2.8.7-3.6 1.8-.4-.3-.9-.5-1.4-.5C4 7.5 2.5 9 2.5 10.9s1.5 3.4 3.3 3.4H17c1.4 0 2.5-1.1 2.5-2.5S18.4 9.5 17 9.5Z"/></svg>
+          <span>SoundCloud</span>
+        </a>
+        <a href="mailto:zweiklangkontakt@gmail.com" aria-label="Booking email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 13 2 6.76V18h20V6.76L12 13Zm0-2.47L21.72 5H2.28L12 10.53Z"/></svg>
+          <span>Booking</span>
+        </a>
+      </div>
+    </div>
   </footer>
 
   <script src="assets/js/main.js" defer></script>
