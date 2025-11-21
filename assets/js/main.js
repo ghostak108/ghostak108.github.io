@@ -6,12 +6,14 @@
     if (!navList) return;
     navList.classList.remove('open');
     if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
   };
 
   const openNav = () => {
     if (!navList) return;
     navList.classList.add('open');
     if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('nav-open');
   };
 
   if (navToggle && navList) {
