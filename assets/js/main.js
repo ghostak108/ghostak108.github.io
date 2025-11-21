@@ -167,29 +167,40 @@
     });
   }
 
-  const countdownEl = document.querySelector('[data-countdown]');
-  if (countdownEl) {
-    const targetDate = countdownEl.getAttribute('data-countdown');
-    const parsed = targetDate ? new Date(targetDate) : null;
-    if (parsed && !Number.isNaN(parsed.valueOf())) {
-      const updateCountdown = () => {
-        const now = new Date();
-        const diff = parsed.getTime() - now.getTime();
-        if (diff <= 0) {
-          countdownEl.textContent = 'The event is live today!';
-          countdownEl.classList.add('is-live');
-          return;
+  // Reveal-on-scroll animation (lightweight)
+  const revealEls = Array.from(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
         }
-        const totalSeconds = Math.floor(diff / 1000);
-        const days = Math.floor(totalSeconds / 86400);
-        const hours = Math.floor((totalSeconds % 86400) / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
-        countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        countdownEl.classList.remove('is-live');
-      };
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  // Simple filter for music cards
+  const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+  const filterTarget = document.querySelector('[data-filter-target]');
+  if (filterButtons.length && filterTarget) {
+    const cards = Array.from(filterTarget.querySelectorAll('[data-category]'));
+    const setFilter = (filter) => {
+      cards.forEach((card) => {
+        const matches = filter === 'all' || card.dataset.category === filter;
+        card.style.display = matches ? '' : 'none';
+      });
+    };
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        setFilter(btn.dataset.filter || 'all');
+      });
+    });
+    setFilter('all');
   }
 })();
