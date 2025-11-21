@@ -37,7 +37,7 @@
             <small style="color: var(--fg-200);">Cinematic Techno Duo</small>
           </div>
         </a>
-        <nav aria-label="Hauptnavigation">
+        <nav aria-label="Hauptnavigation" class="desktop-nav">
           <ul id="navList">
             <li><a href="#hero" aria-current="page"><!-- // NAV_ITEM: Home -->Home</a></li>
             <li><a href="#music"><!-- // NAV_ITEM: Music -->Music</a></li>
@@ -52,12 +52,42 @@
           <a class="btn btn-ghost" href="#contact">
             <!-- // HEADER_CTA: Booking Button -->Booking anfragen
           </a>
-          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen" id="navToggle" aria-controls="navList">
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen" id="navToggle" aria-controls="mobileNav">
             <span aria-hidden="true">☰</span>
           </button>
         </div>
       </div>
     </header>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <div class="mobile-nav__panel" role="dialog" aria-label="Navigation">
+        <div class="mobile-nav__top">
+          <a class="brand" href="#hero">
+            <img src="assets/logo_black.png" alt="ZweiKlang Logo" loading="lazy" />
+            <div>
+              <span>ZweiKlang</span>
+              <small style="color: var(--fg-200);">Cinematic Techno Duo</small>
+            </div>
+          </a>
+          <button class="mobile-nav__close" type="button" aria-label="Navigation schließen" id="mobileNavClose">&times;</button>
+        </div>
+        <nav aria-label="Mobile Navigation">
+          <ul>
+            <li><a href="#hero"><!-- // NAV_ITEM: Home -->Home</a></li>
+            <li><a href="#music"><!-- // NAV_ITEM: Music -->Music</a></li>
+            <li><a href="#watch"><!-- // NAV_ITEM: Videos -->Videos</a></li>
+            <li><a href="#about"><!-- // NAV_ITEM: About -->About</a></li>
+            <li><a href="#events"><!-- // NAV_ITEM: Events -->Events</a></li>
+            <li><a href="#services"><!-- // NAV_ITEM: Services -->Services</a></li>
+            <li><a href="#contact"><!-- // NAV_ITEM: Contact -->Contact</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-nav__actions">
+          <a class="btn" href="#contact">Booking anfragen</a>
+          <a class="btn btn-ghost" href="#music">Neuesten Mix h&ouml;ren</a>
+        </div>
+      </div>
+    </div>
 
     <main id="main">
       <section class="section" id="hero">
