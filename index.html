@@ -1,542 +1,1419 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZweiKlang - Home</title>
-  <meta name="description" content="ZweiKlang – DJ duo blending melodic techno, deep house, and chill vibes. Discover mixes, videos, and booking info." />
+  <title>ZweiKlang · Cinematic Techno Duo</title>
+  <meta name="description" content="ZweiKlang ist ein cineastisches Melodic-Techno-Duo mit immersiven Live- und Hybrid-Sets, Premium-Sounddesign und High-End-Buchungserlebnis." />
   <link rel="canonical" href="https://ghostak108.github.io/" />
-  <meta property="og:title" content="ZweiKlang – Home" />
-  <meta property="og:description" content="DJ duo blending melodic techno, deep house, and chill vibes. Discover mixes, videos, and booking info." />
+  <meta property="og:title" content="ZweiKlang · Cinematic Techno Duo" />
+  <meta property="og:description" content="Melodic Techno & Organic House mit filmischer Tiefe, maßgeschneiderten Shows und hochpräzisem Sounddesign." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ghostak108.github.io/" />
   <meta property="og:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ZweiKlang – Home" />
-  <meta name="twitter:description" content="DJ duo blending melodic techno, deep house, and chill vibes." />
+  <meta name="twitter:title" content="ZweiKlang · Cinematic Techno Duo" />
+  <meta name="twitter:description" content="Filmische Melodic-Techno-Sets, Hybrid-Performances und auf Maß kuratierte Stimmungen." />
   <meta name="twitter:image" content="https://ghostak108.github.io/assets/logo-zweiklang.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="transparent.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-zweiklang.svg" />
+  <style>
+    :root {
+      --bg-900: #04070f;
+      --bg-800: #0b1222;
+      --bg-700: #0f1a2e;
+      --bg-600: #142039;
+      --fg-100: #f7f7fb;
+      --fg-200: #cfd7ff;
+      --fg-300: #9fb1ff;
+      --accent-1: #e14c45;
+      --accent-2: #1ec39b;
+      --accent-3: #6f7fff;
+      --glass: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow-1: 0 20px 70px rgba(0, 0, 0, 0.45);
+      --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max-w: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', 'Manrope', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 15% 20%, rgba(110, 145, 255, 0.12), transparent 35%),
+                  radial-gradient(circle at 80% 10%, rgba(225, 76, 69, 0.14), transparent 32%),
+                  linear-gradient(140deg, #05070f 0%, #0b1222 48%, #05070f 100%);
+      color: var(--fg-100);
+      min-height: 100vh;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 26px 26px;
+      opacity: 0.08;
+      z-index: 1;
+    }
+
+    .page-shell { position: relative; z-index: 2; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1200px, 88vw);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      width: min(1200px, 94vw);
+      background: rgba(7, 11, 20, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-2);
+      border-radius: var(--radius-lg);
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      pointer-events: auto;
+      position: relative;
+    }
+
+    .brand {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .brand img {
+      height: 38px;
+      width: auto;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.55));
+    }
+
+    .brand span { display: block; line-height: 1.12; }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 18px;
+      font-size: 0.98rem;
+    }
+
+    nav a {
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: color 0.2s ease, background 0.25s ease, transform 0.25s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      bottom: 8px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--fg-300);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    nav a:hover::after,
+    nav a:focus-visible::after {
+      width: calc(100% - 24px);
+    }
+
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      min-width: 40px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: linear-gradient(120deg, rgba(30, 195, 155, 0.16), rgba(111, 127, 255, 0.18));
+      color: var(--fg-100);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn:hover { transform: translateY(-2px) scale(1.01); box-shadow: var(--shadow-1); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-toggle {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--glass);
+      color: var(--fg-100);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    main { padding-top: 120px; overflow: hidden; }
+
+    .section {
+      position: relative;
+      padding: min(13vh, 120px) 0;
+    }
+
+    .section + .section { border-top: 1px solid rgba(255, 255, 255, 0.04); }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--fg-200);
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    h1, h2, h3, h4, h5 { margin: 10px 0; line-height: 1.1; }
+
+    h1 { font-size: clamp(2.8rem, 4vw, 3.8rem); letter-spacing: -0.04em; }
+    h2 { font-size: clamp(2rem, 3vw, 2.7rem); letter-spacing: -0.02em; }
+    h3 { font-size: 1.4rem; }
+    p { color: rgba(255, 255, 255, 0.82); line-height: 1.6; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .hero-grid {
+      gap: 24px;
+      min-height: 74vh;
+    }
+
+    .hero-content { grid-column: span 7; position: relative; z-index: 2; }
+    .hero-aside { grid-column: span 5; position: relative; }
+
+    .hero-frame {
+      position: absolute;
+      inset: -80px -80px 0 -80px;
+      z-index: 0;
+      overflow: hidden;
+      border-radius: 40px;
+      opacity: 0.6;
+    }
+
+    .hero-frame video, .hero-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.2) contrast(1.1) brightness(0.9);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(30, 195, 155, 0.14), transparent 40%),
+                  radial-gradient(circle at 80% 10%, rgba(225, 76, 69, 0.2), transparent 32%),
+                  linear-gradient(120deg, rgba(4,7,15,0.92), rgba(4,7,15,0.68) 46%, rgba(4,7,15,0.92));
+    }
+
+    .hero-card,
+    .glass-card {
+      background: rgba(12, 17, 30, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-1);
+      backdrop-filter: blur(18px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 40%);
+      opacity: 0.6;
+    }
+
+    .hero-card {
+      padding: 26px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .glow-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffb199, var(--accent-1));
+      box-shadow: 0 0 18px rgba(225, 76, 69, 0.8);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      display: grid;
+      gap: 6px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32);
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    .stat:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.16); box-shadow: var(--shadow-1); }
+
+    .stat small { color: var(--fg-200); letter-spacing: 0.08em; text-transform: uppercase; }
+    .stat strong { font-size: 1.6rem; letter-spacing: -0.02em; }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+
+    .badge {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+      color: var(--fg-200);
+    }
+
+    .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .list li { display: flex; gap: 10px; align-items: flex-start; color: rgba(255, 255, 255, 0.8); }
+
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--accent-2); margin-top: 8px; }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .split-left { grid-column: span 6; }
+    .split-right { grid-column: span 6; }
+
+    .player-card iframe { border: none; width: 100%; height: 320px; border-radius: 16px; overflow: hidden; }
+
+    .player-card {
+      padding: 16px;
+      background: rgba(12, 17, 30, 0.82);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-1);
+      position: relative;
+      isolation: isolate;
+    }
+
+    .player-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(30, 195, 155, 0.12), transparent 35%);
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .video-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      min-height: 190px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: var(--shadow-2);
+      transform: translateZ(0);
+      transition: transform 0.5s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+    }
+
+    .video-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.25) contrast(1.05); transition: transform 0.5s ease; }
+
+    .video-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(4,7,15,0.9), rgba(12,17,30,0.45));
+      display: grid;
+      align-content: space-between;
+      padding: 18px;
+      color: var(--fg-100);
+    }
+
+    .video-card:hover { transform: translateY(-6px) scale(1.01); border-color: rgba(255, 255, 255, 0.2); box-shadow: var(--shadow-1); }
+    .video-card:hover img { transform: scale(1.08); }
+
+    .video-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--fg-200); font-size: 0.9rem; }
+
+    .about-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 22px; align-items: center; }
+    .about-text { grid-column: span 6; }
+    .about-visual { grid-column: span 6; display: grid; gap: 14px; }
+
+    .portrait-stack {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .portrait-main {
+      grid-column: span 4;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-1);
+    }
+
+    .portrait-main img,
+    .portrait-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portrait-side {
+      grid-column: span 2;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      filter: saturate(1.1);
+    }
+
+    .event-grid, .service-grid, .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .event-card, .service-card, .merch-card {
+      border-radius: var(--radius-md);
+      padding: 18px;
+      background: rgba(12, 17, 30, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-2);
+      display: grid;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.45s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+    }
+
+    .event-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 14% 20%, rgba(225, 76, 69, 0.14), transparent 40%),
+                  radial-gradient(circle at 86% 80%, rgba(30, 195, 155, 0.14), transparent 36%);
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .event-card > * { position: relative; z-index: 1; }
+
+    .event-card:hover,
+    .service-card:hover,
+    .merch-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-1); border-color: rgba(255, 255, 255, 0.22); }
+
+    .meta-row { display: flex; gap: 12px; flex-wrap: wrap; color: var(--fg-200); font-size: 0.95rem; }
+
+    .form-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: rgba(12, 17, 30, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-1);
+      display: grid;
+      gap: 12px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    label { display: grid; gap: 6px; font-size: 0.95rem; color: var(--fg-200); }
+    input, textarea, select {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--fg-100);
+      padding: 12px 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border 0.2s ease, background 0.2s ease;
+    }
+
+    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent-2); background: rgba(255, 255, 255, 0.06); }
+    textarea { resize: vertical; min-height: 120px; }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; align-items: start; }
+    .contact-text { grid-column: span 5; }
+    .contact-form { grid-column: span 7; }
+
+    .social-row { display: flex; gap: 12px; margin-top: 10px; }
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.3s ease, border 0.3s ease;
+    }
+
+    .social-btn:hover { transform: translateY(-3px) rotate(-2deg) scale(1.03); border-color: rgba(255, 255, 255, 0.2); box-shadow: var(--shadow-1); }
+
+    footer {
+      padding: 30px 0 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(180deg, rgba(4,7,15,0.6), rgba(4,7,15,0.9));
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    .footer-nav { display: grid; gap: 6px; }
+
+    .divider { height: 1px; background: rgba(255, 255, 255, 0.08); margin: 18px 0; }
+
+    .cookie {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(520px, 94vw);
+      padding: 16px;
+      background: rgba(12, 17, 30, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-1);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 25;
+    }
+
+    .cookie p { margin: 0; font-size: 0.95rem; }
+
+    .hidden { display: none !important; }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    .tilt { will-change: transform; }
+
+    @media (max-width: 960px) {
+      nav ul {
+        position: absolute;
+        top: 64px;
+        right: 12px;
+        left: 12px;
+        flex-direction: column;
+        background: rgba(7, 11, 20, 0.96);
+        padding: 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--shadow-1);
+        transform-origin: top;
+        transform: scaleY(0.4);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      nav ul.open { opacity: 1; pointer-events: auto; transform: scaleY(1); }
+
+      .nav-toggle { display: inline-flex; }
+      nav { position: relative; }
+
+      .grid-2, .split, .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content, .hero-aside, .split-left, .split-right, .about-text, .about-visual, .contact-text, .contact-form { grid-column: span 12; }
+
+      .hero-frame { inset: -40px; }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.4rem; }
+      .header-inner { gap: 10px; }
+      .stats { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+      .section { padding: 70px 0; }
+      main { padding-top: 110px; }
+      .cookie { flex-direction: column; align-items: flex-start; }
+      .player-card iframe { height: 260px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header>
-    <a class="brand" href="index.html">
-      <!-- // NEUES LOGO oben links (Header) -->
-      <img src="assets/logo-zweiklang.svg" alt="ZweiKlang emblem" class="brand__logo" loading="lazy" />
-      <span>
-        <!-- Brand Name -->
-        <span class="brand__name">ZweiKlang</span>
-        <!-- Brand Tagline -->
-        <span class="brand__tagline">Melodic Techno</span>
-      </span>
-    </a>
-    <nav id="mainNav" role="navigation" aria-label="Primary" data-nav>
-      <ul>
-        <!-- // NAV-Link Home -->
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <!-- // NAV-Link Music -->
-        <li><a href="#music">Music</a></li>
-        <!-- // NAV-Link Videos -->
-        <li><a href="videos.html">Videos</a></li>
-        <!-- // NAV-Link About -->
-        <li><a href="about.html">About Us</a></li>
-        <!-- // NAV-Link Events -->
-        <li><a href="events.html">Events</a></li>
-        <!-- // NAV-Link Contact -->
-        <li><a href="contact.html">Contact &amp; Legal</a></li>
-      </ul>
-    </nav>
-    <div class="header-actions">
-      <button class="theme-toggle" type="button" id="themeToggle" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
-        <span aria-hidden="true" data-theme-icon-slot>☾</span>
-        <span class="sr-only" data-theme-toggle-label>Switch to light theme</span>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#hero">
+          <!-- // LOGO: Header Brandmark -->
+          <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+          <div>
+            <!-- // BRAND_NAME -->
+            <span>ZweiKlang</span>
+            <!-- // BRAND_TAGLINE -->
+            <small style="color: var(--fg-200);">Cinematic Techno Duo</small>
+          </div>
+        </a>
+        <nav aria-label="Hauptnavigation">
+          <ul id="navList">
+            <li><a href="#hero"><!-- // NAV_ITEM: Home -->Home</a></li>
+            <li><a href="#music"><!-- // NAV_ITEM: Music -->Music</a></li>
+            <li><a href="#watch"><!-- // NAV_ITEM: Videos -->Videos</a></li>
+            <li><a href="#about"><!-- // NAV_ITEM: About -->About</a></li>
+            <li><a href="#events"><!-- // NAV_ITEM: Events -->Events</a></li>
+            <li><a href="#services"><!-- // NAV_ITEM: Services -->Services</a></li>
+            <li><a href="#contact"><!-- // NAV_ITEM: Contact -->Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-ghost" href="#contact">
+            <!-- // HEADER_CTA: Booking Button -->Booking anfragen
+          </a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen" id="navToggle">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="hero">
+        <div class="hero-frame">
+          <!-- // HERO_BACKGROUND Video URL -->
+          <video src="https://cdn.coverr.co/videos/coverr-light-aftermath-5990/1080p.mp4" autoplay muted loop playsinline poster="new banner.png"></video>
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="container grid-2 hero-grid">
+          <div class="hero-content reveal">
+            <div class="badge-row">
+              <!-- // HERO_PILL: Genre Signal -->
+              <span class="pill">Melodic Techno · Organic House</span>
+            </div>
+            <!-- // HERO_TITLE -->
+            <h1>Filmische Clubmomente mit präzisem Groove, gebaut f&uuml;r lange N&auml;chte und Sonnenaufg&auml;nge.</h1>
+            <!-- // HERO_SUBTITLE -->
+            <p>ZweiKlang liefert Hybrid-Sets mit tiefen B&auml;ssen, organischen Texturen und dramaturgischen Arcs. Jedes Set ist kuratiert, rider-sicher und sofort einsatzbereit.</p>
+            <div class="badge-row">
+              <!-- // HERO_TAG: Residency -->
+              <span class="badge">Rider safe</span>
+              <!-- // HERO_TAG: Format -->
+              <span class="badge">Hybrid &amp; DJ Only</span>
+              <!-- // HERO_TAG: Duration -->
+              <span class="badge">60–120 Min Slots</span>
+            </div>
+            <div class="badge-row">
+              <a class="btn" href="#music">
+                <!-- // CTA_1: Neuesten Mix hören -->Neuesten Mix h&ouml;ren
+              </a>
+              <a class="btn btn-ghost" href="#watch">
+                <!-- // CTA_2: Live-Set ansehen -->Live-Set ansehen
+              </a>
+            </div>
+            <div class="stats">
+              <div class="stat tilt">
+                <!-- // STAT_1_LABEL -->
+                <small>Bookings 2024</small>
+                <!-- // STAT_1_VALUE -->
+                <strong data-count="42">42</strong>
+                <!-- // STAT_1_NOTE -->
+                <span style="color: var(--fg-200);">Clubs, Rooftops, Streams</span>
+              </div>
+              <div class="stat tilt">
+                <!-- // STAT_2_LABEL -->
+                <small>BPM Range</small>
+                <!-- // STAT_2_VALUE -->
+                <strong data-count="124">115–124</strong>
+                <!-- // STAT_2_NOTE -->
+                <span style="color: var(--fg-200);">Organisch bis Peak Time</span>
+              </div>
+              <div class="stat tilt">
+                <!-- // STAT_3_LABEL -->
+                <small>Live Setup</small>
+                <!-- // STAT_3_VALUE -->
+                <strong>Analog + FX</strong>
+                <!-- // STAT_3_NOTE -->
+                <span style="color: var(--fg-200);">Elektron &amp; modular stems</span>
+              </div>
+            </div>
+          </div>
+          <aside class="hero-aside reveal">
+            <div class="hero-card tilt">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="glow-dot" aria-hidden="true"></span>
+                <!-- // HERO_CARD_TITLE -->
+                <span style="font-weight:700; letter-spacing:0.05em;">Tonight's Motion</span>
+              </div>
+              <div class="badge-row">
+                <!-- // HERO_CARD_MOOD -->
+                <span class="badge">Deep cinematic builds</span>
+                <!-- // HERO_CARD_MOOD_2 -->
+                <span class="badge">Vocal shards</span>
+              </div>
+              <ul class="list">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <!-- // HERO_CARD_POINT_1 -->
+                    <strong>Opening</strong>
+                    <p>Warm pads, 116 BPM, luftige Shaker.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <!-- // HERO_CARD_POINT_2 -->
+                    <strong>Ascent</strong>
+                    <p>Analog Leads, Vocal Fragments, 120 BPM.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <!-- // HERO_CARD_POINT_3 -->
+                    <strong>Peak</strong>
+                    <p>Groove Heavy, 123 BPM, club-ready Gelassenheit.</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="meta-row" style="justify-content: space-between;">
+                <!-- // HERO_CARD_SLOT -->
+                <span class="pill">Slot: 70–90 Minuten</span>
+                <!-- // HERO_CARD_CITY -->
+                <span class="pill" style="color: var(--accent-2);">Live: Berlin · EU</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="music">
+        <div class="container split">
+          <div class="split-left reveal">
+            <div class="section-heading">
+              <!-- // MUSIC_HEADING -->
+              <p class="eyebrow">Neuester Mix</p>
+              <!-- // MUSIC_TITLE -->
+              <h2>Pulse/Analog Warmth · 70 Minuten</h2>
+              <!-- // MUSIC_SUBTITLE -->
+              <p>Aufgenommen in einem Hybrid-Set mit Vocal-Glimmern, organischen Drums und kontrolliertem Low-End. Gemastert f&uuml;r Club-PA und Streams.</p>
+            </div>
+            <div class="player-card tilt">
+              <!-- // MUSIC_EMBED_URL (SoundCloud) -->
+              <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2125890612&color=%231ec39b&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" title="ZweiKlang SoundCloud Player" loading="lazy"></iframe>
+              <div class="meta-row" style="margin-top:12px;">
+                <!-- // MUSIC_LINK_PROFILE -->
+                <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer" class="pill">SoundCloud Profil</a>
+                <!-- // MUSIC_LINK_SPOTIFY -->
+                <a href="https://open.spotify.com/search/zweiklang" target="_blank" rel="noopener noreferrer" class="pill">Spotify Suche</a>
+              </div>
+            </div>
+          </div>
+          <div class="split-right reveal">
+            <div class="glass-card" style="padding:20px; display:grid; gap:12px;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="pill" style="margin:0;">Set Notes</span>
+                <!-- // MUSIC_NOTES_TITLE -->
+                <small style="color: var(--fg-200);">Key Moments</small>
+              </div>
+              <ul class="list">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <!-- // MUSIC_POINT_1 -->
+                    <strong>Minute 08</strong>
+                    <p>Afro Percussion Layers, organische Crowd-Lifts.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <!-- // MUSIC_POINT_2 -->
+                    <strong>Minute 29</strong>
+                    <p>Vocal Slice &amp; Analog Lead wechselt in treibende Hihats.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <!-- // MUSIC_POINT_3 -->
+                    <strong>Minute 54</strong>
+                    <p>Break in Cinematic Strings, Reverb Tail, kontrollierter Drop.</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="meta-row">
+                <!-- // MUSIC_TAG_1 -->
+                <span class="pill">118 → 123 BPM</span>
+                <!-- // MUSIC_TAG_2 -->
+                <span class="pill">Club &amp; Stream Ready</span>
+                <!-- // MUSIC_TAG_3 -->
+                <span class="pill">Hybrid Set</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="watch">
+        <div class="container reveal">
+          <div class="section-heading">
+            <!-- // VIDEOS_HEADING -->
+            <p class="eyebrow">Live Visuals</p>
+            <!-- // VIDEOS_TITLE -->
+            <h2>Showreel &amp; Live Cuts</h2>
+            <!-- // VIDEOS_SUBTITLE -->
+            <p>Kuratiertes Video-Grid mit Highlights im clubnahen Color-Grading, animierten Thumbnails und direkten Links zu YouTube.</p>
+          </div>
+          <div class="video-grid">
+            <a class="video-card tilt" href="https://www.youtube.com/watch?v=hs6W8gJl-9k" target="_blank" rel="noopener noreferrer">
+              <!-- // VIDEO_URL_1 Background Thumbnail -->
+              <img src="https://i.ytimg.com/vi/hs6W8gJl-9k/maxresdefault.jpg" alt="Live Set at Ravenna Bridge" loading="lazy" />
+              <div class="overlay">
+                <div>
+                  <!-- // VIDEO_TITLE_1 -->
+                  <h3>Ravenna Bridge · Live Cut</h3>
+                  <!-- // VIDEO_DESC_1 -->
+                  <p>70 Minuten cineastischer Spannungsbogen.</p>
+                </div>
+                <div class="video-meta">
+                  <!-- // VIDEO_META_1 -->
+                  <span>4K · 70:21</span>
+                  <span class="pill">YouTube</span>
+                </div>
+              </div>
+            </a>
+            <a class="video-card tilt" href="https://www.youtube.com/watch?v=e1q2x49NKFg" target="_blank" rel="noopener noreferrer">
+              <!-- // VIDEO_URL_2 Background Thumbnail -->
+              <img src="https://i.ytimg.com/vi/e1q2x49NKFg/maxresdefault.jpg" alt="Sunset Vibes Live" loading="lazy" />
+              <div class="overlay">
+                <div>
+                  <!-- // VIDEO_TITLE_2 -->
+                  <h3>Sunset Vibes</h3>
+                  <!-- // VIDEO_DESC_2 -->
+                  <p>Organic House mit goldenem Licht &amp; Vocals.</p>
+                </div>
+                <div class="video-meta">
+                  <!-- // VIDEO_META_2 -->
+                  <span>HD · 58:04</span>
+                  <span class="pill">YouTube</span>
+                </div>
+              </div>
+            </a>
+            <a class="video-card tilt" href="https://www.youtube.com/watch?v=Csz8FY4B8JI" target="_blank" rel="noopener noreferrer">
+              <!-- // VIDEO_URL_3 Background Thumbnail -->
+              <img src="https://i.ytimg.com/vi/Csz8FY4B8JI/maxresdefault.jpg" alt="Golden Hour Chill" loading="lazy" />
+              <div class="overlay">
+                <div>
+                  <!-- // VIDEO_TITLE_3 -->
+                  <h3>Golden Hour Chill</h3>
+                  <!-- // VIDEO_DESC_3 -->
+                  <p>Samtige Pads, luftige Drums, cineastisches Grading.</p>
+                </div>
+                <div class="video-meta">
+                  <!-- // VIDEO_META_3 -->
+                  <span>HD · 64:12</span>
+                  <span class="pill">YouTube</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-text reveal">
+            <div class="section-heading">
+              <!-- // ABOUT_HEADING -->
+              <p class="eyebrow">About</p>
+              <!-- // ABOUT_TITLE -->
+              <h2>Cineastischer Sound, gebaut f&uuml;r immersive R&auml;ume</h2>
+              <!-- // ABOUT_TEXT -->
+              <p>ZweiKlang verbindet organische House-Elemente mit filmischen Harmonien. Jedes Set wird live moduliert, mit analogem Outboard veredelt und f&uuml;r Club-PA sowie Broadcast kontrolliert ausgesteuert. Ghostak &amp; Artemis kuratieren jede Stunde wie einen Filmakt.</p>
+            </div>
+            <div class="meta-row">
+              <!-- // ABOUT_TAG_1 -->
+              <span class="pill">Hybrid &amp; DJ Only</span>
+              <!-- // ABOUT_TAG_2 -->
+              <span class="pill">Custom Visuals</span>
+              <!-- // ABOUT_TAG_3 -->
+              <span class="pill">Worldwide Ready</span>
+            </div>
+          </div>
+          <div class="about-visual reveal">
+            <div class="portrait-stack">
+              <div class="portrait-main tilt">
+                <!-- // ABOUT_IMAGE_MAIN -->
+                <img src="new banner.png" alt="ZweiKlang Stage Visual" loading="lazy" />
+              </div>
+              <div class="portrait-side tilt">
+                <!-- // ABOUT_IMAGE_SIDE -->
+                <img src="ghostak.PNG" alt="ZweiKlang Artist Portrait" loading="lazy" />
+              </div>
+            </div>
+            <div class="glass-card" style="padding:16px;">
+              <div class="badge-row">
+                <!-- // ABOUT_STAT_1 -->
+                <span class="badge">Mastered for PA</span>
+                <!-- // ABOUT_STAT_2 -->
+                <span class="badge">Analog Saturation</span>
+              </div>
+              <!-- // ABOUT_QUOTE -->
+              <p style="margin:0; font-style: italic;">„Wir bauen Atmosph&auml;re, die lange h&auml;lt – subtil, tief und kontrolliert."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="events">
+        <div class="container reveal">
+          <div class="section-heading">
+            <!-- // EVENTS_HEADING -->
+            <p class="eyebrow">Upcoming Shows</p>
+            <!-- // EVENTS_TITLE -->
+            <h2>Termine mit kuratiertem Sound und Visual Story</h2>
+            <!-- // EVENTS_SUBTITLE -->
+            <p>Alle Events sind vorbereitet mit Tech-Rider, Visual Presets und klaren Timings. Anfragen f&uuml;r weitere Termine willkommen.</p>
+          </div>
+          <div class="event-grid">
+            <div class="event-card tilt">
+              <!-- // EVENT_1_DATE -->
+              <p class="eyebrow" style="margin:0;">21 Feb 2025</p>
+              <!-- // EVENT_1_TITLE -->
+              <h3>Echo Vault · Berlin</h3>
+              <!-- // EVENT_1_DESC -->
+              <p>Hybrid-Set mit modularem FX-Loop, cineastische Visual Seeds.</p>
+              <div class="meta-row">
+                <!-- // EVENT_1_TIME -->
+                <span class="pill">01:00–02:30</span>
+                <!-- // EVENT_1_CITY -->
+                <span class="pill">Berlin</span>
+              </div>
+            </div>
+            <div class="event-card tilt">
+              <!-- // EVENT_2_DATE -->
+              <p class="eyebrow" style="margin:0;">08 Mar 2025</p>
+              <!-- // EVENT_2_TITLE -->
+              <h3>Sunrise Loft · Amsterdam</h3>
+              <!-- // EVENT_2_DESC -->
+              <p>Organic House Opening, Vocal Layers, 117 BPM Flow.</p>
+              <div class="meta-row">
+                <!-- // EVENT_2_TIME -->
+                <span class="pill">22:00–23:30</span>
+                <!-- // EVENT_2_CITY -->
+                <span class="pill">Amsterdam</span>
+              </div>
+            </div>
+            <div class="event-card tilt">
+              <!-- // EVENT_3_DATE -->
+              <p class="eyebrow" style="margin:0;">29 Mar 2025</p>
+              <!-- // EVENT_3_TITLE -->
+              <h3>Helios Stage · Barcelona</h3>
+              <!-- // EVENT_3_DESC -->
+              <p>Peak-Time Techno mit Vocal Shards und Analog Leads.</p>
+              <div class="meta-row">
+                <!-- // EVENT_3_TIME -->
+                <span class="pill">02:00–04:00</span>
+                <!-- // EVENT_3_CITY -->
+                <span class="pill">Barcelona</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container split">
+          <div class="split-left reveal">
+            <div class="section-heading">
+              <!-- // SERVICES_HEADING -->
+              <p class="eyebrow">Services &amp; Booking</p>
+              <!-- // SERVICES_TITLE -->
+              <h2>Modulare Pakete f&uuml;r Clubs, Brands &amp; Special Events</h2>
+              <!-- // SERVICES_TEXT -->
+              <p>Wir liefern ausgearbeitete Sets, Visual Seeds, Social Assets und Technik-Sicherheit. Jede Buchung erh&auml;lt einen klaren Ablaufplan.</p>
+            </div>
+            <div class="service-grid">
+              <div class="service-card tilt">
+                <!-- // SERVICE_1_TITLE -->
+                <h3>Hybrid Live</h3>
+                <!-- // SERVICE_1_DESC -->
+                <p>Elektron Analog + Ableton FX, Vocal Chops, modulare Filterfahrten.</p>
+                <div class="meta-row">
+                  <!-- // SERVICE_1_TAG_1 -->
+                  <span class="pill">90–120 Min</span>
+                  <!-- // SERVICE_1_TAG_2 -->
+                  <span class="pill">Rider inkl.</span>
+                </div>
+              </div>
+              <div class="service-card tilt">
+                <!-- // SERVICE_2_TITLE -->
+                <h3>DJ Curated</h3>
+                <!-- // SERVICE_2_DESC -->
+                <p>Club-ready DJ-Set mit subtilen Edits, Extended Blends und Vocal Moments.</p>
+                <div class="meta-row">
+                  <!-- // SERVICE_2_TAG_1 -->
+                  <span class="pill">60–180 Min</span>
+                  <!-- // SERVICE_2_TAG_2 -->
+                  <span class="pill">Afro / Organic / Peak</span>
+                </div>
+              </div>
+              <div class="service-card tilt">
+                <!-- // SERVICE_3_TITLE -->
+                <h3>Brand Scoring</h3>
+                <!-- // SERVICE_3_DESC -->
+                <p>Soundtracking f&uuml;r Marken-Events mit Custom Visual Sequences.</p>
+                <div class="meta-row">
+                  <!-- // SERVICE_3_TAG_1 -->
+                  <span class="pill">Concept Deck</span>
+                  <!-- // SERVICE_3_TAG_2 -->
+                  <span class="pill">Audio Stems</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="split-right reveal">
+            <div class="form-card">
+              <!-- // BOOKING_FORM_TITLE -->
+              <h3>Anfrage stellen</h3>
+              <!-- // BOOKING_FORM_SUBTITLE -->
+              <p style="margin:0 0 6px 0;">Antwort innerhalb von 24h mit Tech-Rider &amp; Ablaufplan.</p>
+              <form>
+                <div class="form-grid">
+                  <label>
+                    <!-- // BOOKING_FIELD_NAME_LABEL -->
+                    <span>Name / Agentur</span>
+                    <input type="text" name="name" placeholder="Ihre Kontaktdaten" />
+                  </label>
+                  <label>
+                    <!-- // BOOKING_FIELD_EMAIL_LABEL -->
+                    <span>E-Mail</span>
+                    <input type="email" name="email" placeholder="you@example.com" />
+                  </label>
+                  <label>
+                    <!-- // BOOKING_FIELD_DATE_LABEL -->
+                    <span>Event-Datum</span>
+                    <input type="date" name="date" />
+                  </label>
+                  <label>
+                    <!-- // BOOKING_FIELD_CITY_LABEL -->
+                    <span>Ort / Venue</span>
+                    <input type="text" name="city" placeholder="z. B. Berlin, Echo Vault" />
+                  </label>
+                  <label>
+                    <!-- // BOOKING_FIELD_BUDGET_LABEL -->
+                    <span>Budgetrahmen</span>
+                    <select name="budget">
+                      <option><!-- // BOOKING_BUDGET_OPTION_DEFAULT -->Budget w&auml;hlen</option>
+                      <option><!-- // BOOKING_BUDGET_OPTION_1 -->2k–4k €</option>
+                      <option><!-- // BOOKING_BUDGET_OPTION_2 -->4k–6k €</option>
+                      <option><!-- // BOOKING_BUDGET_OPTION_3 -->6k+ €</option>
+                    </select>
+                  </label>
+                  <label>
+                    <!-- // BOOKING_FIELD_ROLE_LABEL -->
+                    <span>Format</span>
+                    <select name="format">
+                      <option><!-- // BOOKING_FORMAT_OPTION_DEFAULT -->Hybrid Live</option>
+                      <option><!-- // BOOKING_FORMAT_OPTION_2 -->DJ Curated</option>
+                      <option><!-- // BOOKING_FORMAT_OPTION_3 -->Brand Scoring</option>
+                    </select>
+                  </label>
+                </div>
+                <label>
+                  <!-- // BOOKING_FIELD_MESSAGE_LABEL -->
+                  <span>Details</span>
+                  <textarea name="message" placeholder="Slots, Stage, technische Besonderheiten"></textarea>
+                </label>
+                <div class="meta-row" style="justify-content: space-between; align-items: center;">
+                  <label style="display:flex; gap:8px; align-items:center;">
+                    <input type="checkbox" />
+                    <!-- // BOOKING_FIELD_DSGVO_TEXT -->
+                    <span>Ich stimme der Verarbeitung laut Datenschutzerkl&auml;rung zu.</span>
+                  </label>
+                  <button class="btn" type="submit">
+                    <!-- // BOOKING_SUBMIT_LABEL -->
+                    Senden
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="merch">
+        <div class="container reveal">
+          <div class="section-heading">
+            <!-- // MERCH_HEADING -->
+            <p class="eyebrow">Merch</p>
+            <!-- // MERCH_TITLE -->
+            <h2>Limited Drops f&uuml;r die Community</h2>
+            <!-- // MERCH_SUBTITLE -->
+            <p>Hochwertige Stoffe, dezente Logos, f&uuml;r Abendlicht und Tour geeignet.</p>
+          </div>
+          <div class="merch-grid">
+            <div class="merch-card tilt">
+              <!-- // MERCH_ITEM_1_NAME -->
+              <h3>Midnight Hoodie</h3>
+              <!-- // MERCH_ITEM_1_DESC -->
+              <p>Schwarz, dezentes Emboss-Logo, Innen weich gebrushed.</p>
+              <div class="meta-row">
+                <!-- // MERCH_ITEM_1_PRICE -->
+                <span class="pill">89 €</span>
+                <!-- // MERCH_ITEM_1_SIZE -->
+                <span class="pill">Sizes S–XL</span>
+              </div>
+            </div>
+            <div class="merch-card tilt">
+              <!-- // MERCH_ITEM_2_NAME -->
+              <h3>Signal Cap</h3>
+              <!-- // MERCH_ITEM_2_DESC -->
+              <p>6-Panel, Ton-in-Ton Stitching, wasserabweisend.</p>
+              <div class="meta-row">
+                <!-- // MERCH_ITEM_2_PRICE -->
+                <span class="pill">42 €</span>
+                <!-- // MERCH_ITEM_2_SIZE -->
+                <span class="pill">One Size</span>
+              </div>
+            </div>
+            <div class="merch-card tilt">
+              <!-- // MERCH_ITEM_3_NAME -->
+              <h3>Vinyl Pack</h3>
+              <!-- // MERCH_ITEM_3_DESC -->
+              <p>Limitierte 12" mit Edits &amp; Club Cuts.</p>
+              <div class="meta-row">
+                <!-- // MERCH_ITEM_3_PRICE -->
+                <span class="pill">35 €</span>
+                <!-- // MERCH_ITEM_3_SIZE -->
+                <span class="pill">Edition 200</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-grid">
+          <div class="contact-text reveal">
+            <div class="section-heading">
+              <!-- // CONTACT_HEADING -->
+              <p class="eyebrow">Kontakt</p>
+              <!-- // CONTACT_TITLE -->
+              <h2>Direkte Line f&uuml;r Booking &amp; Kollab</h2>
+              <!-- // CONTACT_TEXT -->
+              <p>Schreib uns f&uuml;r Club-Slots, Livestreams oder Brand-Events. Wir respondieren mit klarer Timeline, Tech-Rider und Visual Paket.</p>
+            </div>
+            <div class="meta-row">
+              <!-- // CONTACT_EMAIL -->
+              <a class="pill" href="mailto:booking@zweiklang.io">booking@zweiklang.io</a>
+              <!-- // CONTACT_PHONE -->
+              <span class="pill">+49 170 000000</span>
+            </div>
+            <div class="social-row">
+              <a class="social-btn" href="https://www.instagram.com/zweiklang_official" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <!-- // SOCIAL_LINK_INSTAGRAM -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.2"/></svg>
+              </a>
+              <a class="social-btn" href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <!-- // SOCIAL_LINK_YOUTUBE -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.8 8.001s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C16.3 5 12 5 12 5h0s-4.3 0-7.1.1c-.4 0-1.2.1-1.9.9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.7.8 1.6.8 2 0.9 1.5.1 6.9.1 6.9.1s4.3 0 7.1-.1c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5c0-1.6-.2-3.2-.2-3.2Zm-12 6.7V9.3l5 2.7-5 2.7Z"/></svg>
+              </a>
+              <a class="social-btn" href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
+                <!-- // SOCIAL_LINK_SOUNDCLOUD -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7.2c-.6 0-1 .4-1 1l-.6 8.4h2.1l.5-8.4c0-.6-.4-1-1-1Zm-3.2 1.2c-.5 0-1 .4-1 1l-.5 7.2h2l.5-7.2c0-.6-.5-1-1-1Zm-3 2c-.5 0-.9.4-.9 1l-.3 5.2H3l.4-5.3c0-.5-.4-.9-.9-.9Zm14-2.2c-1 0-1.9.5-2.5 1.2-.3-.1-.6-.2-1-.2-.5 0-1 .2-1.4.5-.3-.6-.9-1-1.6-1-.2 0-.4 0-.6.1v8.4H20v-3.5c0-2.3-1.8-4.1-4-4.1Z"/></svg>
+              </a>
+              <a class="social-btn" href="https://open.spotify.com/artist/" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+                <!-- // SOCIAL_LINK_SPOTIFY -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2Zm4.6 14.5c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.4-.8-.4.1-.7-.1-.8-.5a.7.7 0 0 1 .5-.8c4-.9 7.6-.6 10.4 1 .3.2.4.6.2.9Zm1.2-2.8c-.2.3-.7.5-1 .3-2.9-1.7-7.2-2.2-10.5-1-.4.2-.8 0-.9-.4-.2-.4 0-.8.4-1 3.9-1.3 8.6-.8 11.9 1.2.3.2.4.6.1.9Zm0-3.1C14.3 9 9.4 8.8 6 9.9c-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1C9.3 7.1 14.7 7.3 18.7 9.6c.4.2.5.7.3 1Z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form reveal">
+            <div class="form-card">
+              <!-- // CONTACT_FORM_TITLE -->
+              <h3>Direkt schreiben</h3>
+              <!-- // CONTACT_FORM_SUBTITLE -->
+              <p style="margin:0 0 8px 0;">Wir antworten mit Timing, Tech-Rider und Visual-Preset-Vorschlag.</p>
+              <form>
+                <div class="form-grid">
+                  <label>
+                    <!-- // CONTACT_FIELD_NAME_LABEL -->
+                    <span>Name</span>
+                    <input type="text" name="contact-name" placeholder="Ihr Name" />
+                  </label>
+                  <label>
+                    <!-- // CONTACT_FIELD_EMAIL_LABEL -->
+                    <span>E-Mail</span>
+                    <input type="email" name="contact-email" placeholder="mail@example.com" />
+                  </label>
+                  <label>
+                    <!-- // CONTACT_FIELD_TOPIC_LABEL -->
+                    <span>Anliegen</span>
+                    <select name="contact-topic">
+                      <option><!-- // CONTACT_TOPIC_OPTION_1 -->Booking</option>
+                      <option><!-- // CONTACT_TOPIC_OPTION_2 -->Collab / Remix</option>
+                      <option><!-- // CONTACT_TOPIC_OPTION_3 -->Presse / Media</option>
+                    </select>
+                  </label>
+                  <label>
+                    <!-- // CONTACT_FIELD_CHANNEL_LABEL -->
+                    <span>Kontaktweg</span>
+                    <select name="contact-channel">
+                      <option><!-- // CONTACT_CHANNEL_OPTION_1 -->Email</option>
+                      <option><!-- // CONTACT_CHANNEL_OPTION_2 -->Telefon</option>
+                      <option><!-- // CONTACT_CHANNEL_OPTION_3 -->Video Call</option>
+                    </select>
+                  </label>
+                </div>
+                <label>
+                  <!-- // CONTACT_FIELD_MESSAGE_LABEL -->
+                  <span>Nachricht</span>
+                  <textarea name="contact-message" placeholder="Slot, Venue, Zeitfenster, technische Anforderungen"></textarea>
+                </label>
+                <button class="btn" type="submit">
+                  <!-- // CONTACT_SUBMIT_LABEL -->
+                  Abschicken
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="#hero">
+            <!-- // FOOTER_LOGO -->
+            <img src="assets/logo-zweiklang.svg" alt="ZweiKlang Logo" loading="lazy" />
+            <div>
+              <!-- // FOOTER_BRAND_NAME -->
+              <span>ZweiKlang</span>
+              <!-- // FOOTER_BRAND_TAGLINE -->
+              <small style="color: var(--fg-200);">Cinematic Techno</small>
+            </div>
+          </a>
+          <!-- // FOOTER_COPY -->
+          <p style="margin-top:10px;">Immersive Sound &amp; Visual Storytelling.</p>
+        </div>
+        <div>
+          <!-- // FOOTER_NAV_TITLE -->
+          <h4>Navigation</h4>
+          <div class="footer-nav">
+            <a href="#music"><!-- // FOOTER_NAV_MUSIC -->Music</a>
+            <a href="#watch"><!-- // FOOTER_NAV_VIDEOS -->Videos</a>
+            <a href="#events"><!-- // FOOTER_NAV_EVENTS -->Events</a>
+            <a href="#services"><!-- // FOOTER_NAV_SERVICES -->Services</a>
+            <a href="#contact"><!-- // FOOTER_NAV_CONTACT -->Contact</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_SOCIAL_TITLE -->
+          <h4>Socials</h4>
+          <div class="footer-nav">
+            <a href="https://www.instagram.com/zweiklang_official" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_INSTAGRAM -->Instagram</a>
+            <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SOUNDCLOUD -->SoundCloud</a>
+            <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_YOUTUBE -->YouTube</a>
+            <a href="https://open.spotify.com/artist/" target="_blank" rel="noopener noreferrer"><!-- // FOOTER_SOCIAL_SPOTIFY -->Spotify</a>
+          </div>
+        </div>
+        <div>
+          <!-- // FOOTER_LEGAL_TITLE -->
+          <h4>Rechtliches</h4>
+          <div class="footer-nav">
+            <a href="contact.html"><!-- // FOOTER_LEGAL_IMPRINT -->Impressum</a>
+            <a href="contact.html"><!-- // FOOTER_LEGAL_PRIVACY -->Datenschutz</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="cookie" id="cookieBanner">
+    <!-- // COOKIE_TEXT -->
+    <p>Wir nutzen technisch notwendige Cookies f&uuml;r Performance &amp; Security. Keine Third-Party-Tracker.</p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="btn" id="cookieAccept" type="button">
+        <!-- // COOKIE_ACCEPT_LABEL -->
+        Akzeptieren
       </button>
-      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav" data-nav-toggle>
-        <span aria-hidden="true">&#9776;</span>
-        <span class="sr-only">Toggle navigation</span>
+      <button class="btn btn-ghost" id="cookieDecline" type="button">
+        <!-- // COOKIE_DECLINE_LABEL -->
+        Nur technisch notwendige
       </button>
     </div>
-  </header>
+  </div>
 
-  <main id="main">
-    <section class="hero panel" id="hero">
-      <div class="hero__content">
-        <p class="hero__eyebrow">Cinematic Techno · Organic House</p>
-        <!-- HERO-Headline (Startseite Claim) -->
-        <h1 class="hero__title">ZweiKlang deliver sunrise-to-midnight journeys.</h1>
-        <!-- HERO-Subline (kurzer Duo-Pitch) -->
-        <p class="hero__subtitle">ghostak &amp; Artemis mischen melodische Spannung mit organischen Drums. Hybrid-Sets f&uuml;r Clubs, Rooftops und Streams.</p>
-        <div class="hero__actions">
-          <!-- CTA: Scroll zum Music Block -->
-          <a class="cta-btn" href="#listen">Neuesten Mix h&ouml;ren</a>
-          <!-- CTA: Scroll zum Video Block -->
-          <a class="cta-btn cta-btn--ghost" href="#watch">Live-Set ansehen</a>
-        </div>
-        <dl class="hero-stats">
-          <div>
-            <!-- Stat: Anzahl Shows -->
-            <dt>Live &amp; streamed</dt>
-            <dd>50+</dd>
-          </div>
-          <div>
-            <!-- Stat: BPM Range -->
-            <dt>BPM Flow</dt>
-            <dd>115–124</dd>
-          </div>
-          <div>
-            <!-- Stat: Cities -->
-            <dt>Cities</dt>
-            <dd>8</dd>
-          </div>
-          <div>
-            <!-- Stat: Energy -->
-            <dt>Energy</dt>
-            <dd>Sunset → Peak</dd>
-          </div>
-        </dl>
-      </div>
-      <figure class="hero__media">
-        <!-- // HERO Background Video/Bild -->
-        <img src="new banner.png" alt="ZweiKlang performing live on stage" loading="lazy" />
-        <div class="hero__overlay">
-          <span class="pill pill--light">Live vision</span>
-          <p>Slow-burn builds, vocal fragments, analog warmth.</p>
-        </div>
-      </figure>
-    </section>
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navList = document.getElementById('navList');
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      navList.classList.toggle('open');
+    });
 
-    <section class="panel vibe-grid" id="identity">
-      <div class="section-heading">
-        <span class="section-eyebrow">Signature</span>
-        <!-- Section Headline: Profil -->
-        <h2>Sound architecture built for immersion</h2>
-        <p class="section-subtitle">Layered Harmonies, Afro drums, cineastische Tiefen &ndash; auf jedem System stabil und druckvoll.</p>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <span class="feature-icon" aria-hidden="true">~</span>
-          <!-- Feature Title: Storytelling -->
-          <h3>Storytelling Flow</h3>
-          <p>Spannungskurven ohne Hektik: lange Blends, Vocal-Flares, subtile Synth-Dialoge.</p>
-          <div class="chip-row">
-            <span class="chip">Long transitions</span>
-            <span class="chip">Layered harmonies</span>
-          </div>
-        </article>
-        <article class="feature-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <span class="feature-icon" aria-hidden="true">◎</span>
-          <!-- Feature Title: Ready -->
-          <h3>Club &amp; Stream Ready</h3>
-          <p>Rider-sicher, Hybrid-Set Optionen, perfektes Gain-Staging f&uuml;r PA und Broadcast.</p>
-          <div class="chip-row">
-            <span class="chip">Rider safe</span>
-            <span class="chip">Livestream proof</span>
-          </div>
-        </article>
-        <article class="feature-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <span class="feature-icon" aria-hidden="true">✦</span>
-          <!-- Feature Title: Atmos -->
-          <h3>Immersive Atmosphere</h3>
-          <p>Visual Seeds, Smoke &amp; Light Cues abgestimmt auf Raum, Crowd und Zeitfenster.</p>
-          <div class="chip-row">
-            <span class="chip">Sunrise sets</span>
-            <span class="chip">Cinematic lows</span>
-          </div>
-        </article>
-      </div>
-      <div class="signal-row" aria-hidden="true">
-        <span class="signal-chip">Clubs &amp; rooftops</span>
-        <span class="signal-chip">Livestream studios</span>
-        <span class="signal-chip">Private gatherings</span>
-        <span class="signal-chip">Open air</span>
-      </div>
-    </section>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const targetId = anchor.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          navList.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
 
-    <section class="panel panel--accent panel--split showreel" id="watch">
-      <div class="reveal">
-        <div class="section-heading section-heading--column">
-          <span class="section-eyebrow">Showreel</span>
-          <!-- Showreel Title -->
-          <h2>Aktuelle Live-Energie in 70 Minuten</h2>
-          <p class="section-subtitle">Dunkle B&auml;sse, warme Akkorde, organische Drums. Selektierte Mitschnitte statt alter Flyer.</p>
-        </div>
-        <ul class="list-reset highlight-list">
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Live aufgenommen, gemastert und ready f&uuml;r Club-PA
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Story-driven Mix mit Groove statt Hype
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Flexible Slots: 60–120 Minuten nach Bedarf
-          </li>
-        </ul>
-        <div class="hero__actions">
-          <!-- CTA: YouTube Link -->
-          <a class="cta-btn" href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer">YouTube Channel &ouml;ffnen</a>
-          <a class="cta-link" href="#listen">Zum neuen Mix scrollen &rarr;</a>
-        </div>
-      </div>
-      <div class="media-stack reveal">
-        <div class="media-stack__card">
-          <!-- Video Embed (Showreel) -->
-          <iframe src="https://www.youtube.com/embed/hs6W8gJl-9k?si=gPZ7fk8CEKzaVw5I" title="Live Set at Ravenna Bridge" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="media-stack__meta">
-          <span class="pill pill--light">Live Cut</span>
-          <p>Ravenna Bridge · 70 Min · cineastischer Flow</p>
-        </div>
-      </div>
-    </section>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
 
-    <section class="panel" id="music">
-      <div class="section-heading">
-        <span class="section-eyebrow">Music</span>
-        <!-- Music Section Title -->
-        <h2>Aktuelle Mixes &amp; Edits</h2>
-        <p class="section-subtitle">Sofort h&ouml;rbar, sauber getaggt, bereit f&uuml;r Promotion &amp; Bookings.</p>
-      </div>
-      <div class="filter-row" role="group" aria-label="Filter Clips">
-        <button class="filter-btn is-active" data-filter="all">Alle</button>
-        <button class="filter-btn" data-filter="live">Live</button>
-        <button class="filter-btn" data-filter="studio">Studio</button>
-        <button class="filter-btn" data-filter="podcast">Podcast</button>
-      </div>
-      <div class="media-grid" data-filter-target>
-        <article class="audio-card hover-lift hover-glow tilt-card reveal" data-tilt data-category="live">
-          <div class="audio-card__header">
-            <!-- Audio Title -->
-            <h3>Ravenna Bridge · Live Cut</h3>
-            <span class="pill pill--light">Live</span>
-          </div>
-          <!-- Audio Description -->
-          <p>70 Minuten cineastischer Techno mit organischen Texturen.</p>
-          <!-- SoundCloud/Spotify URL -->
-          <a class="cta-link" href="#listen">Im Player &ouml;ffnen</a>
-        </article>
-        <article class="audio-card hover-lift hover-glow tilt-card reveal" data-tilt data-category="studio">
-          <div class="audio-card__header">
-            <h3>Midnight Stories Vol. 3</h3>
-            <span class="pill pill--light">Studio</span>
-          </div>
-          <p>Story-driven Mix f&uuml;r Nachtfahrten &ndash; 118 BPM Flow.</p>
-          <a class="cta-link" href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer">SoundCloud Profil</a>
-        </article>
-        <article class="audio-card hover-lift hover-glow tilt-card reveal" data-tilt data-category="podcast">
-          <div class="audio-card__header">
-            <h3>Organic Pulse Podcast</h3>
-            <span class="pill pill--light">Podcast</span>
-          </div>
-          <p>Downtempo &amp; Organic House mit Vocal-Flares und subtilen Builds.</p>
-          <a class="cta-link" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">Podcatcher &ouml;ffnen</a>
-        </article>
-      </div>
-    </section>
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    <section class="panel panel--alt" id="listen">
-      <div class="section-heading section-heading--column">
-        <span class="section-eyebrow">Player</span>
-        <!-- Player Title -->
-        <h2>SoundCloud Spotlight</h2>
-        <!-- Player Subline -->
-        <p class="section-subtitle">Press play f&uuml;r den aktuellsten Mix &ndash; gebaut f&uuml;r Sunset Sessions, Clubfloors und lange Autofahrten.</p>
-      </div>
-      <div class="audio-player panel--split">
-        <div>
-          <div class="stats-grid">
-            <div class="stat-card">
-              <span class="stat-card__value">90</span>
-              <span class="stat-card__label">Minutes</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-card__value">118</span>
-              <span class="stat-card__label">BPM Flow</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-card__value">6</span>
-              <span class="stat-card__label">Unreleased IDs</span>
-            </div>
-          </div>
-          <div class="hero__actions">
-            <!-- CTA: Newsletter -->
-            <a class="cta-link" href="#newsletter">Release-Updates sichern &rarr;</a>
-          </div>
-        </div>
-        <div class="sc-embed">
-          <!-- SoundCloud Embed URL -->
-          <iframe width="100%" height="320" scrolling="no" frameborder="no" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2125890612&amp;color=%231ec39b&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" title="SoundCloud player"></iframe>
-          <div class="sc-credit">
-            <a href="https://soundcloud.com/zweiklang_music" title="ZWEIKLANG" target="_blank" rel="noopener noreferrer">ZWEIKLANG</a>
-            ·
-            <a href="https://soundcloud.com/zweiklang_music/afro-house-sunset-vibes-2025-keinemusik-black-coffee-hugel-boys-noize-deep-house-dj-set" title="Afro House Sunset Vibes 2025" target="_blank" rel="noopener noreferrer">Afro House Sunset Vibes 2025</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    const handleTilt = (event, card) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const rotateY = ((x / rect.width) - 0.5) * 4;
+      const rotateX = ((y / rect.height) - 0.5) * -4;
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    };
 
-    <section class="panel" id="videos">
-      <div class="section-heading">
-        <span class="section-eyebrow">Watch</span>
-        <!-- Video Section Title -->
-        <h2>Live Cuts &amp; Sessions</h2>
-        <p class="section-subtitle">Kuratierte Highlights &ndash; jeder Clip transportiert Stimmung und Raum. Kopfh&ouml;rer empfohlen.</p>
-      </div>
-      <div class="video-gallery">
-        <article class="video-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <!-- Video Embed 1 -->
-          <iframe src="https://www.youtube.com/embed/hs6W8gJl-9k?si=gPZ7fk8CEKzaVw5I" title="Live Set at Ravenna Bridge" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p>Ravenna Bridge &ndash; cineastischer Techno in einer Schlucht.</p>
-        </article>
-        <article class="video-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <!-- Video Embed 2 -->
-          <iframe src="https://www.youtube.com/embed/e1q2x49NKFg?si=_Z8kQxZ9271r5V34" title="Sunset Vibes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p>Sunset Vibes &ndash; Energie &amp; Emotion zur goldenen Stunde.</p>
-        </article>
-        <article class="video-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <!-- Video Embed 3 -->
-          <iframe src="https://www.youtube.com/embed/Csz8FY4B8JI?si=mxKf8f9n-RrM9ZqD" title="Golden Hour Chill" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p>Golden Hour Chill &ndash; organic house f&uuml;r leichte Momente.</p>
-        </article>
-        <article class="video-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <!-- Video Embed 4 -->
-          <iframe src="https://www.youtube.com/embed/BwiD9gV5-c0?si=_JkNQN-QAxSgXuvb" title="Deep House Grooves" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <p>Deep House Grooves &ndash; Club-getriebene Energie.</p>
-        </article>
-      </div>
-    </section>
+    document.querySelectorAll('.tilt').forEach(card => {
+      card.addEventListener('pointermove', (e) => handleTilt(e, card));
+      card.addEventListener('pointerleave', () => card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)');
+    });
 
-    <section class="panel panel--split" id="about">
-      <div class="section-heading section-heading--column">
-        <span class="section-eyebrow">About</span>
-        <!-- About Title -->
-        <h2>ZweiKlang sind ghostak &amp; Artemis</h2>
-        <!-- About Text -->
-        <p class="section-subtitle">Cineastischer Techno trifft organische House-Elemente. Wir designen Momente f&uuml;r Tanzfl&auml;chen, Streams und Sonnenaufg&auml;nge.</p>
-        <div class="bio-grid">
-          <div class="bio-block">
-            <!-- Artist Bio ghostak -->
-            <h3>ghostak</h3>
-            <p>Architekt f&uuml;r dramaturgische Builds, deepe B&auml;sse und filmische Spannungsb&ouml;gen.</p>
-            <a class="cta-link" href="https://www.instagram.com/ghostakmusic.wav" target="_blank" rel="noopener noreferrer">Instagram →</a>
-          </div>
-          <div class="bio-block">
-            <!-- Artist Bio Artemis -->
-            <h3>Artemis</h3>
-            <p>Explorer f&uuml;r organische Texturen, Vocal-Flares und hypnotische Grooves.</p>
-            <a class="cta-link" href="https://www.instagram.com/artemismusic.wav" target="_blank" rel="noopener noreferrer">Instagram →</a>
-          </div>
-        </div>
-      </div>
-      <div class="experience-card hover-lift hover-glow tilt-card reveal" data-tilt>
-        <h3>Highlights</h3>
-        <ul class="list-reset">
-          <li>Ravenna Bridge · Livestream Highlight 2024</li>
-          <li>Sunrise Coastal Session · Adriatic Coast 2025</li>
-          <li>Forest Sessions · Black Forest Pop-Up Series</li>
-        </ul>
-        <!-- CTA: Full Bio Page -->
-        <a class="cta-btn" href="about.html">Mehr erfahren</a>
-      </div>
-    </section>
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAccept = document.getElementById('cookieAccept');
+    const cookieDecline = document.getElementById('cookieDecline');
+    const consent = localStorage.getItem('zweiklangConsent');
 
-    <section class="panel" id="events">
-      <div class="section-heading">
-        <span class="section-eyebrow">Events</span>
-        <!-- Events Title -->
-        <h2>Upcoming &amp; Past Moments</h2>
-        <p class="section-subtitle">Keine veralteten Flyer. Frische Slots nur nach Best&auml;tigung. Schreibe uns.</p>
-      </div>
-      <div class="event-empty">
-        <p class="lead">Aktuell keine &ouml;ffentlich ver&ouml;ffentlichten Daten. Kurze Mail mit Datum, Stadt und Slot &ndash; wir antworten &lt;24h.</p>
-        <div class="hero__actions">
-          <!-- CTA: Booking Mail -->
-          <a class="cta-btn" href="mailto:zweiklangkontakt@gmail.com">Booking anfragen</a>
-          <a class="cta-link" href="events.html">Mehr zu vergangenen Shows &rarr;</a>
-        </div>
-      </div>
-      <div class="timeline two-col">
-        <div class="timeline-item reveal">
-          <span class="timeline-item__title">Ravenna Bridge Set</span>
-          <span class="timeline-item__date">2024 · Black Forest</span>
-          <p>Cinematic canyon performance mit Live-Visuals.</p>
-        </div>
-        <div class="timeline-item reveal">
-          <span class="timeline-item__title">Forest Sessions</span>
-          <span class="timeline-item__date">2024 · Schwarzwald</span>
-          <p>Secret woods gathering mit analogem Synth-Jam.</p>
-        </div>
-        <div class="timeline-item reveal">
-          <span class="timeline-item__title">Sunrise Coastal Session</span>
-          <span class="timeline-item__date">2025 · Adriatic Coast</span>
-          <p>Stripped-back beach takeover mit Sunrise Encore.</p>
-        </div>
-      </div>
-    </section>
+    const hideCookie = () => { cookieBanner.classList.add('hidden'); };
 
-    <section class="panel panel--accent" id="services">
-      <div class="section-heading">
-        <span class="section-eyebrow">Services</span>
-        <!-- Services Title -->
-        <h2>Was wir liefern</h2>
-        <p class="section-subtitle">Headliner- oder Support-Sets, Hybrid-Optionen, audiovisuelle Konzepte &amp; Promo-Pakete.</p>
-      </div>
-      <div class="services-grid">
-        <article class="service-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <h3>Club / Festival</h3>
-          <p>Peak-Time oder Sunset-Slots mit druckvollen Mixen. Optional Visual Cues &amp; Timecode-Light.</p>
-        </article>
-        <article class="service-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <h3>Livestream</h3>
-          <p>Broadcast-Safe Audio, Gain-Management, Direct S/PDIF, Kamera-Cues.</p>
-        </article>
-        <article class="service-card hover-lift hover-glow tilt-card reveal" data-tilt>
-          <h3>Private / Brand</h3>
-          <p>Curated Atmosphere f&uuml;r Launches, Rooftops oder Off-Locations. Dezent oder treibend.</p>
-        </article>
-      </div>
-    </section>
+    if (consent) hideCookie();
 
-    <section class="panel panel--split" id="booking">
-      <div class="section-heading section-heading--column">
-        <span class="section-eyebrow">Booking</span>
-        <!-- Booking Title -->
-        <h2>Bring ZweiKlang auf deine B&uuml;hne</h2>
-        <p class="section-subtitle">Kurze Anfrage, klare Specs, schnelle Zusage.</p>
-        <ul class="list-reset highlight-list">
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            2x Pioneer CDJ-3000/2000NXS2, DJM-900NXS2, 2x Monitor Wedges
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Optional Visuals &amp; Light Cues
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Antwort in &lt;24h
-          </li>
-        </ul>
-      </div>
-      <form class="booking-form" action="https://formsubmit.co/zweiklangkontakt@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="ZweiKlang Booking Request" />
-        <!-- Booking: Name -->
-        <label for="name">Name / Company</label>
-        <input id="name" name="name" type="text" required placeholder="Dein Name" autocomplete="name" />
-        <!-- Booking: Email -->
-        <label for="email">E-Mail</label>
-        <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
-        <!-- Booking: Date -->
-        <label for="date">Datum</label>
-        <input id="date" name="date" type="date" required />
-        <!-- Booking: Location -->
-        <label for="city">Ort / Venue</label>
-        <input id="city" name="city" type="text" required placeholder="Stadt, Venue" />
-        <!-- Booking: Type -->
-        <label for="type">Event-Typ</label>
-        <select id="type" name="type" required>
-          <option value="">Bitte wählen</option>
-          <option>Club / Festival</option>
-          <option>Livestream</option>
-          <option>Private / Corporate</option>
-          <option>Afterhour / Sunrise</option>
-        </select>
-        <!-- Booking: Duration -->
-        <label for="duration">Slot / Dauer</label>
-        <input id="duration" name="duration" type="text" placeholder="z. B. 90–120 Min" />
-        <!-- Booking: Message -->
-        <label for="message">Details / Mood</label>
-        <textarea id="message" name="message" rows="4" placeholder="Crowd, gewünschte Stimmung, Technik, Zeitplan"></textarea>
-        <!-- CTA: Submit Booking -->
-        <button class="cta-btn" type="submit">Jetzt anfragen</button>
-      </form>
-    </section>
+    cookieAccept.addEventListener('click', () => {
+      localStorage.setItem('zweiklangConsent', 'accepted');
+      hideCookie();
+    });
 
-    <section class="panel panel--alt" id="merch">
-      <div class="section-heading">
-        <span class="section-eyebrow">Merch</span>
-        <!-- Merch Title -->
-        <h2>Limited Drops</h2>
-        <p class="section-subtitle">Caps, Tees und Poster &ndash; erste Serie in Produktion. Trag dich ein.</p>
-      </div>
-      <div class="merch-grid">
-        <div class="merch-card reveal">
-          <p>Drop 01 &ndash; Caps &amp; Oversize Tee</p>
-          <span class="pill pill--light">Coming soon</span>
-        </div>
-        <div class="merch-card reveal">
-          <p>Poster Serie &ndash; Ravenna Bridge &amp; Forest Sessions</p>
-          <span class="pill pill--light">Preorder</span>
-        </div>
-        <div class="merch-card reveal">
-          <p>USB Pack &ndash; Private Edits + Artwork</p>
-          <span class="pill pill--light">Fall 2025</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel panel--center" id="newsletter">
-      <div class="section-heading section-heading--center">
-        <span class="section-eyebrow">Stay connected</span>
-        <!-- Newsletter Title -->
-        <h2>Follow &amp; Subscribe</h2>
-        <p class="section-subtitle">Neue Mixe, Live-Cuts und Einblicke hinter die Decks &ndash; direkt in deinen Feed.</p>
-      </div>
-      <div class="social-links">
-        <!-- Social Link Instagram ghostak -->
-        <a href="https://www.instagram.com/ghostakmusic.wav" target="_blank" rel="noopener noreferrer">Instagram ghostak</a>
-        <!-- Social Link Instagram Artemis -->
-        <a href="https://www.instagram.com/artemismusic.wav" target="_blank" rel="noopener noreferrer">Instagram Artemis</a>
-        <!-- Social Link YouTube -->
-        <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <!-- Social Link SoundCloud -->
-        <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-      </div>
-      <form class="newsletter-form" action="https://formsubmit.co/zweiklangkontakt@gmail.com" method="POST">
-        <label for="newsletter-email">Newsletter</label>
-        <input type="hidden" name="_subject" value="ZweiKlang Newsletter" />
-        <!-- Newsletter E-Mail -->
-        <input type="email" id="newsletter-email" name="email" placeholder="you@example.com" required autocomplete="email" />
-        <!-- CTA Newsletter -->
-        <button class="cta-btn" type="submit">Subscribe</button>
-        <p class="newsletter-note">Seltene Updates zu neuen Mixen, Shows und Edits. Kein Spam.</p>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <!-- // NEUES LOGO im Footer -->
-        <img src="assets/logo-zweiklang.svg" alt="ZweiKlang footer logo" loading="lazy" />
-        <div>
-          <p>&copy; 2025 ZweiKlang – ghostak &amp; Artemis.</p>
-          <p>Premium melodic techno &amp; organic house journeys.</p>
-        </div>
-      </div>
-      <div class="footer-actions">
-        <a href="https://www.youtube.com/@ghostak108" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 15l5.19-3L10 9v6zm12-3c0-2.5-.2-4.1-.46-5.16-.26-1-.97-1.71-1.93-1.96C17.5 4.5 12 4.5 12 4.5s-5.5 0-7.61.38c-.96.25-1.67.96-1.93 1.96C2.2 7.9 2 9.5 2 12s.2 4.1.46 5.16c.26 1 .97 1.71 1.93 1.96C4.5 19.5 12 19.5 12 19.5s5.5 0 7.61-.38c.96-.25 1.67-.96 1.93-1.96.26-1.06.46-2.66.46-5.16z"/></svg>
-          <span>YouTube</span>
-        </a>
-        <a href="https://soundcloud.com/zweiklang_music" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 9.5c-.3 0-.6.1-.8.2-.5-2-2.3-3.5-4.4-3.5-1.4 0-2.8.7-3.6 1.8-.4-.3-.9-.5-1.4-.5C4 7.5 2.5 9 2.5 10.9s1.5 3.4 3.3 3.4H17c1.4 0 2.5-1.1 2.5-2.5S18.4 9.5 17 9.5Z"/></svg>
-          <span>SoundCloud</span>
-        </a>
-        <a href="mailto:zweiklangkontakt@gmail.com" aria-label="Booking email">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 13 2 6.76V18h20V6.76L12 13Zm0-2.47L21.72 5H2.28L12 10.53Z"/></svg>
-          <span>Booking</span>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js" defer></script>
+    cookieDecline.addEventListener('click', () => {
+      localStorage.setItem('zweiklangConsent', 'necessary');
+      hideCookie();
+    });
+  </script>
 </body>
 </html>
