@@ -1,39 +1,44 @@
 (function () {
   const navToggle = document.getElementById('navToggle');
-  const navList = document.getElementById('navList');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileNavClose = document.getElementById('mobileNavClose');
 
   document.body.classList.add('nav-ready');
 
   const closeNav = () => {
-    if (!navList) return;
-    navList.classList.remove('open');
+    if (mobileNav) {
+      mobileNav.classList.remove('is-open');
+      mobileNav.setAttribute('aria-hidden', 'true');
+    }
     if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('nav-open');
   };
 
   const openNav = () => {
-    if (!navList) return;
-    navList.classList.add('open');
+    if (mobileNav) {
+      mobileNav.classList.add('is-open');
+      mobileNav.setAttribute('aria-hidden', 'false');
+    }
     if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
     document.body.classList.add('nav-open');
   };
 
-  if (navToggle && navList) {
+  if (navToggle && mobileNav) {
     navToggle.addEventListener('click', (event) => {
       event.preventDefault();
       const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      if (expanded) {
-        closeNav();
-      } else {
-        openNav();
-      }
+      expanded ? closeNav() : openNav();
     });
   }
 
-  document.addEventListener('click', (event) => {
-    if (!navList || !navList.classList.contains('open')) return;
-    if (navList.contains(event.target) || (navToggle && navToggle.contains(event.target))) return;
-    closeNav();
+  mobileNavClose && mobileNavClose.addEventListener('click', closeNav);
+
+  mobileNav && mobileNav.addEventListener('click', (event) => {
+    if (event.target === mobileNav) closeNav();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeNav();
   });
 
   window.addEventListener('resize', () => {
@@ -57,14 +62,20 @@
   const sectionTargets = Array.from(document.querySelectorAll('section[id]'));
   const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
   if ('IntersectionObserver' in window && sectionTargets.length && navLinks.length) {
-    const navMap = new Map(navLinks.map((link) => [link.getAttribute('href').slice(1), link]));
+    const navMap = navLinks.reduce((map, link) => {
+      const key = link.getAttribute('href').slice(1);
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push(link);
+      return map;
+    }, new Map());
+
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        const link = navMap.get(entry.target.id);
-        if (!link) return;
+        const links = navMap.get(entry.target.id);
+        if (!links || !links.length) return;
         if (entry.isIntersecting) {
           navLinks.forEach((l) => l.classList.remove('is-active'));
-          link.classList.add('is-active');
+          links.forEach((l) => l.classList.add('is-active'));
         }
       });
     }, { threshold: 0.45 });
