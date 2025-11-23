@@ -497,11 +497,11 @@ footer { padding: 30px 0 60px; border-top: 1px solid rgba(255, 255, 255, 0.06); 
     width: 48px;
     height: 48px;
     font-size: 1.15rem;
-    display: inline-flex;
+    display: none;
   }
   .header-actions .btn { display: none; }
-  .mobile-nav { display: grid; pointer-events: none; }
-  .mobile-nav.is-open { pointer-events: auto; }
+  .mobile-nav { display: none !important; pointer-events: none; }
+  .mobile-nav.is-open { pointer-events: none; }
   .mobile-nav .brand small { display: block; }
   .grid-2, .split, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .hero-content, .hero-aside, .split-left, .split-right, .about-text, .about-visual, .contact-text, .contact-form { grid-column: span 12; }
