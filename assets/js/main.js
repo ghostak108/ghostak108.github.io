@@ -2,6 +2,7 @@
   const navToggle = document.getElementById('navToggle');
   const mobileNav = document.getElementById('mobileNav');
   const mobileNavClose = document.getElementById('mobileNavClose');
+  const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
 
   document.body.classList.add('nav-ready');
 
@@ -10,6 +11,7 @@
       mobileNav.classList.remove('is-open');
       mobileNav.setAttribute('aria-hidden', 'true');
     }
+    if (mobileNavBackdrop) mobileNavBackdrop.setAttribute('aria-hidden', 'true');
     if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('nav-open');
   };
@@ -19,6 +21,7 @@
       mobileNav.classList.add('is-open');
       mobileNav.setAttribute('aria-hidden', 'false');
     }
+    if (mobileNavBackdrop) mobileNavBackdrop.setAttribute('aria-hidden', 'false');
     if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
     document.body.classList.add('nav-open');
   };
@@ -33,9 +36,7 @@
 
   mobileNavClose && mobileNavClose.addEventListener('click', closeNav);
 
-  mobileNav && mobileNav.addEventListener('click', (event) => {
-    if (event.target === mobileNav) closeNav();
-  });
+  mobileNavBackdrop && mobileNavBackdrop.addEventListener('click', closeNav);
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeNav();
