@@ -60,8 +60,9 @@
     </header>
 
     <div class="mobile-nav" id="mobileNav" aria-hidden="true">
-      <div class="mobile-nav__panel" role="dialog" aria-label="Navigation">
-        <div class="mobile-nav__top">
+      <div class="mobile-nav__backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
+      <div class="mobile-nav__tray" role="dialog" aria-label="Navigation">
+        <div class="mobile-nav__header">
           <a class="brand" href="#hero">
             <img src="assets/logo_black.png" alt="ZweiKlang Logo" loading="lazy" />
             <div>
@@ -69,22 +70,33 @@
               <small style="color: var(--fg-200);">Cinematic Techno Duo</small>
             </div>
           </a>
-          <button class="mobile-nav__close" type="button" aria-label="Navigation schließen" id="mobileNavClose">&times;</button>
+          <button class="mobile-nav__close" type="button" aria-label="Navigation schließen" id="mobileNavClose">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <p class="mobile-nav__eyebrow">Direkter Zugriff</p>
         <nav aria-label="Mobile Navigation">
-          <ul>
-            <li><a href="#hero"><!-- // NAV_ITEM: Home -->Home</a></li>
-            <li><a href="#music"><!-- // NAV_ITEM: Music -->Music</a></li>
-            <li><a href="#watch"><!-- // NAV_ITEM: Videos -->Videos</a></li>
-            <li><a href="#about"><!-- // NAV_ITEM: About -->About</a></li>
-            <li><a href="#events"><!-- // NAV_ITEM: Events -->Events</a></li>
-            <li><a href="#services"><!-- // NAV_ITEM: Services -->Services</a></li>
-            <li><a href="#contact"><!-- // NAV_ITEM: Contact -->Contact</a></li>
+          <ul class="mobile-nav__list">
+            <li><a class="mobile-nav__link" href="#hero"><span>Home</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="#music"><span>Music</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="#watch"><span>Videos</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="#about"><span>About</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="#events"><span>Events</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="#services"><span>Services</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="#contact"><span>Contact</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
           </ul>
         </nav>
-        <div class="mobile-nav__actions">
+        <div class="mobile-nav__cta">
           <a class="btn" href="#contact">Booking anfragen</a>
           <a class="btn btn-ghost" href="#music">Neuesten Mix h&ouml;ren</a>
+        </div>
+        <div class="mobile-nav__meta">
+          <div class="mobile-nav__tag">Berlin · EU · Hybrid &amp; DJ Only</div>
+          <div class="mobile-nav__links">
+            <a href="#events">Live Termine</a>
+            <a href="#services">Tech Rider</a>
+            <a href="#contact">Direktkontakt</a>
+          </div>
         </div>
       </div>
     </div>
