@@ -1,4 +1,12 @@
 (function () {
+  // Start at top when loading the page directly (avoids mid-page restore)
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+  if (!window.location.hash) {
+    window.addEventListener('load', () => window.scrollTo({ top: 0, behavior: 'auto' }));
+  }
+
   const navToggle = document.getElementById('navToggle');
   const mobileNav = document.getElementById('mobileNav');
   const mobileNavClose = document.getElementById('mobileNavClose');
