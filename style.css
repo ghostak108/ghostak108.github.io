@@ -475,7 +475,7 @@ footer { padding: 30px 0 60px; border-top: 1px solid rgba(255, 255, 255, 0.06); 
 .footer-nav { display: grid; gap: 6px; }
 .divider { height: 1px; background: rgba(255, 255, 255, 0.08); margin: 18px 0; }
 
-.cookie { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); width: min(520px, 94vw); padding: 16px; background: rgba(12, 17, 30, 0.92); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--radius-md); box-shadow: var(--shadow-1); display: flex; gap: 12px; align-items: center; justify-content: space-between; z-index: 25; }
+.cookie { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); width: min(520px, 94vw); padding: 16px; background: rgba(12, 17, 30, 0.98); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--radius-md); box-shadow: var(--shadow-1); display: flex; gap: 12px; align-items: center; justify-content: space-between; z-index: 100; backdrop-filter: blur(12px); }
 .cookie p { margin: 0; font-size: 0.95rem; }
 
 .hidden { display: none !important; }
@@ -520,16 +520,22 @@ footer { padding: 30px 0 60px; border-top: 1px solid rgba(255, 255, 255, 0.06); 
   .grid-2, .split, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .hero-content, .hero-aside, .split-left, .split-right, .about-text, .about-visual, .contact-text, .contact-form { grid-column: span 12; }
   .hero-frame { inset: -40px; }
+  .hero-grid { min-height: auto; gap: 32px; }
+  .stats { margin-top: 20px; }
 }
 
 @media (max-width: 600px) {
   h1 { font-size: 2.4rem; }
   .header-inner { gap: 10px; }
-  .stats { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  .stats { grid-template-columns: 1fr; gap: 10px; }
+  .stat strong { font-size: 1.3rem; word-break: break-word; }
   .section { padding: 70px 0; }
   main { padding-top: 110px; }
   .cookie { flex-direction: column; align-items: flex-start; }
   .player-card iframe { height: 260px; }
+  .badge-row { gap: 8px; }
+  .badge { font-size: 0.8rem; padding: 5px 10px; }
+  .pill { font-size: 0.8rem; padding: 6px 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
