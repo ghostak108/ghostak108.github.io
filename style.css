@@ -65,14 +65,14 @@ body::after {
 
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: -100px;
   left: 16px;
   background: #fff;
   color: #000;
   padding: 10px 14px;
   border-radius: 10px;
   text-decoration: none;
-  z-index: 30;
+  z-index: 100;
   transition: top 0.2s ease;
 }
 
