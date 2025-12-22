@@ -20,14 +20,21 @@
 
 * { box-sizing: border-box; }
 
+html {
+  background-color: var(--bg-900);
+}
+
 body {
   margin: 0;
   font-family: 'Space Grotesk', 'Manrope', system-ui, -apple-system, sans-serif;
-  background: radial-gradient(circle at 15% 20%, rgba(110, 145, 255, 0.12), transparent 35%),
-              radial-gradient(circle at 80% 10%, rgba(225, 76, 69, 0.14), transparent 32%),
-              linear-gradient(140deg, #05070f 0%, #0b1222 48%, #05070f 100%);
+  background-color: var(--bg-900);
+  background-image: radial-gradient(circle at 15% 20%, rgba(110, 145, 255, 0.12), transparent 35%),
+                    radial-gradient(circle at 80% 10%, rgba(225, 76, 69, 0.14), transparent 32%),
+                    linear-gradient(140deg, #05070f 0%, #0b1222 48%, #05070f 100%);
+  background-attachment: fixed;
   color: var(--fg-100);
   min-height: 100vh;
+  min-height: 100dvh;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
