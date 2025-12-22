@@ -55,12 +55,54 @@
           <a class="btn btn-ghost" href="contact.html">
             <!-- // HEADER_CTA: Booking Button -->Booking anfragen
           </a>
-          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen" id="navToggle" aria-controls="navList">
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen" id="navToggle" aria-controls="mobileNav">
             <span aria-hidden="true">☰</span>
           </button>
         </div>
       </div>
     </header>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <div class="mobile-nav__backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
+      <div class="mobile-nav__tray" role="dialog" aria-label="Navigation">
+        <div class="mobile-nav__header">
+          <a class="brand" href="index.html#hero">
+            <img src="assets/square_logo_colored.png" alt="ZweiKlang Logo" loading="lazy" />
+            <div>
+              <span>ZweiKlang</span>
+              <small style="color: var(--fg-200);">Cinematic Techno Duo</small>
+            </div>
+          </a>
+          <button class="mobile-nav__close" type="button" aria-label="Navigation schließen" id="mobileNavClose">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <p class="mobile-nav__eyebrow">Direkter Zugriff</p>
+        <nav aria-label="Mobile Navigation">
+          <ul class="mobile-nav__list">
+            <li><a class="mobile-nav__link" href="index.html#hero"><span>Home</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="index.html#music"><span>Music</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="index.html#watch"><span>Videos</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="about.html"><span>About</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="events.html" aria-current="page"><span>Events</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="index.html#services"><span>Services</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+            <li><a class="mobile-nav__link" href="contact.html"><span>Contact</span><span class="mobile-nav__dot" aria-hidden="true"></span></a></li>
+          </ul>
+        </nav>
+        <div class="mobile-nav__cta">
+          <a class="btn" href="contact.html">Booking anfragen</a>
+          <a class="btn btn-ghost" href="index.html#events">Termine ansehen</a>
+        </div>
+        <div class="mobile-nav__meta">
+          <div class="mobile-nav__tag">Freiburg · DJ Duo</div>
+          <div class="mobile-nav__links">
+            <a href="events.html">Live Termine</a>
+            <a href="index.html#services">Tech &amp; Rider</a>
+            <a href="contact.html#legal">Impressum</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <main id="main">
       <section class="section" id="upcoming">

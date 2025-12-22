@@ -508,7 +508,9 @@ footer { padding: 30px 0 60px; border-top: 1px solid rgba(255, 255, 255, 0.06); 
     width: 48px;
     height: 48px;
     font-size: 1.15rem;
-    display: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .header-actions .btn { display: none; }
   .mobile-nav { display: none !important; pointer-events: none; }
