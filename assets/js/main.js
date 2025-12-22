@@ -54,6 +54,34 @@
     if (window.innerWidth > 960) closeNav();
   });
 
+  // Custom smooth scroll function with configurable duration and easing
+  const smoothScrollTo = (targetElement, duration = 1200) => {
+    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    // Easing function: easeInOutCubic for a smooth, natural feel
+    const easeInOutCubic = (t) => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const animation = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+      
+      window.scrollTo(0, startPosition + distance * ease);
+      
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const href = anchor.getAttribute('href');
     if (!href || href.length < 2) return;
@@ -61,7 +89,7 @@
       const target = document.querySelector(href);
       if (target) {
         event.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        smoothScrollTo(target);
         closeNav();
       }
     });
