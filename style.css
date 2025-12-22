@@ -39,6 +39,7 @@ body.nav-open::before {
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
   z-index: 40;
+  pointer-events: none;
 }
 
 body::after {
