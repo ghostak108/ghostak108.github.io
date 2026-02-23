@@ -1,0 +1,21 @@
+/* variables.css – CSS Custom Properties: Farben, Fonts, Radien, Schatten */
+
+:root {
+  --bg-900: #04070f;
+  --bg-800: #0b1222;
+  --bg-700: #0f1a2e;
+  --bg-600: #142039;
+  --fg-100: #f7f7fb;
+  --fg-200: #cfd7ff;
+  --fg-300: #9fb1ff;
+  --accent-1: #e14c45;
+  --accent-2: #1ec39b;
+  --accent-3: #6f7fff;
+  --glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow-1: 0 20px 70px rgba(0, 0, 0, 0.45);
+  --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}

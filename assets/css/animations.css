@@ -1,0 +1,11 @@
+/* animations.css – Reveal-Animationen, Tilt-Effekte, Transitions, prefers-reduced-motion */
+
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.tilt { will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
