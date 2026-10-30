@@ -128,6 +128,13 @@
       window.location.href = `mailto:zweiklangkontakt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       $('.form-status', form).textContent = 'Bitte prüfe die Anfrage in deinem E-Mail-Programm und sende sie dort ab. Öffnet sich nichts? Unten kannst du den Text kopieren.';
     });
+    $('.gmail-request', form)?.addEventListener('click', () => {
+      if (!form.reportValidity()) return;
+      const subject = `ZweiKlang · ${form.elements.format.value}`;
+      const url = `https://mail.google.com/mail/?view=cm&fs=1&to=zweiklangkontakt%40gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(prepareRequest(form))}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+      $('.form-status', form).textContent = 'Die Anfrage wird in Gmail geöffnet. Bitte prüfe sie und klicke dort auf Senden. Falls sich kein Tab öffnet, kannst du die Anfrage unten kopieren.';
+    });
     $('.copy-request', form)?.addEventListener('click', async () => {
       const text = `An: zweiklangkontakt@gmail.com\nBetreff: ZweiKlang · ${form.elements.format.value}\n\n${prepareRequest(form)}`;
       const status = $('.form-status', form);
