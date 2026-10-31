@@ -4,7 +4,8 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let motionPaused = reduceMotion.matches;
+  const storedPause = () => { try { return localStorage.getItem('zweiklang-motion') === 'true'; } catch { return false; } };
+  let motionPaused = reduceMotion.matches || storedPause();
   const motionButton = $('.motion-toggle');
   const applyMotion = () => {
     document.documentElement.classList.toggle('motion-paused', motionPaused);
@@ -16,8 +17,8 @@
     }
   };
   applyMotion();
-  motionButton?.addEventListener('click', () => { motionPaused = !motionPaused; applyMotion(); });
-  reduceMotion.addEventListener?.('change', event => { motionPaused = event.matches; applyMotion(); });
+  motionButton?.addEventListener('click', () => { motionPaused = !motionPaused; try { localStorage.setItem('zweiklang-motion', String(motionPaused)); } catch {} applyMotion(); });
+  reduceMotion.addEventListener?.('change', event => { motionPaused = event.matches || storedPause(); applyMotion(); });
 
   // Native dialog provides focus containment and Escape handling.
   const menu = $('#mobileNav');
@@ -99,21 +100,6 @@
     status.textContent = 'SoundCloud wird geladen. Falls der Player nicht erscheint, nutze „Auf SoundCloud hören“.';
     frame.addEventListener('load', () => { status.textContent = 'Starte die Wiedergabe im Player. Alternativ kannst du das Set direkt auf SoundCloud hören.'; });
   }));
-
-  const search = $('#session-search');
-  search?.addEventListener('input', () => {
-    const query = search.value.trim().toLowerCase().replace(/^#/, '');
-    const cards = $$('.session-card');
-    let count = 0;
-    cards.forEach(card => {
-      const text = (card.dataset.search + ' ' + card.textContent).toLowerCase();
-      const matches = !query || text.includes(query) || (/^\d+$/.test(query) && Number(query) === Number(card.dataset.search.match(/\d+/)?.[0]));
-      card.hidden = !matches;
-      if (matches) { count++; card.classList.add('reveal-visible'); }
-    });
-    $('.empty-state').hidden = count !== 0;
-    $('#search-status').textContent = `${count} ${count === 1 ? 'Session' : 'Sessions'} gefunden.`;
-  });
 
   const labels = { name: 'Name', email: 'E-Mail', format: 'Anliegen', date: 'Wunschdatum', venue: 'Location / Ort', message: 'Nachricht' };
   const prepareRequest = form => [...new FormData(form).entries()]
