@@ -24,3 +24,12 @@ html{scroll-padding-top:100px}body{font-size:16px}.container{max-width:1540px}.e
 .media-consent{min-height:0}.media-photo .media-stage{height:auto;min-height:0}
 @media(max-width:600px){.media-stage{height:auto;min-height:340px}.media-consent{min-height:340px}.media-photo .media-stage{min-height:0}}
 .storage-note h2{font-size:25px;letter-spacing:-.035em;margin:20px 0 12px}.storage-note p{font-size:13px;max-width:700px}
+/* Stable vector icons across Apple, Android and desktop fonts. */
+.ui-icon{display:inline-block;width:1em;height:1em;flex-shrink:0;vertical-align:-.12em;pointer-events:none}
+.hero-toplink .ui-icon,.text-link .ui-icon,.text-button .ui-icon{width:18px;height:18px}
+.hero-listen .ui-icon{width:1em;height:1em}.session-save .ui-icon{width:20px;height:20px}
+.media-bottom button{display:inline-flex;align-items:center;gap:8px}.media-bottom .ui-icon{width:17px;height:17px}
+.service-card li:before{content:'';display:inline-block;width:13px;height:13px;background:currentColor;color:var(--accent);vertical-align:-1px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19 19 5M5 5h14v14' fill='none' stroke='black' stroke-width='1.8'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19 19 5M5 5h14v14' fill='none' stroke='black' stroke-width='1.8'/%3E%3C/svg%3E") center/contain no-repeat}
+@media(max-width:800px){.mobile-menu{padding-bottom:max(30px,env(safe-area-inset-bottom))}.menu-toggle,.menu-close,.session-save{min-width:44px;min-height:44px}.booking-form input[type=date]{appearance:none;-webkit-appearance:none;min-width:0;max-width:100%}.media-dialog{max-height:calc(100dvh - 24px)}.contact-direct a{min-height:44px}.footer-nav a,.footer-socials a{min-height:40px}}
+@media(max-width:360px){.header-actions>.button-small{display:none}.header-inner{gap:12px}.hero-editorial .hero-actions{gap:14px}.hero-editorial .text-link{font-size:11px}}
+.video-collection .session-caption p{color:#bdc9bb}

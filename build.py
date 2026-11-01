@@ -61,3 +61,4 @@ print('Built 6 pages; video IDs:',len(VIDEO_IDS))
 # Apply the approved editorial pass after regenerating pages.
 exec((ROOT/'humanize.py').read_text(), {'__file__': str(ROOT/'humanize.py')})
 exec((ROOT/'evolve.py').read_text(), {'__file__': str(ROOT/'evolve.py')})
+exec((ROOT/'mobile_icons.py').read_text(), {'__file__': str(ROOT/'mobile_icons.py')})
